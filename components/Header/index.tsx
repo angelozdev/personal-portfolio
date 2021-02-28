@@ -23,9 +23,9 @@ function Header() {
     <Container>
       <Wrapper>
         <Content>
-          <LogoContainer>
+          <Anchor href="#">
             <Logo />
-          </LogoContainer>
+          </Anchor>
 
           <Navigation>
             <ItemList>
