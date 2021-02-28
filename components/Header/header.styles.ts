@@ -5,7 +5,10 @@ export const Container = styled.header`
   width: 100%;
   padding: max(1.5rem, 2vh) 0;
   box-shadow: 0px 0.1rem 0.5rem rgba(0, 0, 0, 0.1);
-  position: fixed;
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
   z-index: 1;
   background-color: ${colors["bg-100"]};
 `;
