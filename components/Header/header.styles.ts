@@ -1,9 +1,13 @@
 import styled from "@emotion/styled";
+import { colors } from "styles/theme";
 
 export const Container = styled.header`
   width: 100%;
-  padding: max(1rem, 2vh) 0;
+  padding: max(1.5rem, 2vh) 0;
   box-shadow: 0px 0.1rem 0.5rem rgba(0, 0, 0, 0.1);
+  position: fixed;
+  z-index: 1;
+  background-color: ${colors["bg-100"]};
 `;
 
 export const Content = styled.div`
