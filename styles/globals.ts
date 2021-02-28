@@ -2,6 +2,10 @@ import { css } from "@emotion/react";
 import { colors } from "./theme";
 
 export const globals = css`
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: "Inter", sans-serif;
     color: ${colors.text};

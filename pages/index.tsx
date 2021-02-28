@@ -4,7 +4,7 @@ import * as React from "react";
 import Head from "next/head";
 
 /* Components */
-import { Header, Main } from "components";
+import { Header, Hero, Main } from "components";
 
 export default function Home() {
   return (
@@ -17,7 +17,11 @@ export default function Home() {
       <Header />
 
       <Main>
-        <div style={{ minHeight: "120vh" }}>Lorem</div>
+        <Hero />
+        <div
+          id="about"
+          style={{ backgroundColor: "#1a1a1a", minHeight: "100vh" }}
+        />
       </Main>
     </React.Fragment>
   );
