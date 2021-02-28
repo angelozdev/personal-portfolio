@@ -7,7 +7,6 @@ import { Wrapper } from "components";
 import {
   Container,
   Content,
-  LogoContainer,
   Navigation,
   ItemList,
   Item,

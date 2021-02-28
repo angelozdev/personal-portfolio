@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { colors } from "styles/theme";
 
 export const Container = styled.header`
   width: 100%;
@@ -10,7 +9,13 @@ export const Container = styled.header`
   right: 0;
   left: 0;
   z-index: 1;
-  background-color: ${colors["bg-100"]};
+  background-color: ${({ theme }) => {
+    return theme.colors["bg-100"];
+  }};
+
+  color: ${({ theme }) => {
+    return theme.colors.text;
+  }};
 `;
 
 export const Content = styled.div`
@@ -36,7 +41,11 @@ export const Item = styled.li`
   margin-left: max(1rem, 3vw);
 `;
 
-export const Anchor = styled.a``;
+export const Anchor = styled.a`
+  color: ${({ theme }) => {
+    return theme.colors.text;
+  }};
+`;
 
 export default {
   Container,

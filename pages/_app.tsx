@@ -1,12 +1,17 @@
 import * as React from "react";
 
-/* Styles */
-import "normalize.css";
-import { globals } from "styles";
-import { Global } from "@emotion/react";
+/* Next */
 import Head from "next/head";
 
+/* Styles */
+import "normalize.css";
+import { globals, theme } from "styles";
+
+import { Global, ThemeProvider } from "@emotion/react";
+
 function MyApp({ Component, pageProps }) {
+  const [isDark, setIsDark] = React.useState<boolean>(true);
+
   return (
     <React.Fragment>
       <Head>
@@ -16,8 +21,14 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <Global styles={globals} />
-      <Component {...pageProps} />
+
+      <ThemeProvider
+        theme={{ colors: isDark ? theme.colorsDark : theme.colors }}
+      >
+        <Global styles={globals} />
+
+        <Component {...pageProps} />
+      </ThemeProvider>
     </React.Fragment>
   );
 }
