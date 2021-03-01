@@ -4,7 +4,7 @@ import { colors } from "styles/theme";
 export const Container = styled.header`
   width: 100%;
   padding: max(1.5rem, 2vh) 0;
-  box-shadow: 0px 0.1rem 0.5rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1rem 2rem -2rem rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   right: 0;
@@ -38,6 +38,16 @@ export const Item = styled.li`
 
 export const Anchor = styled.a``;
 
+export const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+`;
+
 export default {
   Container,
   Content,
@@ -46,4 +56,5 @@ export default {
   ItemList,
   Item,
   Anchor,
+  Button,
 };

@@ -4,7 +4,12 @@ import * as React from "react";
 import "normalize.css";
 import { globals } from "styles";
 import { Global } from "@emotion/react";
+
+/* Next */
 import Head from "next/head";
+
+/* Context */
+import DarkModeProvider from "context/darkMode/provider";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -16,8 +21,10 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <Global styles={globals} />
-      <Component {...pageProps} />
+      <DarkModeProvider>
+        <Global styles={globals} />
+        <Component {...pageProps} />
+      </DarkModeProvider>
     </React.Fragment>
   );
 }
