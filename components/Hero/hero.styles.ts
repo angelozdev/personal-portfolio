@@ -6,6 +6,10 @@ export const Container = styled.section`
   height: 70vh;
   display: flex;
   align-items: center;
+  background-color: ${({ theme }) => {
+    return theme.colors["bg-200"];
+  }};
+  color: ${({ theme }) => theme.colors["text"]};
 `;
 export const Content = styled.div`
   text-align: center;
