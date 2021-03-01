@@ -8,7 +8,6 @@ import { Logo, Moon, Sun } from "components/Icons";
 import {
   Container,
   Content,
-  LogoContainer,
   Navigation,
   ItemList,
   Item,

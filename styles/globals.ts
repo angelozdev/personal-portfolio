@@ -7,7 +7,9 @@ export const globals = css`
   }
 
   body {
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
     color: ${colors.text};
     background-color: ${colors["bg-200"]};
   }
