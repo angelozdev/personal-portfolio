@@ -4,7 +4,7 @@ import * as React from "react";
 import Head from "next/head";
 
 /* Components */
-import { Header, Hero, Main } from "components";
+import { About, Header, Hero, Main } from "components";
 
 export default function Home() {
   return (
@@ -14,15 +14,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
-
-      <Main>
-        <Hero />
-        <div
-          id="about"
-          style={{ backgroundColor: "#1a1a1a", minHeight: "100vh" }}
-        />
-      </Main>
+      <ThemeProvider
+        theme={{ colors: isDark ? theme.colorsDark : theme.colors }}
+      >
+        <Header />
+        <Main>
+          <Hero />
+          <About />
+        </Main>
+      </ThemeProvider>
     </React.Fragment>
   );
 }

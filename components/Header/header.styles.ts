@@ -3,8 +3,8 @@ import { colors } from "styles/theme";
 
 export const Container = styled.header`
   width: 100%;
-  padding: max(1.5rem, 2vh) 0;
-  box-shadow: 0px 0.1rem 0.5rem rgba(0, 0, 0, 0.1);
+  padding: max(1.2rem, 2vh) 0;
+  box-shadow: 0px 1rem 2rem -2rem rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   right: 0;
