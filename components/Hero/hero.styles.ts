@@ -8,9 +8,9 @@ export const Container = styled.section`
   display: flex;
   align-items: center;
   background-color: ${({ theme }) => {
-    return theme.colors.bg;
+    return theme.colors["bg-200"];
   }};
-  color: ${({ theme }) => theme.colors.font};
+  color: ${({ theme }) => theme.colors["font"]};
 
   transition: background-color ${transitions.DEFAULT};
 `;

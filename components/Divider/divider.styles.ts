@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Colors } from "styles/theme";
 
 export const Container = styled.div`
   width: 100%;
@@ -12,5 +13,5 @@ export const Div = styled.span`
   width: 6rem;
   height: 0.2rem;
   display: inline-block;
-  background-color: ${({ theme }) => theme.colors["bg-100"]};
+  background-color: ${Colors["WHITE-100"]};
 `;

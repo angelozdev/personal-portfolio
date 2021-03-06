@@ -10,12 +10,12 @@ export const globals = css`
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
       "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
       "Helvetica Neue", sans-serif;
-    color: ${themeColors.light.font.normal};
-    background-color: ${themeColors.light.bg.normal};
+    color: ${themeColors.light["font"]};
+    background-color: ${themeColors.light["bg-200"]};
   }
 
   a {
-    color: ${themeColors.light.font.normal};
+    color: ${themeColors.light["font"]};
     text-decoration: none;
   }
 

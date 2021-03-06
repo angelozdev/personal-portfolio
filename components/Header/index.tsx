@@ -29,7 +29,7 @@ function Header() {
       <Wrapper>
         <Content>
           <Anchor href="#">
-            <Logo fill={themeColors[theme].font} />
+            <Logo fill={themeColors[theme]["font"]} />
           </Anchor>
 
           <Navigation>

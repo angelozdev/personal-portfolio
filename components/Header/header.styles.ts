@@ -11,11 +11,11 @@ export const Container = styled.header`
   left: 0;
   z-index: 1;
   background-color: ${({ theme }) => {
-    return theme.colors.bg;
+    return theme.colors["bg-100"];
   }};
 
   color: ${({ theme }) => {
-    return theme.colors.font;
+    return theme.colors["font-200"];
   }};
   transition: background-color ${transitions.DEFAULT};
 `;
@@ -45,7 +45,7 @@ export const Item = styled.li`
 
 export const Anchor = styled.a`
   color: ${({ theme }) => {
-    return theme.colors.font;
+    return theme.colors["font"];
   }};
 `;
 
