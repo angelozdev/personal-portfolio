@@ -1,7 +1,7 @@
 import * as React from "react";
 
 /* Components */
-import { Wrapper } from "components";
+import { Divider, Wrapper } from "components";
 /* Styles */
 
 import { Container, Content, Text } from "./about.styles";
@@ -9,10 +9,11 @@ import { Title } from "components";
 
 function About() {
   return (
-    <Container>
+    <Container id="about">
       <Wrapper maxWidth="640px">
         <Content>
           <Title>Hi, there! I'm Angelo.</Title>
+          <Divider />
           <Text>
             I’m a frontend developer specialized in Reactjs. Web development
             fascinates me, I’m always looking to improve my skills and I’m

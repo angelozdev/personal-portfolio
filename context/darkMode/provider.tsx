@@ -2,10 +2,10 @@ import * as React from "react";
 import { DarkModeContext } from "./context";
 
 function DarkModeProvider({ children }) {
-  const [isDark, setIsDark] = React.useState<boolean>(false);
+  const [theme, setTheme] = React.useState<"light" | "dark">("light");
 
   return (
-    <DarkModeContext.Provider value={{ isDark, setIsDark }}>
+    <DarkModeContext.Provider value={{ theme, setTheme }}>
       {children}
     </DarkModeContext.Provider>
   );

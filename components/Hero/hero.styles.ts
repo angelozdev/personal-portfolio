@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { transitions } from "styles/theme";
 
 export const Container = styled.section`
   padding: max(5vh, 2rem) 0;
@@ -7,9 +8,11 @@ export const Container = styled.section`
   display: flex;
   align-items: center;
   background-color: ${({ theme }) => {
-    return theme.colors["bg-200"];
+    return theme.colors.bg;
   }};
-  color: ${({ theme }) => theme.colors["text"]};
+  color: ${({ theme }) => theme.colors.font};
+
+  transition: background-color ${transitions.DEFAULT};
 `;
 export const Content = styled.div`
   text-align: center;

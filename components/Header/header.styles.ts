@@ -1,21 +1,23 @@
 import styled from "@emotion/styled";
+import { transitions } from "styles/theme";
 
 export const Container = styled.header`
   width: 100%;
   padding: max(1.2rem, 2vh) 0;
-  box-shadow: 0px 1rem 2rem -2rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1rem 2rem -1rem rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   right: 0;
   left: 0;
   z-index: 1;
   background-color: ${({ theme }) => {
-    return theme.colors["bg-100"];
+    return theme.colors.bg;
   }};
 
   color: ${({ theme }) => {
-    return theme.colors.text;
+    return theme.colors.font;
   }};
+  transition: background-color ${transitions.DEFAULT};
 `;
 
 export const Content = styled.div`
@@ -43,7 +45,7 @@ export const Item = styled.li`
 
 export const Anchor = styled.a`
   color: ${({ theme }) => {
-    return theme.colors.text;
+    return theme.colors.font;
   }};
 `;
 

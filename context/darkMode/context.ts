@@ -1,10 +1,10 @@
 import * as React from "react";
 
 interface Context {
-  isDark: boolean;
-  setIsDark: React.Dispatch<React.SetStateAction<boolean>>;
+  theme: "light" | "dark";
+  setTheme?: React.Dispatch<React.SetStateAction<"light" | "dark">>;
 }
 
-export const DarkModeContext = React.createContext<Context>(null);
+export const DarkModeContext = React.createContext<Context>({ theme: "light" });
 
 export default DarkModeContext;

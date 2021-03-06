@@ -1,7 +1,26 @@
+import { Colors } from "styles/theme";
+
 export interface ThemeProvider {
   colors?: {
-    text: string;
-    "bg-100": string;
-    "bg-200": string;
+    light: {
+      font: {
+        normal: Colors;
+        invert: Colors;
+      };
+      bg: {
+        normal: Colors;
+        invert: Colors;
+      };
+    };
+    dark: {
+      font: {
+        normal: Colors;
+        invert: Colors;
+      };
+      bg: {
+        normal: Colors;
+        invert: Colors;
+      };
+    };
   };
 }

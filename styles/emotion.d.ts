@@ -1,11 +1,11 @@
+import { Colors } from "./theme";
 import "@emotion/react";
 
 declare module "@emotion/react" {
   export interface Theme {
     colors?: {
-      text: string;
-      "bg-100": string;
-      "bg-200": string;
+      font: Colors;
+      bg: Colors;
     };
   }
 }

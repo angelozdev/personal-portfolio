@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { colors } from "./theme";
+import { themeColors } from "./theme";
 
 export const globals = css`
   html {
@@ -10,12 +10,12 @@ export const globals = css`
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
       "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
       "Helvetica Neue", sans-serif;
-    color: ${colors.text};
-    background-color: ${colors["bg-200"]};
+    color: ${themeColors.light.font.normal};
+    background-color: ${themeColors.light.bg.normal};
   }
 
   a {
-    color: ${colors.text};
+    color: ${themeColors.light.font.normal};
     text-decoration: none;
   }
 

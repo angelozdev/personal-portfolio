@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
+import { Colors, transitions } from "styles/theme";
 
 export const Container = styled.section`
-  background-color: ${({ theme }) => theme.colors.text};
-  color: ${({ theme }) => theme.colors["bg-100"]};
+  background-color: ${Colors["BLACK-200"]};
+  color: ${Colors["WHITE-100"]};
   padding: 4rem 0;
-  height: min(50vh, 400px);
 `;
 
 export const Content = styled.div`

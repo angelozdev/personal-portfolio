@@ -8,13 +8,13 @@ import { About, Header, Hero, Main } from "components";
 
 /* Styles */
 import { ThemeProvider } from "@emotion/react";
-import { theme } from "styles/";
+import { themeColors } from "styles/theme";
 
 /* Contexts */
 import DarkModeContext from "context/darkMode/context";
 
 export default function Home() {
-  const { isDark } = React.useContext(DarkModeContext);
+  const { theme } = React.useContext(DarkModeContext);
   return (
     <React.Fragment>
       <Head>
@@ -22,9 +22,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <ThemeProvider
-        theme={{ colors: isDark ? theme.colorsDark : theme.colors }}
-      >
+      <ThemeProvider theme={{ colors: themeColors[theme] }}>
         <Header />
         <Main>
           <Hero />

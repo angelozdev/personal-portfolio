@@ -5,6 +5,7 @@ import { Wrapper } from "components";
 import { Logo, Moon, Sun } from "components/Icons";
 
 /* Styles */
+import { Colors, themeColors } from "styles/theme";
 import {
   Container,
   Content,
@@ -14,7 +15,6 @@ import {
   Anchor,
   Button,
 } from "./header.styles";
-import { colors, colorsDark } from "styles/theme";
 
 /* Fixtures */
 import { navigation } from "fixtures";
@@ -23,13 +23,13 @@ import { navigation } from "fixtures";
 import DarkModeContext from "context/darkMode/context";
 
 function Header() {
-  const { isDark, setIsDark } = React.useContext(DarkModeContext);
+  const { setTheme, theme } = React.useContext(DarkModeContext);
   return (
     <Container>
       <Wrapper>
         <Content>
           <Anchor href="#">
-            <Logo fill={isDark ? colorsDark.text : colors.text} />
+            <Logo fill={themeColors[theme].font} />
           </Anchor>
 
           <Navigation>
@@ -46,11 +46,13 @@ function Header() {
               )}
             </ItemList>
           </Navigation>
-          <Button onClick={() => setIsDark(!isDark)}>
-            {isDark ? (
-              <Sun width="1rem" color={colors.yellow} />
+          <Button
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          >
+            {theme === "light" ? (
+              <Sun width="1rem" color={Colors.YELLOW} />
             ) : (
-              <Moon width="1rem" color={colors.blue} />
+              <Moon width="1rem" color={Colors.BLUE} />
             )}
           </Button>
         </Content>
