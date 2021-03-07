@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { colors } from "./theme";
+import { themeColors } from "./theme";
 
 export const globals = css`
   html {
@@ -7,13 +7,15 @@ export const globals = css`
   }
 
   body {
-    font-family: "Inter", sans-serif;
-    color: ${colors.text};
-    background-color: ${colors["bg-200"]};
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
+    color: ${themeColors.light["font"]};
+    background-color: ${themeColors.light["bg-200"]};
   }
 
   a {
-    color: ${colors.text};
+    color: ${themeColors.light["font"]};
     text-decoration: none;
   }
 

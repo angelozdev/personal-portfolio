@@ -2,29 +2,34 @@ import * as React from "react";
 
 /* Components */
 import { Wrapper } from "components";
+import { Logo, Moon, Sun } from "components/Icons";
 
 /* Styles */
+import { Colors, themeColors } from "styles/theme";
 import {
   Container,
   Content,
-  LogoContainer,
   Navigation,
   ItemList,
   Item,
   Anchor,
+  Button,
 } from "./header.styles";
-import { Logo } from "components/Icons";
 
 /* Fixtures */
 import { navigation } from "fixtures";
 
+/* Context */
+import DarkModeContext from "context/darkMode/context";
+
 function Header() {
+  const { setTheme, theme } = React.useContext(DarkModeContext);
   return (
     <Container>
       <Wrapper>
         <Content>
           <Anchor href="#">
-            <Logo />
+            <Logo fill={themeColors[theme]["font"]} />
           </Anchor>
 
           <Navigation>
@@ -41,6 +46,15 @@ function Header() {
               )}
             </ItemList>
           </Navigation>
+          <Button
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          >
+            {theme === "light" ? (
+              <Sun width="1rem" color={Colors.YELLOW} />
+            ) : (
+              <Moon width="1rem" color={Colors.BLUE} />
+            )}
+          </Button>
         </Content>
       </Wrapper>
     </Container>
