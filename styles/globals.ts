@@ -46,12 +46,12 @@ export const globals = css`
   /* Track */
   ::-webkit-scrollbar-track {
     margin: 0px;
-    background: var(--color-gray-700);
+    background: ${colors.gray[400]};
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: var(--color-gray-500);
+    background: ${colors.gray[500]};
     border-radius: 4px;
   }
 `;

@@ -18,12 +18,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={`${theme}-theme`}>
+      <div data-theme={`${theme}-theme`}>
         <Header />
         <Main>
           <Hero />
-          {/* <About />
-            <Contact /> */}
+          <About />
+          <Contact />
         </Main>
       </div>
     </React.Fragment>

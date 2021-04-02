@@ -24,11 +24,11 @@ import DarkModeContext from "context/darkMode/context";
 function Header() {
   const { setTheme, theme } = React.useContext(DarkModeContext);
   return (
-    <Container className="color-bg-100 dark-bg-gray-900">
+    <Container className="bg-white dark-bg-gray-900">
       <Wrapper>
         <Content>
           <Anchor href="#">
-            <Logo className="fill-gray-900 dark-fill-gray-50" />
+            <Logo className="fill-black dark-fill-white" />
           </Anchor>
 
           <Navigation>
@@ -39,7 +39,7 @@ function Header() {
                   return (
                     <Item>
                       <Anchor
-                        className="color-gray-900 dark-color-gray-100"
+                        className="color-black dark-color-white"
                         href={href}
                       >
                         {title}

@@ -3,9 +3,7 @@ import { transitions } from "styles/theme";
 
 export const Container = styled.section`
   padding: 4rem 0;
-  background-color: ${({ theme }) => theme.colors["bg-200"]};
   transition: background-color ${transitions.DEFAULT};
-  color: ${({ theme }) => theme.colors.font};
 `;
 
 export const Content = styled.div``;

@@ -11,6 +11,22 @@ function classesGenerator(object: {}, options: Options): string {
   let string = "";
 
   for (const color in object) {
+    if (typeof object[color] === "string") {
+      const value = object[color];
+
+      string += `.${name}-${color}{
+        ${attribute}: ${value};
+      }`;
+
+      if (hasDarkMode) {
+        string += `[data-theme="dark-theme"] .dark-${name}-${color}{
+          ${attribute}: ${value} !important;
+        }`;
+      }
+
+      continue;
+    }
+
     for (const variant in object[color]) {
       const value = object[color][variant];
       string += `.${name}-${color}-${variant}{
@@ -18,7 +34,7 @@ function classesGenerator(object: {}, options: Options): string {
       }`;
 
       if (hasDarkMode) {
-        string += `[class="dark-theme"] .dark-${name}-${color}-${variant}{
+        string += `[data-theme="dark-theme"] .dark-${name}-${color}-${variant}{
           ${attribute}: ${value} !important;
         }`;
       }

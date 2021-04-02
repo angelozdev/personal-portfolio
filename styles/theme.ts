@@ -5,17 +5,19 @@ export enum transitions {
 }
 
 export const colors = {
+  black: "#010409",
+  white: "#f0f6fc",
   gray: {
-    "50": "#FAFAFA",
-    "100": "#F5F5F5",
-    "200": "#E5E5E5",
-    "300": "#D4D4D4",
-    "400": "#A3A3A3",
-    "500": "#737373",
-    "600": "#525252",
-    "700": "#404040",
-    "800": "#262626",
-    "900": "#171717",
+    "0": "#f0f6fc",
+    "100": "#c9d1d9",
+    "200": "#b1bac4",
+    "300": "#8b949e",
+    "400": "#6e7681",
+    "500": "#484f58",
+    "600": "#30363d",
+    "700": "#21262d",
+    "800": "#161b22",
+    "900": "#0d1117",
   },
   yellow: {
     "50": "#FFFBEB",
@@ -45,19 +47,17 @@ export const colors = {
 };
 
 export const sizes = {
-  font: {
-    xs: ".75rem",
-    sm: ".875rem",
-    tiny: ".875rem",
-    base: "1rem",
-    lg: "1.125rem",
-    xl: "1.25rem",
-    "2xl": "1.5rem",
-    "3xl": "1.875rem",
-    "4xl": "2.25rem",
-    "5xl": "3rem",
-    "6xl": "4rem",
-    "7xl": "5rem",
-    "8xl": "6rem",
-  },
+  xs: ".75rem",
+  sm: ".875rem",
+  tiny: ".875rem",
+  base: "1rem",
+  lg: "1.125rem",
+  xl: "1.25rem",
+  "2xl": "1.5rem",
+  "3xl": "1.875rem",
+  "4xl": "2.25rem",
+  "5xl": "3rem",
+  "6xl": "4rem",
+  "7xl": "5rem",
+  "8xl": "6rem",
 };
