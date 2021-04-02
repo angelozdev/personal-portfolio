@@ -12,8 +12,8 @@ function About() {
     <Container id="about">
       <Wrapper maxWidth="640px">
         <Content>
-          <Title>Hi, there! I'm Angelo.</Title>
-          <Divider />
+          <Title center>Hi, there! I'm Angelo.</Title>
+          <Divider center />
           <Text>
             I’m a frontend developer specialized in Reactjs. Web development
             fascinates me, I’m always looking to improve my skills and I’m

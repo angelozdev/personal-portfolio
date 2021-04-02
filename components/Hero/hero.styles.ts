@@ -7,11 +7,6 @@ export const Container = styled.section`
   height: 70vh;
   display: flex;
   align-items: center;
-  background-color: ${({ theme }) => {
-    return theme.colors["bg-200"];
-  }};
-  color: ${({ theme }) => theme.colors["font"]};
-
   transition: background-color ${transitions.DEFAULT};
 `;
 export const Content = styled.div`
