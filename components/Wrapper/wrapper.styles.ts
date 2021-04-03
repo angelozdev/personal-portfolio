@@ -9,7 +9,7 @@ interface Theme {
 export const Container = styled.div`
   max-width: ${({ theme }: { theme: Theme }) => theme.maxWidth};
   margin: 0 auto;
-  padding: 0 ${({ theme }) => (theme.hasPadding ? "3vw" : "0")};
+  padding: 0 ${({ theme }) => (theme.hasPadding ? "max(1rem, 2vw)" : "0")};
 `;
 
 export default { Container };

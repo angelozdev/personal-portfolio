@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { colors, transitions } from "styles/theme";
+import { transitions } from "styles/theme";
 
 export const Container = styled.header`
   width: 100%;
@@ -11,6 +11,7 @@ export const Container = styled.header`
   left: 0;
   z-index: 1;
   transition: background-color ${transitions.DEFAULT};
+  border-bottom: 1px solid;
 `;
 
 export const Content = styled.div`

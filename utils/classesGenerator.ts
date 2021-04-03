@@ -3,10 +3,11 @@ type Options = {
   name: string;
   attribute: string;
   hasDarkMode?: boolean;
+  isImportant?: boolean;
 };
 
 function classesGenerator(object: {}, options: Options): string {
-  const { name, attribute, hasDarkMode = false } = options;
+  const { name, attribute, hasDarkMode = false, isImportant = false } = options;
 
   let string = "";
 
@@ -15,7 +16,7 @@ function classesGenerator(object: {}, options: Options): string {
       const value = object[color];
 
       string += `.${name}-${color}{
-        ${attribute}: ${value};
+        ${attribute}: ${value} ${isImportant ? "!important" : ""};
       }`;
 
       if (hasDarkMode) {
@@ -30,7 +31,7 @@ function classesGenerator(object: {}, options: Options): string {
     for (const variant in object[color]) {
       const value = object[color][variant];
       string += `.${name}-${color}-${variant}{
-        ${attribute}: ${value};
+        ${attribute}: ${value} ${isImportant ? "!important" : ""};
       }`;
 
       if (hasDarkMode) {

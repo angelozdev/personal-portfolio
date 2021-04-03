@@ -1,33 +1,48 @@
 import * as React from "react";
 
 /* Components */
-import { Title, Divider } from "components";
+import { Title } from "components";
 
 /* Styles */
-import { Colors } from "styles/theme";
-import { Container, Content, Text } from "./card.styles";
+import { Container, Content, Text, Cover, ImageContainer } from "./card.styles";
 
 /* Local types */
 interface Props {
-  title?: string;
-  color: Colors;
+  background: string;
   children: React.ReactNode;
 }
-function Card({ title, color, children }: Props) {
-  return (
-    <Container theme={{ color }}>
-      <Content>
-        {title && (
-          <React.Fragment>
-            <Title max="2rem">{title}</Title>
-            <Divider />
-          </React.Fragment>
-        )}
 
-        <Text>{children}</Text>
-      </Content>
+interface TextAndTitleProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+interface CoverProps extends React.ImgHTMLAttributes<HTMLImageElement> {}
+
+/* MAIN COMPONENT */
+function Card(props: Props) {
+  const { background, children } = props;
+  return (
+    <Container className={background}>
+      <Content>{children}</Content>
     </Container>
   );
 }
+
+Card.Title = function CardTitle({ children, className }: TextAndTitleProps) {
+  return <Title className={className}>{children}</Title>;
+};
+
+Card.Cover = function CardCover({ src, ...rest }: CoverProps) {
+  return (
+    <ImageContainer>
+      <Cover src={src} {...rest} />
+    </ImageContainer>
+  );
+};
+
+Card.Text = function CardText({ children, className }: TextAndTitleProps) {
+  return <Text className={className}>{children}</Text>;
+};
 
 export default Card;

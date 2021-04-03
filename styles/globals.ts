@@ -1,8 +1,12 @@
 import { css } from "@emotion/react";
-import { classesGenerator } from "utils";
+import { classesGenerator, getDesignTokens } from "utils";
 import { colors } from "./theme";
 
 export const globals = css`
+  :root {
+    ${getDesignTokens(colors, { name: "color" })}
+  }
+
   /* COLORS */
   ${classesGenerator(colors, {
     name: "color",
@@ -20,6 +24,13 @@ export const globals = css`
   ${classesGenerator(colors, {
     name: "fill",
     attribute: "fill",
+    hasDarkMode: true,
+  })}
+
+${classesGenerator(colors, {
+    name: "border-color",
+    attribute: "border-color",
+    isImportant: true,
     hasDarkMode: true,
   })}
 

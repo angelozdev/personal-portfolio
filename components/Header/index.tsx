@@ -24,7 +24,7 @@ import DarkModeContext from "context/darkMode/context";
 function Header() {
   const { setTheme, theme } = React.useContext(DarkModeContext);
   return (
-    <Container className="bg-white dark-bg-gray-900">
+    <Container className="bg-white dark-bg-gray-900 border-color-gray-100 dark-border-color-gray-700">
       <Wrapper>
         <Content>
           <Anchor href="#">
@@ -51,6 +51,7 @@ function Header() {
             </ItemList>
           </Navigation>
           <Button
+            aria-label="active dark mode"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >
             {theme === "dark" ? (
