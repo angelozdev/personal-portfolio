@@ -2,14 +2,23 @@ import * as React from "react";
 
 /* Components */
 import { Title } from "components";
+import Image, { ImageProps } from "next/image";
 
 /* Styles */
-import { Container, Content, Text, Cover, ImageContainer } from "./card.styles";
+import {
+  Container,
+  Content,
+  ImageContainer,
+  Text,
+  Avatar,
+} from "./card.styles";
 
 /* Local types */
+type AvatarProps = React.ImgHTMLAttributes<HTMLImageElement>;
 interface Props {
   background: string;
   children: React.ReactNode;
+  hasPadding?: boolean;
 }
 
 interface TextAndTitleProps {
@@ -17,13 +26,11 @@ interface TextAndTitleProps {
   className?: string;
 }
 
-interface CoverProps extends React.ImgHTMLAttributes<HTMLImageElement> {}
-
 /* MAIN COMPONENT */
 function Card(props: Props) {
-  const { background, children } = props;
+  const { background, children, hasPadding = true } = props;
   return (
-    <Container className={background}>
+    <Container theme={{ hasPadding }} className={background}>
       <Content>{children}</Content>
     </Container>
   );
@@ -33,10 +40,14 @@ Card.Title = function CardTitle({ children, className }: TextAndTitleProps) {
   return <Title className={className}>{children}</Title>;
 };
 
-Card.Cover = function CardCover({ src, ...rest }: CoverProps) {
+Card.Cover = function CardCover({ src, ...rest }: ImageProps) {
+  return <Image src={src} {...rest} />;
+};
+
+Card.Avatar = function CardAvatar({ src, ...rest }: AvatarProps) {
   return (
     <ImageContainer>
-      <Cover src={src} {...rest} />
+      <Avatar src={src} {...rest} />
     </ImageContainer>
   );
 };

@@ -1,14 +1,24 @@
-export type screens = "640px" | "768px" | "1024px" | "1280px" | "1536px";
+export type screens =
+  | "640px" // sm
+  | "768px" // md
+  | "900px" // lg
+  | "1024px" // xl
+  | "1280px" // 2xl
+  | "1536px"; //3xl
 
-export enum transitions {
-  DEFAULT = "300ms ease",
-}
+export const breakpoints = {
+  sm: "640px",
+  md: "768px",
+  lg: "900px",
+  xl: "1024px",
+  "2xl": "1280px",
+  "3xl": "1536px",
+};
 
 export const colors = {
   black: "#010409",
   white: "#f0f6fc",
   gray: {
-    "0": "#f0f6fc",
     "100": "#c9d1d9",
     "200": "#b1bac4",
     "300": "#8b949e",
@@ -19,7 +29,32 @@ export const colors = {
     "800": "#161b22",
     "900": "#0d1117",
   },
-  yellow: {
+  blue: {
+    "0": "#cae8ff",
+    "100": "#a5d6ff",
+    "200": "#79c0ff",
+    "300": "#58a6ff",
+    "400": "#388bfd",
+    "500": "#1f6feb",
+    "600": "#1158c7",
+    "700": "#0d419d",
+    "800": "#0c2d6b",
+    "900": "#051d4d",
+  },
+  cyan: {
+    "50": "#ECFEFF",
+    "100": "#CFFAFE",
+    "200": "#A5F3FC",
+    "300": "#67E8F9",
+    "400": "#22D3EE",
+    "500": "#06B6D4",
+    "600": "#0891B2",
+    "700": "#0E7490",
+    "800": "#155E75",
+    "900": "#164E63",
+  },
+
+  amber: {
     "50": "#FFFBEB",
     "100": "#FEF3C7",
     "200": "#FDE68A",
@@ -31,31 +66,25 @@ export const colors = {
     "800": "#92400E",
     "900": "#78350F",
   },
-
-  blue: {
-    "50": "#EFF6FF",
-    "100": "#DBEAFE",
-    "200": "#BFDBFE",
-    "300": "#93C5FD",
-    "400": "#60A5FA",
-    "500": "#3B82F6",
-    "600": "#2563EB",
-    "700": "#1D4ED8",
-    "800": "#1E40AF",
-    "900": "#1E3A8A",
-  },
-  teal: {
-    "50": "#F0FDFA",
-    "100": "#CCFBF1",
-    "200": "#99F6E4",
-    "300": "#5EEAD4",
-    "400": "#2DD4BF",
-    "500": "#14B8A6",
-    "600": "#0D9488",
-    "700": "#0F766E",
-    "800": "#115E59",
-    "900": "#134E4A",
-  },
+  bootstrap: "#563d7c",
+  css: "#1572b6",
+  graphql: "#e10098",
+  html: "#e34f26",
+  javascript: "#f7df1e",
+  node: "#339933",
+  react: "#61dafb",
+  redux: "#764abc",
+  "react-router-dom": "#ca4245",
+  sass: "#cc6699",
+  "styled-components": "#db7093",
+  stylus: "#333333",
+  tailwind: "#38b2ac",
+  typescript: "#000077",
+  webpack: "#8dd6f9",
+  apollo: "#311c87",
+  mongodb: "#47a248",
+  shopify: "#7ab55c",
+  next: "#000000",
 };
 
 export const sizes = {
@@ -72,4 +101,9 @@ export const sizes = {
   "6xl": "4rem",
   "7xl": "5rem",
   "8xl": "6rem",
+};
+
+export const transition = {
+  base: "300ms ease",
+  animate: "300ms cubic-bezier(0.4, 0.01, 0.14, 1.87)",
 };
