@@ -9,12 +9,14 @@ import { Title } from "components";
 
 function About() {
   return (
-    <Container id="about">
+    <Container id="about" className="bg-gray-900">
       <Wrapper maxWidth="640px">
         <Content>
-          <Title>Hi, there! I'm Angelo.</Title>
-          <Divider />
-          <Text>
+          <Title className="color-white" center>
+            Hi, there! I'm Angelo.
+          </Title>
+          <Divider center />
+          <Text className="color-white">
             I’m a frontend developer specialized in Reactjs. Web development
             fascinates me, I’m always looking to improve my skills and I’m
             continually learning new technologies. I’m currently part of the

@@ -3,9 +3,9 @@ import * as React from "react";
 /* Styles */
 import { Container, Div } from "./divider.styles";
 
-function Divider() {
+function Divider({ center = false }) {
   return (
-    <Container>
+    <Container theme={{ center }}>
       <Div />
     </Container>
   );

@@ -4,11 +4,7 @@ import * as React from "react";
 import Head from "next/head";
 
 /* Components */
-import { About, Header, Hero, Main } from "components";
-
-/* Styles */
-import { ThemeProvider } from "@emotion/react";
-import { themeColors } from "styles/theme";
+import { About, Contact, Header, Hero, Main } from "components";
 
 /* Contexts */
 import DarkModeContext from "context/darkMode/context";
@@ -22,13 +18,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <ThemeProvider theme={{ colors: themeColors[theme] }}>
+      <div data-theme={`${theme}-theme`}>
         <Header />
         <Main>
           <Hero />
           <About />
+          <Contact />
         </Main>
-      </ThemeProvider>
+      </div>
     </React.Fragment>
   );
 }

@@ -5,7 +5,6 @@ import { Wrapper } from "components";
 import { Logo, Moon, Sun } from "components/Icons";
 
 /* Styles */
-import { Colors, themeColors } from "styles/theme";
 import {
   Container,
   Content,
@@ -25,11 +24,11 @@ import DarkModeContext from "context/darkMode/context";
 function Header() {
   const { setTheme, theme } = React.useContext(DarkModeContext);
   return (
-    <Container>
+    <Container className="bg-white dark-bg-gray-900 border-color-gray-100 dark-border-color-gray-700">
       <Wrapper>
         <Content>
           <Anchor href="#">
-            <Logo fill={themeColors[theme]["font"]} />
+            <Logo className="fill-black dark-fill-white" />
           </Anchor>
 
           <Navigation>
@@ -39,7 +38,12 @@ function Header() {
                   const { href, title } = item;
                   return (
                     <Item>
-                      <Anchor href={href}>{title}</Anchor>
+                      <Anchor
+                        className="color-black dark-color-white"
+                        href={href}
+                      >
+                        {title}
+                      </Anchor>
                     </Item>
                   );
                 })
@@ -47,12 +51,13 @@ function Header() {
             </ItemList>
           </Navigation>
           <Button
+            aria-label="active dark mode"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >
-            {theme === "light" ? (
-              <Sun width="1rem" color={Colors.YELLOW} />
+            {theme === "dark" ? (
+              <Sun width="1rem" className="color-yellow-500" />
             ) : (
-              <Moon width="1rem" color={Colors.BLUE} />
+              <Moon width="1rem" className="color-blue-700" />
             )}
           </Button>
         </Content>

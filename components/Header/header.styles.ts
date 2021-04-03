@@ -10,14 +10,8 @@ export const Container = styled.header`
   right: 0;
   left: 0;
   z-index: 1;
-  background-color: ${({ theme }) => {
-    return theme.colors["bg-100"];
-  }};
-
-  color: ${({ theme }) => {
-    return theme.colors["font-200"];
-  }};
   transition: background-color ${transitions.DEFAULT};
+  border-bottom: 1px solid;
 `;
 
 export const Content = styled.div`
@@ -43,11 +37,7 @@ export const Item = styled.li`
   margin-left: max(1rem, 3vw);
 `;
 
-export const Anchor = styled.a`
-  color: ${({ theme }) => {
-    return theme.colors["font"];
-  }};
-`;
+export const Anchor = styled.a``;
 
 export const Button = styled.button`
   display: flex;
