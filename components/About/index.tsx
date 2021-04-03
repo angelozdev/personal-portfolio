@@ -9,7 +9,7 @@ import { Title, Avatar } from "components";
 
 function About() {
   return (
-    <Container id="about" className="bg-gray-900">
+    <Container id="about" className="bg-gray-800 dark-bg-gray-900">
       <Wrapper maxWidth="640px">
         <Content>
           <Avatar
