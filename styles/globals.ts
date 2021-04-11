@@ -1,10 +1,11 @@
 import { css } from "@emotion/react";
 import { classesGenerator, getDesignTokens } from "utils";
-import { colors } from "./theme";
+import { colors, transition } from "./theme";
 
 export const globals = css`
   :root {
     ${getDesignTokens(colors, { name: "color" })}
+    ${getDesignTokens(transition, { name: "transition" })}
   }
 
   /* COLORS */
@@ -27,7 +28,7 @@ export const globals = css`
     hasDarkMode: true,
   })}
 
-${classesGenerator(colors, {
+  ${classesGenerator(colors, {
     name: "border-color",
     attribute: "border-color",
     isImportant: true,
@@ -64,6 +65,11 @@ ${classesGenerator(colors, {
   ::-webkit-scrollbar-thumb {
     background: ${colors.gray[500]};
     border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: var(--color-black);
+    color: var(--color-white);
   }
 `;
 

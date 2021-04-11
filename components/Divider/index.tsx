@@ -3,10 +3,16 @@ import * as React from "react";
 /* Styles */
 import { Container, Div } from "./divider.styles";
 
-function Divider({ center = false }) {
+/* Types */
+interface Props {
+  center?: boolean;
+  className?: string;
+}
+
+function Divider({ center = false, className = "bg-white" }: Props) {
   return (
     <Container theme={{ center }}>
-      <Div />
+      <Div className={className} />
     </Container>
   );
 }

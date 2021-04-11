@@ -2,16 +2,23 @@ import * as React from "react";
 
 /* Components */
 import { Divider, Wrapper } from "components";
-/* Styles */
 
+/* Styles */
 import { Container, Content, Text } from "./about.styles";
-import { Title } from "components";
+import { Title, Avatar } from "components";
 
 function About() {
   return (
-    <Container id="about" className="bg-gray-900">
+    <Container id="about" className="bg-gray-800 dark-bg-gray-900">
       <Wrapper maxWidth="640px">
         <Content>
+          <Avatar
+            src="/image.jpg"
+            layout="responsive"
+            width={100}
+            height={100}
+            maxWidth="100px"
+          />
           <Title className="color-white" center>
             Hi, there! I'm Angelo.
           </Title>

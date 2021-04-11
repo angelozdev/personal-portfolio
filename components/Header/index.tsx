@@ -55,7 +55,7 @@ function Header() {
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >
             {theme === "dark" ? (
-              <Sun width="1rem" className="color-yellow-500" />
+              <Sun width="1rem" className="color-amber-400" />
             ) : (
               <Moon width="1rem" className="color-blue-700" />
             )}

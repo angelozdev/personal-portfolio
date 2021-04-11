@@ -17,7 +17,7 @@ export const Container = styled.h1`
     ${({ theme }) => theme.max}
   );
   margin: 0;
-
+  transition: transform var(--transition-animate);
   text-transform: ${({ theme }) => (theme.uppercase ? "uppercase" : "none")};
   text-align: ${({ theme }) => (theme.center ? "center" : "left")};
 `;
