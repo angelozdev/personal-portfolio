@@ -1,7 +1,7 @@
 import * as React from "react";
 
 /* Components */
-import { Card, Wrapper } from "components";
+import { Card, SocialNetworkList, Wrapper } from "components";
 
 /* Styles */
 import { Container, Content, Grid } from "./contact.styles";
@@ -12,14 +12,6 @@ function Contact() {
     <Container className="bg-white dark-bg-gray-800">
       <Wrapper maxWidth="900px">
         <Content>
-          {/* <Title
-            className="color-black dark-color-white"
-            percent="4vw"
-            max="4rem"
-          >
-            Contact Me
-          </Title> */}
-
           <Grid>
             <Card background="bg-cyan-900">
               <Card.Title className="color-white">Contact Me.</Card.Title>
@@ -31,6 +23,8 @@ function Contact() {
                 started programming since I was in school learning from YouTube
                 videos and online education platforms like Platzi and Udemy.
               </Card.Text>
+
+              <SocialNetworkList />
             </Card>
             <Card hasPadding={false} background="bg-white">
               <Card.Cover
