@@ -8,6 +8,7 @@ import { About, Contact, Header, Hero, Main } from "components";
 
 /* Contexts */
 import DarkModeContext from "context/darkMode/context";
+import { SectionLayout } from "components/Layouts";
 
 export default function Home() {
   const { theme } = React.useContext(DarkModeContext);
@@ -24,6 +25,9 @@ export default function Home() {
           <Hero />
           <About />
           <Contact />
+          <SectionLayout title="Frontend Technologies.">
+            hola mundo
+          </SectionLayout>
         </Main>
       </div>
     </React.Fragment>

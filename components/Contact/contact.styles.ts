@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { breakpoints } from "styles/theme";
 
 export const Container = styled.section`
-  padding: 4rem 0;
+  padding: 4rem 0 0 0;
   transition: background-color var(--transition-base);
 `;
 

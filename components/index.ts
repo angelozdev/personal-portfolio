@@ -10,3 +10,4 @@ export { default as SocialNetworkList } from "./SocialNetworkList";
 export { default as Title } from "./Title";
 export { default as Wrapper } from "./Wrapper";
 export * as Icons from "./Icons";
+export * as Layouts from "./Layouts";
