@@ -17,21 +17,12 @@ import {
   Bootstrap,
   ReactRouterDom,
 } from "components/Icons";
-import { ImageProps } from "next/image";
 
 /* Theme */
 import { colors } from "styles/theme";
 
 /* Types */
-import { SVGProps } from "types";
-
-type Technology = {
-  title: string;
-  Icon: (props: SVGProps) => JSX.Element;
-  description: string;
-  color: string;
-  href: string;
-};
+import { Technology } from "types";
 
 export const frontendTechnologies: Technology[] = [
   {
