@@ -3,7 +3,7 @@ import * as React from "react";
 /* Types */
 import { SVGProps } from "types";
 
-function GitHub(props: SVGProps) {
+function Twitter(props: SVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -20,4 +20,4 @@ function GitHub(props: SVGProps) {
   );
 }
 
-export default GitHub;
+export default Twitter;
