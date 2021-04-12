@@ -17,7 +17,7 @@ const setDarkColor = (tecnologyColor: string) => {
   return dic[tecnologyColor] || null;
 };
 
-function TechnologyItem({ title, color, href, Icon }: Technology) {
+function TechnologyItem({ title, color, href, Icon }: Partial<Technology>) {
   return (
     <Item className="border-color-gray-100 dark-border-color-gray-700">
       <IconContainer target="_blank" href={href}>

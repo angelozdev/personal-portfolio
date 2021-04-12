@@ -6,6 +6,7 @@ import Head from "next/head";
 /* Components */
 import {
   About,
+  BackendTechnologies,
   Contact,
   FrontendTechnologies,
   Header,
@@ -32,6 +33,7 @@ export default function Home() {
           <About />
           <Contact />
           <FrontendTechnologies />
+          <BackendTechnologies />
         </Main>
       </div>
     </React.Fragment>

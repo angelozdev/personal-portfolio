@@ -22,7 +22,7 @@ function FrontendTechnologies() {
   };
 
   return (
-    <SectionLayout title="Frontend Technologies.">
+    <SectionLayout title="Backend Technologies.">
       <Container>
         {technologies.slice(0, showMore).map(({ Icon, color, title, href }) => (
           <Technology
