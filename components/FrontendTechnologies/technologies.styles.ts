@@ -17,7 +17,7 @@ export const Item = styled.li`
   padding: 1.5rem 0.5rem;
   border: 1px solid;
   flex-grow: 1;
-  flex-basis: 6rem;
+  flex-basis: 8rem;
   transition: var(--transition-base) all;
 
   &:hover {
@@ -33,4 +33,5 @@ export const IconContainer = styled.a``;
 
 export const Text = styled.p`
   margin-bottom: 0;
+  text-align: center;
 `;
