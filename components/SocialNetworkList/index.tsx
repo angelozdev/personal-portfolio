@@ -12,7 +12,7 @@ function SocialNetworkList() {
       {socialNetworks.map(({ Icon, color, title, href }) => (
         <Item key={`${title}-${color}`} theme={{ color }}>
           <Anchor href={href} target="_blank">
-            <Icon fill="white" width="1.5rem" height="1.rem" />
+            <Icon fill="white" width="1.5rem" height="1.5rem" />
           </Anchor>
         </Item>
       ))}

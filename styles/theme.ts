@@ -96,9 +96,11 @@ export const colors = {
   sass: "#cc6699",
   shopify: "#7ab55c",
   stylus: "#333333",
+  stylus2: "#ff6347",
   tailwind: "#38b2ac",
   twitter: "#1da1f2",
-  typescript: "#000077",
+  typescript: "#235a97",
+  typescript2: "#3178c6",
   webpack: "#8dd6f9",
 };
 

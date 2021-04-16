@@ -1,15 +1,17 @@
 import * as React from "react";
 
 /* Components */
-import { Divider, Wrapper } from "components";
+import { Divider, Wrapper, Title, Avatar } from "components";
 
 /* Styles */
 import { Container, Content, Text } from "./about.styles";
-import { Title, Avatar } from "components";
 
 function About() {
   return (
-    <Container id="about" className="bg-gray-800 dark-bg-gray-900">
+    <Container
+      id="about"
+      className="bg-gray-800 dark-bg-gray-900 border-color-gray-800 dark-border-color-gray-700"
+    >
       <Wrapper maxWidth="640px">
         <Content>
           <Avatar

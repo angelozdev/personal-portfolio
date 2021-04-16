@@ -3,7 +3,7 @@ import * as React from "react";
 /* Types */
 import { SVGProps } from "types";
 
-function LinkedIn(props: SVGProps) {
+function Gmail(props: SVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -20,4 +20,4 @@ function LinkedIn(props: SVGProps) {
   );
 }
 
-export default LinkedIn;
+export default Gmail;
