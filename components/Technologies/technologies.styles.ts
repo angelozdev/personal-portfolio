@@ -9,7 +9,7 @@ export const Container = styled.ul`
 `;
 
 export const Button = styled.button`
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1rem;
   cursor: pointer;
   background-color: transparent;
   border: 1px solid;
@@ -17,7 +17,7 @@ export const Button = styled.button`
   text-transform: uppercase;
   display: block;
   width: 100%;
-  max-width: 300px;
+  max-width: 350px;
   margin: 0 auto;
 
   &:hover {
