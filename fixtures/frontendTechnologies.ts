@@ -1,10 +1,16 @@
 /* Components */
 import {
+  Apollo,
+  Babel,
+  Bootstrap,
   Css,
+  Emotion,
   Html,
   JavaScript,
+  Jest,
   Next,
   React,
+  ReactRouterDom,
   Redux,
   Sass,
   Shopify,
@@ -13,9 +19,6 @@ import {
   Tailwindcss,
   TypeScript,
   Webpack,
-  Emotion,
-  Bootstrap,
-  ReactRouterDom,
 } from "components/Icons";
 
 /* Theme */
@@ -68,6 +71,13 @@ export const frontendTechnologies: Technology[] = [
     href: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
   {
+    title: "Apollo Client",
+    Icon: Apollo,
+    description: "",
+    color: colors.apollo,
+    href: "https://www.apollographql.com/docs/react/",
+  },
+  {
     title: "Shopify",
     Icon: Shopify,
     description: "",
@@ -81,6 +91,7 @@ export const frontendTechnologies: Technology[] = [
     color: colors.redux,
     href: "https://redux.js.org/",
   },
+
   {
     title: "Stylus",
     Icon: Stylus,
@@ -108,6 +119,20 @@ export const frontendTechnologies: Technology[] = [
     description: "",
     color: colors.webpack,
     href: "https://webpack.js.org/",
+  },
+  {
+    title: "Babel",
+    Icon: Babel,
+    description: "",
+    color: colors.babel,
+    href: "https://babeljs.io/",
+  },
+  {
+    title: "Jest",
+    Icon: Jest,
+    description: "",
+    color: colors.jest,
+    href: "https://jestjs.io/",
   },
   {
     title: "Styled Components",

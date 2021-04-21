@@ -4,18 +4,13 @@ import * as React from "react";
 import Head from "next/head";
 
 /* Components */
-import {
-  About,
-  BackendTechnologies,
-  Contact,
-  FrontendTechnologies,
-  Header,
-  Hero,
-  Main,
-} from "components";
+import { About, Contact, Header, Hero, Main, Technologies } from "components";
 
 /* Contexts */
 import DarkModeContext from "context/darkMode/context";
+
+/* Fixtures */
+import { backendTechnologies, frontendTechnologies } from "fixtures";
 
 export default function Home() {
   const { theme } = React.useContext(DarkModeContext);
@@ -32,8 +27,14 @@ export default function Home() {
           <Hero />
           <About />
           <Contact />
-          <FrontendTechnologies />
-          <BackendTechnologies />
+          <Technologies
+            title="Frontend Technologies."
+            technologies={frontendTechnologies}
+          />
+          <Technologies
+            title="Backend Technologies."
+            technologies={backendTechnologies}
+          />
         </Main>
       </div>
     </React.Fragment>
