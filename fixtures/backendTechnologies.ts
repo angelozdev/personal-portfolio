@@ -6,6 +6,7 @@ import {
   MongoDB,
   Node,
   Passport,
+  TypeGraphql,
   TypeScript,
 } from "components/Icons";
 
@@ -64,6 +65,13 @@ export const frontendTechnologies: Technology[] = [
     description: "",
     color: colors.next,
     href: "http://www.passportjs.org/",
+  },
+  {
+    title: "TypeGraphQL",
+    Icon: TypeGraphql,
+    description: "",
+    color: colors.next,
+    href: "https://typegraphql.com/",
   },
 ];
 

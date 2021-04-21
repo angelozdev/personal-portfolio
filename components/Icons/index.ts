@@ -27,5 +27,6 @@ export { default as Stylus } from "./Stylus";
 export { default as Sun } from "./Sun";
 export { default as Tailwindcss } from "./Tailwindcss";
 export { default as Twitter } from "./Twitter";
+export { default as TypeGraphql } from "./TypeGraphql";
 export { default as TypeScript } from "./TypeScript";
 export { default as Webpack } from "./Webpack";
