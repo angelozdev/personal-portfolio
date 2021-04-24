@@ -14,6 +14,7 @@ interface Props extends ComponentWithChildren {
   href: string;
   backgroundColor: string;
   backgroundImage?: string;
+  size: number;
 }
 
 function ProjectItem({
@@ -21,9 +22,10 @@ function ProjectItem({
   href,
   backgroundColor,
   backgroundImage,
+  size,
 }: Props) {
   return (
-    <Container theme={{ backgroundColor, backgroundImage }}>
+    <Container theme={{ backgroundColor, backgroundImage, size }}>
       <Link href={href} target="_blank">
         <Wrapper maxWidth="640px">
           <Content>{children}</Content>

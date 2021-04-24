@@ -4,7 +4,7 @@ import { Div as Divider } from "components/Divider/divider.styles";
 
 /* Local types */
 type ContainerTheme = {
-  theme: { backgroundColor: string; backgroundImage: string };
+  theme: { backgroundColor: string; backgroundImage: string; size: number };
 };
 
 const imageAttributes = (backgroundImage: string) => {
@@ -13,11 +13,16 @@ const imageAttributes = (backgroundImage: string) => {
   return css`
     background-image: url(${backgroundImage});
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center top;
     background-size: cover;
 
     &::before {
-      opacity: 0.7;
+      opacity: 0.9;
+      transition: var(--transition-base);
+    }
+
+    &:hover::before {
+      opacity: 0.85;
     }
   `;
 };
@@ -36,6 +41,7 @@ export const Text = styled.p`
 export const Container = styled.li`
   position: relative;
   ${({ theme }: ContainerTheme) => imageAttributes(theme.backgroundImage)}
+  grid-column: span ${({ theme }) => theme.size};
 
   &::before {
     content: "";
