@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { Div as Divider } from "components/Divider/divider.styles";
+import { breakpoints } from "styles/theme";
 
 /* Local types */
 type ContainerTheme = {
@@ -41,7 +42,7 @@ export const Text = styled.p`
 export const Container = styled.li`
   position: relative;
   ${({ theme }: ContainerTheme) => imageAttributes(theme.backgroundImage)}
-  grid-column: span ${({ theme }) => theme.size};
+  grid-column-start: span ${({ theme }) => theme.size};
 
   &::before {
     content: "";
@@ -65,6 +66,10 @@ export const Container = styled.li`
   &:hover ${Divider} {
     transform: translateY(0.25rem) scale(1.1);
   }
+
+  @media (max-width: ${breakpoints.md}) {
+    grid-column-start: span 2;
+  }
 `;
 
 export const Content = styled.div`
@@ -73,7 +78,7 @@ export const Content = styled.div`
 
 export const Link = styled.a`
   display: block;
-  padding: max(4rem, 5vh) 1rem;
+  padding: max(5rem, 5vh) 1rem;
   position: relative;
   z-index: 10;
   color: var(--color-white);

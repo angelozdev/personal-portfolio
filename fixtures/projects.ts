@@ -36,6 +36,17 @@ export const projects: IProject[] = [
       repository: "https://github.com/angelozdev/voting-app-frontend",
     },
   },
+  {
+    color: colors.gray[900],
+    title: "Marvel Neumorphism",
+    description: "With Voting-App you can vote for the candidate you prefer.",
+    cover: "projects/marvel-neumorphism.jpg",
+    size: 1,
+    urls: {
+      official: "http://marvel-react-hooks-angelozdev.vercel.app/",
+      repository: "https://github.com/angelozdev/marvel-react-hooks",
+    },
+  },
 ];
 
 export default projects;
