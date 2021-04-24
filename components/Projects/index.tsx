@@ -1,7 +1,7 @@
 import * as React from "react";
 
 /* Components */
-import { Divider, ProjectItem } from "components";
+import { Button, Divider, ProjectItem } from "components";
 import { SectionLayout } from "components/Layouts";
 
 /* Fixtures */
@@ -9,13 +9,21 @@ import { projects } from "fixtures";
 
 /* Styles */
 import { Grid } from "./projects.styles";
+import { useShowMore } from "hooks";
+
+const INITIAL_PROJECTS_LENGTH = 3;
 
 function Projects() {
+  const [showMore, handleClick] = useShowMore(
+    INITIAL_PROJECTS_LENGTH,
+    projects.length
+  );
+
   return (
     <SectionLayout title="Projects">
       <Grid>
         {React.Children.toArray(
-          projects.map((project) => (
+          projects.slice(0, showMore).map((project) => (
             <ProjectItem
               size={project.size}
               backgroundColor={project.color}
@@ -29,6 +37,12 @@ function Projects() {
           ))
         )}
       </Grid>
+
+      {INITIAL_PROJECTS_LENGTH < projects.length && (
+        <Button handleClick={handleClick}>
+          {projects.length > showMore ? "Show all" : "Show less"}
+        </Button>
+      )}
     </SectionLayout>
   );
 }

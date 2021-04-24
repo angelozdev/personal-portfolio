@@ -6,7 +6,7 @@ import { Container } from "./button.styles";
 
 /* Types */
 interface Props extends ComponentWithChildren {
-  handleClick: () => void;
+  handleClick?: () => void;
 }
 
 function Button({ handleClick, children }: Props) {

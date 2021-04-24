@@ -8,7 +8,7 @@ interface IProject {
   size: number;
   urls: {
     official?: string;
-    repository: string;
+    repository?: string;
   };
 }
 
@@ -39,12 +39,60 @@ export const projects: IProject[] = [
   {
     color: colors.gray[900],
     title: "Marvel Neumorphism",
-    description: "With Voting-App you can vote for the candidate you prefer.",
+    description:
+      "Search your favorite marvel superheroes with a neumorphism design and dark mode integration.",
     cover: "projects/marvel-neumorphism.jpg",
     size: 1,
     urls: {
       official: "http://marvel-react-hooks-angelozdev.vercel.app/",
       repository: "https://github.com/angelozdev/marvel-react-hooks",
+    },
+  },
+  {
+    color: colors.amber[900],
+    title: "My Unsplash",
+    description:
+      'My Unsplash is a challenge on the devchallenges.io page where each user can upload their images, see their own images and those of their friends. He has the option to "like" them and do a search for the label.',
+    cover: "projects/my-unsplash.jpg",
+    size: 2,
+    urls: {
+      official: "https://my-unsplash-one.vercel.app/login",
+      repository: "https://github.com/CuttingEdgeCoders/my-unsplash-frontend",
+    },
+  },
+  {
+    color: colors.blue[900],
+    title: "GitHub Search",
+    description:
+      "GitHub Search is an application where you can search Github's profiles and see their general information like repositories, starts, followers, and follows. Besides, it has performed dark mode.",
+    cover: "projects/github-search.jpg",
+    size: 1,
+    urls: {
+      official: "https://github-search-1355b.web.app/",
+      repository: "https://github.com/angelozdev/github-search",
+    },
+  },
+  {
+    color: colors.tailwind,
+    title: "SpaceX Launches",
+    description:
+      "See upcoming SpaceX launches and save your favorite launches. You can also see a countdown to the next launch.",
+    cover: "projects/space-x.jpg",
+    size: 1,
+    urls: {
+      official: "https://spacex-launches-red.vercel.app/",
+    },
+  },
+  {
+    color: colors.cyan[900],
+    title: "CRM - Nextjs Application",
+    description:
+      "See upcoming SpaceX launches and save your favorite launches. You can also see a countdown to the next launch.",
+    cover: "projects/crm.jpg",
+    size: 2,
+    urls: {
+      official: "http://crm-nextjs-front-git-main.angelozdev.vercel.app/",
+      repository: "https://github.com/angelozdev/crm-nextjs-front",
     },
   },
 ];
