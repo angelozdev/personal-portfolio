@@ -2,10 +2,10 @@ import * as React from "react";
 
 /* Styles */
 import { Item, IconContainer, Text } from "./technology.styles";
+import { colors } from "styles/theme";
 
 /* Types */
 import { Technology } from "types";
-import { colors } from "styles/theme";
 
 const setDarkColor = (tecnologyColor: string) => {
   const dic = {

@@ -16,6 +16,10 @@ export const Container = styled.div`
   }};
   position: relative;
 
+  ${Divider} {
+    transform-origin: center left;
+  }
+
   &:hover ${Title} {
     transform: translateY(-0.5rem);
   }

@@ -6,6 +6,8 @@ export { default as Divider } from "./Divider";
 export { default as Header } from "./Header";
 export { default as Hero } from "./Hero";
 export { default as Main } from "./Main";
+export { default as ProjectItem } from "./ProjectItem";
+export { default as Projects } from "./Projects";
 export { default as SocialNetworkList } from "./SocialNetworkList";
 export { default as Technologies } from "./Technologies";
 export { default as Technology } from "./Technology";

@@ -4,7 +4,15 @@ import * as React from "react";
 import Head from "next/head";
 
 /* Components */
-import { About, Contact, Header, Hero, Main, Technologies } from "components";
+import {
+  About,
+  Contact,
+  Header,
+  Hero,
+  Main,
+  Projects,
+  Technologies,
+} from "components";
 
 /* Contexts */
 import DarkModeContext from "context/darkMode/context";
@@ -17,7 +25,7 @@ export default function Home() {
   return (
     <React.Fragment>
       <Head>
-        <title>Portfolio - Angelo Zambrano</title>
+        <title>Angelo Zambrano | Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -35,6 +43,8 @@ export default function Home() {
             title="Backend Technologies."
             technologies={backendTechnologies}
           />
+
+          <Projects />
         </Main>
       </div>
     </React.Fragment>
