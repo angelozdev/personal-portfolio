@@ -9,3 +9,7 @@ export type Technology = {
   color: string;
   href: string;
 };
+
+export interface ComponentWithChildren {
+  children: React.ReactNode;
+}

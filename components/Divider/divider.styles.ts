@@ -18,5 +18,4 @@ export const Div = styled.span`
   height: 0.2rem;
   display: inline-block;
   transition: transform var(--transition-animate);
-  transform-origin: center left;
 `;

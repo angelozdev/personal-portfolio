@@ -2,13 +2,16 @@ import * as React from "react";
 
 /* Component */
 import { SectionLayout } from "components/Layouts";
-import { Technology as Item } from "components/";
+import { Button, Technology as Item } from "components/";
 
 /* Styles */
-import { Container, Button } from "./technologies.styles";
+import { Container } from "./technologies.styles";
 
 /* Types */
 import { Technology } from "types";
+
+/* Hooks */
+import { useShowMore } from "hooks";
 
 /* Local types */
 interface Props {
@@ -19,18 +22,10 @@ interface Props {
 const INITIAL_TECHNOLOGIES_LENGTH = 4;
 
 function Technologies({ technologies = [], title }: Props) {
-  const [showMore, setShowMore] = React.useState<number>(
-    INITIAL_TECHNOLOGIES_LENGTH
+  const [showMore, handleClick] = useShowMore(
+    INITIAL_TECHNOLOGIES_LENGTH,
+    technologies.length
   );
-  const technologiesLength = technologies.length;
-
-  const handleReset = () => {
-    if (technologiesLength > showMore) {
-      setShowMore(technologiesLength);
-    } else {
-      setShowMore(INITIAL_TECHNOLOGIES_LENGTH);
-    }
-  };
 
   return (
     <SectionLayout title={title}>
@@ -46,13 +41,9 @@ function Technologies({ technologies = [], title }: Props) {
         ))}
       </Container>
 
-      {INITIAL_TECHNOLOGIES_LENGTH < technologiesLength && (
-        <Button
-          className="color-black dark-color-white border-color-gray-100 dark-border-color-gray-700"
-          type="button"
-          onClick={handleReset}
-        >
-          {technologiesLength > showMore ? "Show all" : "Show less"}
+      {INITIAL_TECHNOLOGIES_LENGTH < technologies.length && (
+        <Button handleClick={handleClick}>
+          {technologies.length > showMore ? "Show all" : "Show less"}
         </Button>
       )}
     </SectionLayout>

@@ -1,11 +1,14 @@
 export { default as About } from "./About";
 export { default as Avatar } from "./Avatar";
+export { default as Button } from "./Button";
 export { default as Card } from "./Card";
 export { default as Contact } from "./Contact";
 export { default as Divider } from "./Divider";
 export { default as Header } from "./Header";
 export { default as Hero } from "./Hero";
 export { default as Main } from "./Main";
+export { default as ProjectItem } from "./ProjectItem";
+export { default as Projects } from "./Projects";
 export { default as SocialNetworkList } from "./SocialNetworkList";
 export { default as Technologies } from "./Technologies";
 export { default as Technology } from "./Technology";
