@@ -37,6 +37,7 @@ export default function Home() {
           <About />
           <Contact />
           <Technologies
+            id="skills"
             title="Frontend Technologies."
             technologies={frontendTechnologies}
           />
@@ -45,7 +46,7 @@ export default function Home() {
             technologies={backendTechnologies}
           />
 
-          <Projects />
+          <Projects id="projects" />
         </Main>
 
         <Footer />

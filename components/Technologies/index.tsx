@@ -17,18 +17,19 @@ import { useShowMore } from "hooks";
 interface Props {
   technologies: Technology[];
   title: string;
+  id?: string;
 }
 
 const INITIAL_TECHNOLOGIES_LENGTH = 4;
 
-function Technologies({ technologies = [], title }: Props) {
+function Technologies({ technologies = [], title, id }: Props) {
   const [showMore, handleClick] = useShowMore(
     INITIAL_TECHNOLOGIES_LENGTH,
     technologies.length
   );
 
   return (
-    <SectionLayout title={title}>
+    <SectionLayout id={id} title={title}>
       <Container>
         {technologies.slice(0, showMore).map(({ Icon, color, title, href }) => (
           <Item
