@@ -7,6 +7,7 @@ import { Div as Divider } from "components/Divider/divider.styles";
 type Theme = { theme: { hasPadding: boolean } };
 
 export const Text = styled.p`
+  margin-bottom: 3rem;
   transition: transform var(--transition-animate);
 `;
 

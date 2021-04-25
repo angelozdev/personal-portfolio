@@ -26,7 +26,6 @@ export const Container = styled.ul`
   list-style: none;
   padding-left: 0;
   gap: 1rem;
-  margin-top: 3rem;
 
   @supports not (gap: 1rem) {
     & ${Item} {

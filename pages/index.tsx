@@ -7,6 +7,7 @@ import Head from "next/head";
 import {
   About,
   Contact,
+  Footer,
   Header,
   Hero,
   Main,
@@ -46,6 +47,8 @@ export default function Home() {
 
           <Projects />
         </Main>
+
+        <Footer />
       </div>
     </React.Fragment>
   );
