@@ -1,0 +1,53 @@
+import * as React from "react";
+
+/* Component */
+import { SectionLayout } from "components/Layouts";
+import { Button, Technology as Item } from "components/";
+
+/* Styles */
+import { Container } from "./technologies.styles";
+
+/* Types */
+import { Technology } from "types";
+
+/* Hooks */
+import { useShowMore } from "hooks";
+
+/* Local types */
+interface Props {
+  technologies: Technology[];
+  title: string;
+}
+
+const INITIAL_TECHNOLOGIES_LENGTH = 4;
+
+function Technologies({ technologies = [], title }: Props) {
+  const [showMore, handleClick] = useShowMore(
+    INITIAL_TECHNOLOGIES_LENGTH,
+    technologies.length
+  );
+
+  return (
+    <SectionLayout title={title}>
+      <Container>
+        {technologies.slice(0, showMore).map(({ Icon, color, title, href }) => (
+          <Item
+            key={title.toLowerCase()}
+            color={color}
+            title={title}
+            href={href}
+            Icon={Icon}
+          />
+        ))}
+      </Container>
+
+      {INITIAL_TECHNOLOGIES_LENGTH < technologies.length && (
+        <Button handleClick={handleClick}>
+          {technologies.length > showMore ? "Show all" : "Show less"}
+        </Button>
+      )}
+    </SectionLayout>
+  );
+}
+
+export default Technologies;
