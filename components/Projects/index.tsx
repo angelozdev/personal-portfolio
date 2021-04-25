@@ -13,14 +13,14 @@ import { useShowMore } from "hooks";
 
 const INITIAL_PROJECTS_LENGTH = 3;
 
-function Projects() {
+function Projects({ id }: { id?: string }) {
   const [showMore, handleClick] = useShowMore(
     INITIAL_PROJECTS_LENGTH,
     projects.length
   );
 
   return (
-    <SectionLayout title="Projects">
+    <SectionLayout id={id} title="Projects">
       <Grid>
         {React.Children.toArray(
           projects.slice(0, showMore).map((project) => (
