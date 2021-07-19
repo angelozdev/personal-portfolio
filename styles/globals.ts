@@ -38,6 +38,7 @@ export const globals = css`
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
   }
 
   body {
