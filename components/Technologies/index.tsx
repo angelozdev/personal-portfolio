@@ -1,5 +1,3 @@
-import * as React from "react";
-
 /* Component */
 import { SectionLayout } from "components/Layouts";
 import { Button, Technology as Item } from "components/";

@@ -1,4 +1,4 @@
-import * as React from "react";
+import { ReactNode } from "react";
 import { screens } from "styles/theme";
 
 /* Styles */
@@ -6,7 +6,7 @@ import { Container } from "./wrapper.styles";
 
 /* Types */
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
   maxWidth?: screens;
   hasPadding?: boolean;
 }

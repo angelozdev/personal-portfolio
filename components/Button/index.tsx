@@ -1,15 +1,14 @@
-import * as React from "react";
-import { ComponentWithChildren } from "types";
+import { PropsWithChildren } from "react";
 
 /* Styles */
 import { Container } from "./button.styles";
 
 /* Types */
-interface Props extends ComponentWithChildren {
+interface Props {
   handleClick?: () => void;
 }
 
-function Button({ handleClick, children }: Props) {
+function Button({ handleClick, children }: PropsWithChildren<Props>) {
   return (
     <Container
       className="color-black dark-color-white border-color-gray-100 dark-border-color-gray-700"

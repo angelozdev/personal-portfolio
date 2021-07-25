@@ -1,6 +1,6 @@
-import * as React from "react";
+import { SVGAttributes } from "react";
 
-function Logo(props: React.SVGAttributes<HTMLOrSVGElement>) {
+function Logo(props: SVGAttributes<HTMLOrSVGElement>) {
   return (
     <svg
       width="31"

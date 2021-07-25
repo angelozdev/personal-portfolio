@@ -1,5 +1,3 @@
-import * as React from "react";
-
 /* Components */
 import { Divider, Wrapper, Title, Avatar } from "components";
 

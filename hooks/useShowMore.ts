@@ -1,12 +1,10 @@
-import * as React from "react";
+import { useState } from "react";
 
 function useShowMore(
   initialTechnologiesLength = 4,
   technologiesLength: number
 ): [number, () => void] {
-  const [showMore, setShowMore] = React.useState<number>(
-    initialTechnologiesLength
-  );
+  const [showMore, setShowMore] = useState<number>(initialTechnologiesLength);
 
   const handleClick = () => {
     if (technologiesLength > showMore) {

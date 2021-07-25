@@ -1,4 +1,4 @@
-import * as React from "react";
+import { Children } from "react";
 
 /* Components */
 import { Button, Divider, ProjectItem } from "components";
@@ -22,7 +22,7 @@ function Projects({ id }: { id?: string }) {
   return (
     <SectionLayout id={id} title="Projects">
       <Grid>
-        {React.Children.toArray(
+        {Children.toArray(
           projects.slice(0, showMore).map((project) => (
             <ProjectItem
               size={project.size}

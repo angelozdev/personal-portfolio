@@ -1,4 +1,4 @@
-import * as React from "react";
+import type { ImgHTMLAttributes, ReactNode } from "react";
 
 /* Components */
 import { Title } from "components";
@@ -14,15 +14,15 @@ import {
 } from "./card.styles";
 
 /* Local types */
-type AvatarProps = React.ImgHTMLAttributes<HTMLImageElement>;
+type AvatarProps = ImgHTMLAttributes<HTMLImageElement>;
 interface Props {
   background: string;
-  children: React.ReactNode;
+  children: ReactNode;
   hasPadding?: boolean;
 }
 
 interface TextAndTitleProps {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }
 

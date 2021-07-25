@@ -1,5 +1,3 @@
-import * as React from "react";
-
 /* Components */
 import { SocialNetworkList, Wrapper } from "components";
 

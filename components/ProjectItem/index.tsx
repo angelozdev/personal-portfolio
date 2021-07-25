@@ -1,16 +1,13 @@
-import * as React from "react";
+import { PropsWithChildren } from "react";
 
 /* Styles */
 import { Container, Title, Text, Content, Link } from "./projectItem.styles";
-
-/* Types */
-import { ComponentWithChildren } from "types";
 
 /* Components */
 import { Wrapper } from "components";
 
 /* Local types */
-interface Props extends ComponentWithChildren {
+interface Props {
   href: string;
   backgroundColor: string;
   backgroundImage?: string;
@@ -23,7 +20,7 @@ function ProjectItem({
   backgroundColor,
   backgroundImage,
   size,
-}: Props) {
+}: PropsWithChildren<Props>) {
   return (
     <Container theme={{ backgroundColor, backgroundImage, size }}>
       <Link href={href} target="_blank">
@@ -35,11 +32,11 @@ function ProjectItem({
   );
 }
 
-ProjectItem.Title = function ProjectTitle({ children }: ComponentWithChildren) {
+ProjectItem.Title = function ProjectTitle({ children }: PropsWithChildren<{}>) {
   return <Title>{children}</Title>;
 };
 
-ProjectItem.Text = function ProjectText({ children }: ComponentWithChildren) {
+ProjectItem.Text = function ProjectText({ children }: PropsWithChildren<{}>) {
   return <Text>{children}</Text>;
 };
 

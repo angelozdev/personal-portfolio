@@ -1,5 +1,3 @@
-import * as React from "react";
-
 /* Components */
 import { Card, SocialNetworkList, Wrapper } from "components";
 
