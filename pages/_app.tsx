@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import Head from "next/head";
 
 /* Styles */
-import "normalize.css";
+import "modern-normalize/modern-normalize.css";
 import { globals } from "styles";
 import { Global } from "@emotion/react";
 
