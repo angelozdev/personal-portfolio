@@ -31,11 +31,10 @@ export const ItemList = styled.ul`
   padding-left: 0;
   margin: 0;
   display: flex;
+  gap: 1rem;
 `;
 
-export const Item = styled.li`
-  margin-left: max(1rem, 3vw);
-`;
+export const Item = styled.li``;
 
 export const Anchor = styled.a``;
 
@@ -48,14 +47,3 @@ export const Button = styled.button`
   padding: 0.25rem 0.5rem;
   cursor: pointer;
 `;
-
-export default {
-  Container,
-  Content,
-  LogoContainer,
-  Navigation,
-  ItemList,
-  Item,
-  Anchor,
-  Button,
-};

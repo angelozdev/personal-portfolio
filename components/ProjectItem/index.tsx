@@ -1,7 +1,17 @@
 import { PropsWithChildren } from "react";
 
+/* Nextjs */
+import Image from "next/image";
+
 /* Styles */
-import { Container, Title, Text, Content, Link } from "./projectItem.styles";
+import {
+  BackgroundContainer,
+  Container,
+  Content,
+  Link,
+  Text,
+  Title,
+} from "./projectItem.styles";
 
 /* Components */
 import { Wrapper } from "components";
@@ -12,18 +22,31 @@ interface Props {
   backgroundColor: string;
   backgroundImage?: string;
   size: number;
+  title: string;
 }
 
 function ProjectItem({
-  children,
-  href,
   backgroundColor,
   backgroundImage,
+  children,
+  href,
   size,
+  title,
 }: PropsWithChildren<Props>) {
   return (
-    <Container theme={{ backgroundColor, backgroundImage, size }}>
+    <Container theme={{ size }}>
       <Link href={href} target="_blank">
+        {backgroundImage && (
+          <BackgroundContainer theme={{ backgroundColor }}>
+            <Image
+              src={backgroundImage}
+              layout="fill"
+              objectFit="cover"
+              title={title}
+              alt={title}
+            />
+          </BackgroundContainer>
+        )}
         <Wrapper maxWidth="640px">
           <Content>{children}</Content>
         </Wrapper>
