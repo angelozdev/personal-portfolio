@@ -20,8 +20,8 @@ function TechnologyItem({ title, color, href, Icon }: Partial<Technology>) {
     <Item className="border-color-gray-100 dark-border-color-gray-700">
       <IconContainer target="_blank" href={href}>
         <Icon width="5rem" fill={color} className={setDarkColor(color)} />
+        <Text className="color-black dark-color-white">{title}</Text>
       </IconContainer>
-      <Text className="color-black dark-color-white">{title}</Text>
     </Item>
   );
 }
