@@ -1,5 +1,3 @@
-import { Children } from "react";
-
 /* Components */
 import { Button, Divider, ProjectItem } from "components";
 import { SectionLayout } from "components/Layouts";
@@ -10,6 +8,9 @@ import { projects } from "fixtures";
 /* Styles */
 import { Grid } from "./projects.styles";
 import { useShowMore } from "hooks";
+
+/* Utils */
+import { formatKey } from "utils";
 
 const INITIAL_PROJECTS_LENGTH = 3;
 
@@ -22,20 +23,22 @@ function Projects({ id }: { id?: string }) {
   return (
     <SectionLayout id={id} title="Projects">
       <Grid>
-        {Children.toArray(
-          projects.slice(0, showMore).map((project) => (
+        {projects
+          .slice(0, showMore)
+          .map(({ color, description, size, title, urls, cover }) => (
             <ProjectItem
-              size={project.size}
-              backgroundColor={project.color}
-              href={project.urls.official}
-              backgroundImage={project.cover || null}
+              key={formatKey(title)}
+              size={size}
+              backgroundColor={color}
+              href={urls.official}
+              backgroundImage={cover}
+              title={title}
             >
-              <ProjectItem.Title>{project.title}</ProjectItem.Title>
+              <ProjectItem.Title>{title}</ProjectItem.Title>
               <Divider center={true} />
-              <ProjectItem.Text>{project.description}</ProjectItem.Text>
+              <ProjectItem.Text>{description}</ProjectItem.Text>
             </ProjectItem>
-          ))
-        )}
+          ))}
       </Grid>
 
       {INITIAL_PROJECTS_LENGTH < projects.length && (

@@ -29,8 +29,9 @@ function Contact() {
                 objectFit="cover"
                 layout="fill"
                 loading="lazy"
-                src="/image.jpg"
+                src="/image.webp"
                 alt="avatar angelo zambrano"
+                quality={100}
               />
             </Card>
           </Grid>

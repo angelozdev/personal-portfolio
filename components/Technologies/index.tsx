@@ -11,6 +11,9 @@ import { Technology } from "types";
 /* Hooks */
 import { useShowMore } from "hooks";
 
+/* Utils */
+import { formatKey } from "utils";
+
 /* Local types */
 interface Props {
   technologies: Technology[];
@@ -31,7 +34,7 @@ function Technologies({ technologies = [], title, id }: Props) {
       <Container>
         {technologies.slice(0, showMore).map(({ Icon, color, title, href }) => (
           <Item
-            key={title.toLowerCase()}
+            key={formatKey(title)}
             color={color}
             title={title}
             href={href}
