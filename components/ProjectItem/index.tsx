@@ -1,5 +1,3 @@
-import * as React from "react";
-
 /* Styles */
 import { Container, Title, Text, Content, Link } from "./projectItem.styles";
 

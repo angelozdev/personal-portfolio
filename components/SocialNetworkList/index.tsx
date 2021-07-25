@@ -1,5 +1,3 @@
-import * as React from "react";
-
 /* Fixtures */
 import { socialNetworks } from "fixtures";
 

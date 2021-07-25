@@ -1,11 +1,11 @@
-import * as React from "react";
+import { ReactNode } from "react";
 
 /* Styles */
 import { Container } from "./main.styles";
 
 /* Local Types */
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 function Main({ children }: Props) {

@@ -1,4 +1,4 @@
-import * as React from "react";
+import { Fragment } from "react";
 
 /* Next */
 import Head from "next/head";
@@ -13,7 +13,7 @@ import DarkModeProvider from "context/darkMode/provider";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <React.Fragment>
+    <Fragment>
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
         <Global styles={globals} />
         <Component {...pageProps} />
       </DarkModeProvider>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

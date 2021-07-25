@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useContext, Children } from "react";
 
 /* Components */
 import { Wrapper } from "components";
@@ -22,7 +22,7 @@ import { navigation } from "fixtures";
 import DarkModeContext from "context/darkMode/context";
 
 function Header() {
-  const { setTheme, theme } = React.useContext(DarkModeContext);
+  const { setTheme, theme } = useContext(DarkModeContext);
   return (
     <Container className="bg-white dark-bg-gray-900 border-color-gray-100 dark-border-color-gray-700">
       <Wrapper>
@@ -33,7 +33,7 @@ function Header() {
 
           <Navigation>
             <ItemList>
-              {React.Children.toArray(
+              {Children.toArray(
                 navigation.map((item) => {
                   const { href, title } = item;
                   return (
