@@ -1,4 +1,4 @@
-import { SVGAttributes, ReactNode } from "react";
+import { SVGAttributes } from "react";
 
 export type SVGProps = SVGAttributes<HTMLOrSVGElement>;
 
@@ -9,7 +9,3 @@ export type Technology = {
   color: string;
   href: string;
 };
-
-export interface ComponentWithChildren {
-  children: ReactNode;
-}
