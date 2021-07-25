@@ -1,21 +1,5 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-// utils
-
-- vercel
-- vscode
-- firebase
-- notion
-- git
-- github
-- gitlab
-- npm
-- slack
-- postman
-
-- JWT
-- Postcss
-
 ## Getting Started
 
 First, run the development server:

@@ -39,6 +39,7 @@ export const globals = css`
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 2rem;
+    line-height: 1.35;
   }
 
   body {
