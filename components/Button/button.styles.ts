@@ -14,5 +14,6 @@ export const Container = styled.button`
 
   &:hover {
     box-shadow: 0.5rem 0.5rem 1.5rem 0rem rgba(0, 0, 0, 0.1);
+    transform: translateY(-0.1rem);
   }
 `;

@@ -27,7 +27,6 @@ export default function Home() {
     <Fragment>
       <Head>
         <title>Angelo Zambrano | Portfolio</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div data-theme={`${theme}-theme`}>
