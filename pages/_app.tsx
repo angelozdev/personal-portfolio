@@ -20,6 +20,7 @@ function MyApp({ Component, pageProps }) {
           rel="preload"
           as="style"
         />
+        <link rel="shortcut icon" href="/az.ico" />
       </Head>
       <DarkModeProvider>
         <Global styles={globals} />

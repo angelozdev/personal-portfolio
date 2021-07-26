@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Div as Divider } from "components/Divider/divider.styles";
+import { opacity } from "styles/keyframes";
 import { breakpoints } from "styles/theme";
 
 /* Local types */
@@ -22,9 +23,30 @@ export const Text = styled.p`
   transition: var(--transition-animate);
 `;
 
+export const BackgroundContainer = styled.div`
+  position: absolute;
+  overflow: hidden;
+  z-index: -2;
+  inset: 0;
+
+  &::before {
+    content: "";
+    transition: var(--transition-base);
+    position: absolute;
+    width: 100%;
+    inset: 0;
+    background-color: ${({ theme }: BackgroundContainerTheme) =>
+      theme.backgroundColor};
+    z-index: 1;
+    opacity: 0.9;
+  }
+`;
+
 export const Container = styled.li`
   position: relative;
   grid-column-start: span ${({ theme }: ContainerTheme) => theme.size};
+  animation: ${opacity} 2s ease;
+  animation-fill-mode: forwards;
 
   &:hover ${Title} {
     transform: translateY(-0.5rem);
@@ -36,6 +58,10 @@ export const Container = styled.li`
 
   &:hover ${Divider} {
     transform: translateY(0.25rem) scale(1.1);
+  }
+
+  &:hover ${BackgroundContainer}::before {
+    opacity: 0.85;
   }
 
   @media (max-width: ${breakpoints.md}) {
@@ -57,22 +83,4 @@ export const Link = styled.a`
   height: 100%;
   min-height: 300px;
   color: var(--color-white);
-`;
-
-export const BackgroundContainer = styled.div`
-  position: absolute;
-  overflow: hidden;
-  z-index: -2;
-  inset: 0;
-
-  &::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    inset: 0;
-    background-color: ${({ theme }: BackgroundContainerTheme) =>
-      theme.backgroundColor};
-    z-index: 1;
-    opacity: 0.9;
-  }
 `;
