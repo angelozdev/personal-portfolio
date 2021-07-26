@@ -1,10 +1,10 @@
-import * as React from "react";
+import { Fragment } from "react";
 
 /* Next */
 import Head from "next/head";
 
 /* Styles */
-import "normalize.css";
+import "modern-normalize/modern-normalize.css";
 import { globals } from "styles";
 import { Global } from "@emotion/react";
 
@@ -13,19 +13,20 @@ import DarkModeProvider from "context/darkMode/provider";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <React.Fragment>
+    <Fragment>
       <Head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap"
-          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=optional"
+          rel="preload"
+          as="style"
         />
+        <link rel="shortcut icon" href="/az.ico" />
       </Head>
       <DarkModeProvider>
         <Global styles={globals} />
         <Component {...pageProps} />
       </DarkModeProvider>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

@@ -1,32 +1,52 @@
-import * as React from "react";
+import { PropsWithChildren } from "react";
+
+/* Nextjs */
+import Image from "next/image";
 
 /* Styles */
-import { Container, Title, Text, Content, Link } from "./projectItem.styles";
-
-/* Types */
-import { ComponentWithChildren } from "types";
+import {
+  BackgroundContainer,
+  Container,
+  Content,
+  Link,
+  Text,
+  Title,
+} from "./projectItem.styles";
 
 /* Components */
 import { Wrapper } from "components";
 
 /* Local types */
-interface Props extends ComponentWithChildren {
+interface Props {
   href: string;
   backgroundColor: string;
   backgroundImage?: string;
   size: number;
+  title: string;
 }
 
 function ProjectItem({
-  children,
-  href,
   backgroundColor,
   backgroundImage,
+  children,
+  href,
   size,
-}: Props) {
+  title,
+}: PropsWithChildren<Props>) {
   return (
-    <Container theme={{ backgroundColor, backgroundImage, size }}>
+    <Container theme={{ size }}>
       <Link href={href} target="_blank">
+        {backgroundImage && (
+          <BackgroundContainer theme={{ backgroundColor }}>
+            <Image
+              src={backgroundImage}
+              layout="fill"
+              objectFit="cover"
+              title={title}
+              alt={title}
+            />
+          </BackgroundContainer>
+        )}
         <Wrapper maxWidth="640px">
           <Content>{children}</Content>
         </Wrapper>
@@ -35,11 +55,11 @@ function ProjectItem({
   );
 }
 
-ProjectItem.Title = function ProjectTitle({ children }: ComponentWithChildren) {
+ProjectItem.Title = function ProjectTitle({ children }: PropsWithChildren<{}>) {
   return <Title>{children}</Title>;
 };
 
-ProjectItem.Text = function ProjectText({ children }: ComponentWithChildren) {
+ProjectItem.Text = function ProjectText({ children }: PropsWithChildren<{}>) {
   return <Text>{children}</Text>;
 };
 

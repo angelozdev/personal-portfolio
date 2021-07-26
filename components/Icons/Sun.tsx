@@ -1,6 +1,6 @@
-import * as React from "react";
+import { SVGAttributes } from "react";
 
-function Sun(props: React.SVGAttributes<HTMLOrSVGElement>) {
+function Sun(props: SVGAttributes<HTMLOrSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

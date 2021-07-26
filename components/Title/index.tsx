@@ -1,11 +1,11 @@
-import * as React from "react";
+import { ReactNode } from "react";
 
 /* Styles */
 import { Container, Theme } from "./title.styles";
 
 /* Local Props */
 interface Props extends Theme {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }
 

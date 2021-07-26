@@ -1,31 +1,15 @@
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 import { Div as Divider } from "components/Divider/divider.styles";
+import { opacity } from "styles/keyframes";
 import { breakpoints } from "styles/theme";
 
 /* Local types */
 type ContainerTheme = {
-  theme: { backgroundColor: string; backgroundImage: string; size: number };
+  theme: { size: number };
 };
 
-const imageAttributes = (backgroundImage: string) => {
-  if (!backgroundImage) return "";
-
-  return css`
-    background-image: url(${backgroundImage});
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
-
-    &::before {
-      opacity: 0.9;
-      transition: var(--transition-base);
-    }
-
-    &:hover::before {
-      opacity: 0.85;
-    }
-  `;
+type BackgroundContainerTheme = {
+  theme: { backgroundColor: string };
 };
 
 /* COMPONENTS */
@@ -39,21 +23,30 @@ export const Text = styled.p`
   transition: var(--transition-animate);
 `;
 
-export const Container = styled.li`
-  position: relative;
-  ${({ theme }: ContainerTheme) => imageAttributes(theme.backgroundImage)}
-  grid-column-start: span ${({ theme }) => theme.size};
+export const BackgroundContainer = styled.div`
+  position: absolute;
+  overflow: hidden;
+  z-index: -2;
+  inset: 0;
 
   &::before {
     content: "";
+    transition: var(--transition-base);
     position: absolute;
     width: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: ${({ theme }: ContainerTheme) => theme.backgroundColor};
+    inset: 0;
+    background-color: ${({ theme }: BackgroundContainerTheme) =>
+      theme.backgroundColor};
+    z-index: 1;
+    opacity: 0.9;
   }
+`;
+
+export const Container = styled.li`
+  position: relative;
+  grid-column-start: span ${({ theme }: ContainerTheme) => theme.size};
+  animation: ${opacity} 2s ease;
+  animation-fill-mode: forwards;
 
   &:hover ${Title} {
     transform: translateY(-0.5rem);
@@ -67,6 +60,10 @@ export const Container = styled.li`
     transform: translateY(0.25rem) scale(1.1);
   }
 
+  &:hover ${BackgroundContainer}::before {
+    opacity: 0.85;
+  }
+
   @media (max-width: ${breakpoints.md}) {
     grid-column-start: span 2;
   }
@@ -77,9 +74,13 @@ export const Content = styled.div`
 `;
 
 export const Link = styled.a`
-  display: block;
-  padding: max(5rem, 5vh) 1rem;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  padding: 4rem 0;
   position: relative;
   z-index: 10;
+  height: 100%;
+  min-height: 300px;
   color: var(--color-white);
 `;

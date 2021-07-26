@@ -1,5 +1,3 @@
-import * as React from "react";
-
 /* Types */
 import { SVGProps } from "types";
 

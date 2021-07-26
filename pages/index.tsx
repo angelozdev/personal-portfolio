@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useContext, Fragment } from "react";
 
 /* Next */
 import Head from "next/head";
@@ -22,12 +22,11 @@ import DarkModeContext from "context/darkMode/context";
 import { backendTechnologies, frontendTechnologies } from "fixtures";
 
 export default function Home() {
-  const { theme } = React.useContext(DarkModeContext);
+  const { theme } = useContext(DarkModeContext);
   return (
-    <React.Fragment>
+    <Fragment>
       <Head>
         <title>Angelo Zambrano | Portfolio</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div data-theme={`${theme}-theme`}>
@@ -51,6 +50,6 @@ export default function Home() {
 
         <Footer />
       </div>
-    </React.Fragment>
+    </Fragment>
   );
 }

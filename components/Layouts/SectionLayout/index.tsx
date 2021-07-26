@@ -1,4 +1,4 @@
-import * as React from "react";
+import { PropsWithChildren } from "react";
 
 /* Components */
 import { Title, Wrapper } from "components";
@@ -6,16 +6,13 @@ import { Title, Wrapper } from "components";
 /* Styles */
 import { Container, Content } from "./sectionLayout.styles";
 
-/* Types */
-import { ComponentWithChildren } from "types";
-
 /* Local types */
-interface Props extends ComponentWithChildren {
+interface Props {
   title: string;
   id?: string;
 }
 
-function SectionLayout({ children, title, id }: Props) {
+function SectionLayout({ children, title, id }: PropsWithChildren<Props>) {
   return (
     <Container id={id} className="bg-white dark-bg-gray-800">
       <Wrapper>

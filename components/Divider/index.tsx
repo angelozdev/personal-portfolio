@@ -1,5 +1,3 @@
-import * as React from "react";
-
 /* Styles */
 import { Container, Div } from "./divider.styles";
 

@@ -1,5 +1,3 @@
-import * as React from "react";
-
 /* Components */
 import { Divider, Wrapper, Title, Avatar } from "components";
 
@@ -15,11 +13,14 @@ function About() {
       <Wrapper maxWidth="640px">
         <Content>
           <Avatar
-            src="/image.jpg"
+            src="/image.webp"
+            objectFit="cover"
             layout="responsive"
             width={100}
             height={100}
             maxWidth="100px"
+            loading="lazy"
+            quality={100}
           />
           <Title className="color-white" center>
             Hi, there! I'm Angelo.

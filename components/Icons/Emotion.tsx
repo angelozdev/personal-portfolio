@@ -1,5 +1,3 @@
-import * as React from "react";
-
 /* Next */
 import Image from "next/image";
 

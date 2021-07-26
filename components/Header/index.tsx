@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useContext } from "react";
 
 /* Components */
 import { Wrapper } from "components";
@@ -6,23 +6,26 @@ import { Logo, Moon, Sun } from "components/Icons";
 
 /* Styles */
 import {
-  Container,
-  Content,
-  Navigation,
-  ItemList,
-  Item,
   Anchor,
   Button,
+  Container,
+  Content,
+  Item,
+  ItemList,
+  Navigation,
 } from "./header.styles";
 
 /* Fixtures */
 import { navigation } from "fixtures";
 
+/* Utils */
+import { formatKey } from "utils";
+
 /* Context */
 import DarkModeContext from "context/darkMode/context";
 
 function Header() {
-  const { setTheme, theme } = React.useContext(DarkModeContext);
+  const { setTheme, theme } = useContext(DarkModeContext);
   return (
     <Container className="bg-white dark-bg-gray-900 border-color-gray-100 dark-border-color-gray-700">
       <Wrapper>
@@ -33,21 +36,13 @@ function Header() {
 
           <Navigation>
             <ItemList>
-              {React.Children.toArray(
-                navigation.map((item) => {
-                  const { href, title } = item;
-                  return (
-                    <Item>
-                      <Anchor
-                        className="color-black dark-color-white"
-                        href={href}
-                      >
-                        {title}
-                      </Anchor>
-                    </Item>
-                  );
-                })
-              )}
+              {navigation.map(({ href, title }) => (
+                <Item key={formatKey(title)}>
+                  <Anchor className="color-black dark-color-white" href={href}>
+                    {title}
+                  </Anchor>
+                </Item>
+              ))}
             </ItemList>
           </Navigation>
           <Button
