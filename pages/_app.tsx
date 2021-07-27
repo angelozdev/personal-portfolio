@@ -21,6 +21,15 @@ function MyApp({ Component, pageProps }) {
           as="style"
         />
         <link rel="shortcut icon" href="/az.ico" />
+        <meta
+          name="description"
+          content="This is my personal website where you can find my most important projects, some details about me and my social networks."
+        />
+        <meta
+          name="keywords"
+          content="portfolio, frontend, web development, developer, reactjs, typescript, javascript, html, css"
+        />
+        <meta name="author" content="Angelo Zambrano" />
       </Head>
       <DarkModeProvider>
         <Global styles={globals} />
