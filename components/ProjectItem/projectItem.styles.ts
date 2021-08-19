@@ -12,6 +12,8 @@ type BackgroundContainerTheme = {
   theme: { backgroundColor: string };
 };
 
+const LINKS_CONTAINER_HEIGHT = "60px";
+
 /* COMPONENTS */
 export const Title = styled.h2`
   margin: 0;
@@ -29,6 +31,11 @@ export const BackgroundContainer = styled.div`
   z-index: -2;
   inset: 0;
 
+  & img {
+    transition: var(--transition-base);
+    transform-origin: top center;
+  }
+
   &::before {
     content: "";
     transition: var(--transition-base);
@@ -42,11 +49,31 @@ export const BackgroundContainer = styled.div`
   }
 `;
 
+export const LinksContainer = styled.div`
+  position: absolute;
+  top: ${"-" + LINKS_CONTAINER_HEIGHT};
+  right: 0.5rem;
+  transition: all var(--transition-base);
+
+  @media (max-width: ${breakpoints.sm}) {
+    top: 0;
+  }
+`;
+
 export const Container = styled.li`
   position: relative;
   grid-column-start: span ${({ theme }: ContainerTheme) => theme.size};
   animation: ${opacity} 2s ease;
   animation-fill-mode: forwards;
+  overflow: hidden;
+
+  &:hover ${LinksContainer} {
+    transform: translateY(${LINKS_CONTAINER_HEIGHT});
+
+    @media (max-width: ${breakpoints.sm}) {
+      transform: translateY(0);
+    }
+  }
 
   &:hover ${Title} {
     transform: translateY(-0.5rem);
@@ -58,6 +85,10 @@ export const Container = styled.li`
 
   &:hover ${Divider} {
     transform: translateY(0.25rem) scale(1.1);
+  }
+
+  &:hover ${BackgroundContainer} img {
+    transform: scale(1.01);
   }
 
   &:hover ${BackgroundContainer}::before {
@@ -83,4 +114,9 @@ export const Link = styled.a`
   height: 100%;
   min-height: 300px;
   color: var(--color-white);
+`;
+
+export const LinkItem = styled.a`
+  display: inline-block;
+  padding: 1rem;
 `;

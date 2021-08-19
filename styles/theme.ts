@@ -106,7 +106,7 @@ export const colors = {
   webpack: "#8dd6f9",
 };
 
-export const sizes = {
+/* export const sizes = {
   xs: ".75rem",
   sm: ".875rem",
   tiny: ".875rem",
@@ -120,9 +120,9 @@ export const sizes = {
   "6xl": "4rem",
   "7xl": "5rem",
   "8xl": "6rem",
-};
+}; */
 
 export const transition = {
-  base: "300ms ease",
+  base: "150ms ease-out",
   animate: "300ms cubic-bezier(0.4, 0.01, 0.14, 1.87)",
 };
