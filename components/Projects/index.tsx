@@ -30,7 +30,7 @@ function Projects({ id }: { id?: string }) {
               key={formatKey(title)}
               size={size}
               backgroundColor={color}
-              href={urls.official}
+              urls={urls}
               backgroundImage={cover}
               title={title}
             >

@@ -9,16 +9,22 @@ import {
   Container,
   Content,
   Link,
+  LinkItem,
+  LinksContainer,
   Text,
   Title,
 } from "./projectItem.styles";
 
 /* Components */
 import { Wrapper } from "components";
+import { GitHub } from "components/Icons";
 
 /* Local types */
 interface Props {
-  href: string;
+  urls: {
+    repository?: string;
+    official?: string;
+  };
   backgroundColor: string;
   backgroundImage?: string;
   size: number;
@@ -29,13 +35,21 @@ function ProjectItem({
   backgroundColor,
   backgroundImage,
   children,
-  href,
+  urls,
   size,
   title,
 }: PropsWithChildren<Props>) {
   return (
     <Container theme={{ size }}>
-      <Link href={href} target="_blank">
+      <Link href={urls.official} target="_blank">
+        {urls.repository && (
+          <LinksContainer className="bg-gray-900">
+            <LinkItem href={urls.repository} target="_blank">
+              <GitHub className="fill-white" width="15px" height="15px" />
+            </LinkItem>
+          </LinksContainer>
+        )}
+
         {backgroundImage && (
           <BackgroundContainer theme={{ backgroundColor }}>
             <Image
