@@ -11,7 +11,11 @@ function SocialNetworkList() {
   return (
     <Container>
       {socialNetworks.map(({ Icon, color, title, href }) => (
-        <Item key={formatKey(title)} theme={{ color }}>
+        <Item
+          className="border-color-white"
+          key={formatKey(title)}
+          theme={{ color }}
+        >
           <Anchor href={href} target="_blank">
             <Icon fill="white" width="1.5rem" height="1.5rem" />
           </Anchor>

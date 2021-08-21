@@ -36,9 +36,3 @@ export const Title = styled.h2`
 export const Text = styled.p`
   margin-bottom: 0;
 `;
-
-export const Anchor = styled.a`
-  &:hover {
-    text-decoration: underline;
-  }
-`;
