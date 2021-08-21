@@ -71,8 +71,8 @@ export const globals = css`
   }
 
   ::selection {
-    background-color: ${colors.black};
-    color: ${colors.white};
+    background-color: ${colors.blue[300]};
+    color: ${colors.black};
   }
 `;
 
