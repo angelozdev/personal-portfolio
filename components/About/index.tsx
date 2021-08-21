@@ -1,5 +1,5 @@
 /* Components */
-import { Divider, Wrapper, Title, Avatar } from "components";
+import { Divider, Wrapper, Title, Avatar, Anchor } from "components";
 
 /* Styles */
 import { Container, Content, Text } from "./about.styles";
@@ -27,10 +27,34 @@ function About() {
           </Title>
           <Divider center />
           <Text className="color-white">
-            I’m a frontend developer specialized in Reactjs. Web development
-            fascinates me, I’m always looking to improve my skills and I’m
-            continually learning new technologies. I’m currently part of the
-            Platzi Master program where the best Platzi students are.
+            I’m a frontend developer engineer at{" "}
+            <Anchor
+              href="https://ubidots.com/"
+              target="_blank"
+              colorOnHover="black"
+              color="blue-200"
+            >
+              Ubidots
+            </Anchor>{" "}
+            and I'm currently part of the{" "}
+            <Anchor
+              colorOnHover="black"
+              color="cyan-200"
+              href="https://platzi.com/master/"
+              target="_blank"
+            >
+              Platzi Master
+            </Anchor>{" "}
+            program where the best{" "}
+            <Anchor
+              colorOnHover="black"
+              href="https://www.platzi.com"
+              target="_blank"
+              color="gray-100"
+            >
+              Platzi
+            </Anchor>{" "}
+            students are.
           </Text>
         </Content>
       </Wrapper>

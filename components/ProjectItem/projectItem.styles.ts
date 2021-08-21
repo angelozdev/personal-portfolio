@@ -113,7 +113,6 @@ export const Link = styled.a`
   z-index: 10;
   height: 100%;
   min-height: 300px;
-  color: var(--color-white);
 `;
 
 export const LinkItem = styled.a`

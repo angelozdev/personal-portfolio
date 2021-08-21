@@ -41,7 +41,7 @@ function ProjectItem({
 }: PropsWithChildren<Props>) {
   return (
     <Container theme={{ size }}>
-      <Link href={urls.official} target="_blank">
+      <Link className="color-white" href={urls.official} target="_blank">
         {urls.repository && (
           <LinksContainer className="bg-gray-900">
             <LinkItem href={urls.repository} target="_blank">

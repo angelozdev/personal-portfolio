@@ -15,6 +15,20 @@ export const breakpoints = {
   "3xl": "1536px",
 };
 
+type ColorNames = "gray" | "blue" | "cyan" | "amber" | "red";
+type NumericScale =
+  | "100"
+  | "200"
+  | "300"
+  | "400"
+  | "500"
+  | "600"
+  | "700"
+  | "800"
+  | "900";
+
+export type Colors = `${ColorNames}-${NumericScale}` | "white" | "black";
+
 export const colors = {
   black: "#010409",
   white: "#f0f6fc",
@@ -30,7 +44,6 @@ export const colors = {
     "900": "#0d1117",
   },
   blue: {
-    "0": "#cae8ff",
     "100": "#a5d6ff",
     "200": "#79c0ff",
     "300": "#58a6ff",
@@ -42,7 +55,6 @@ export const colors = {
     "900": "#051d4d",
   },
   cyan: {
-    "50": "#ECFEFF",
     "100": "#CFFAFE",
     "200": "#A5F3FC",
     "300": "#67E8F9",
@@ -54,7 +66,6 @@ export const colors = {
     "900": "#164E63",
   },
   amber: {
-    "50": "#FFFBEB",
     "100": "#FEF3C7",
     "200": "#FDE68A",
     "300": "#FCD34D",
@@ -66,7 +77,6 @@ export const colors = {
     "900": "#78350F",
   },
   red: {
-    "50": "#FEF2F2",
     "100": "#FEE2E2",
     "200": "#FECACA",
     "300": "#FCA5A5",

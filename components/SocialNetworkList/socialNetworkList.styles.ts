@@ -4,7 +4,6 @@ type Theme = { theme: { color: string } };
 
 export const Item = styled.li`
   border: solid 1px;
-  border-color: var(--color-white);
   transition: var(--transition-base) border-color;
   height: fit-content;
 
@@ -13,7 +12,7 @@ export const Item = styled.li`
   }
 
   &:hover {
-    border-color: ${({ theme }) => theme.color};
+    border-color: ${({ theme }) => theme.color} !important;
   }
 
   &:hover path {

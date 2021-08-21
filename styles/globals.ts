@@ -4,7 +4,6 @@ import { colors, transition } from "./theme";
 
 export const globals = css`
   :root {
-    ${getDesignTokens(colors, { name: "color" })}
     ${getDesignTokens(transition, { name: "transition" })}
   }
 
@@ -13,6 +12,7 @@ export const globals = css`
     name: "color",
     attribute: "color",
     hasDarkMode: true,
+    hover: true,
   })}
 
   /* BACKGROUNDS */
@@ -20,6 +20,7 @@ export const globals = css`
     name: "bg",
     attribute: "background-color",
     hasDarkMode: true,
+    hover: true,
   })}
 
   ${classesGenerator(colors, {
@@ -70,8 +71,8 @@ export const globals = css`
   }
 
   ::selection {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: ${colors.blue[300]};
+    color: ${colors.black};
   }
 `;
 
