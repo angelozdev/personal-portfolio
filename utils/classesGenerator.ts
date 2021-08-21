@@ -1,13 +1,20 @@
 /* Local Types */
 type Options = {
-  name: string;
   attribute: string;
   hasDarkMode?: boolean;
+  hover?: boolean;
   isImportant?: boolean;
+  name: string;
 };
 
 function classesGenerator(object: {}, options: Options): string {
-  const { name, attribute, hasDarkMode = false, isImportant = false } = options;
+  const {
+    attribute,
+    hasDarkMode = false,
+    hover = false,
+    isImportant = false,
+    name,
+  } = options;
 
   let string = "";
 
@@ -15,14 +22,16 @@ function classesGenerator(object: {}, options: Options): string {
     if (typeof object[color] === "string") {
       const value = object[color];
 
-      string += `.${name}-${color}{
-        ${attribute}: ${value} ${isImportant ? "!important" : ""};
-      }`;
+      string += `.${name}-${color}{${attribute}: ${value} ${
+        isImportant ? "!important" : ""
+      };}`;
 
       if (hasDarkMode) {
-        string += `[data-theme="dark-theme"] .dark-${name}-${color}{
-          ${attribute}: ${value} !important;
-        }`;
+        string += `[data-theme="dark-theme"] .dark-${name}-${color}{${attribute}: ${value} !important;}`;
+      }
+
+      if (hover) {
+        string += `.hover\\:${name}-${color}:hover {${attribute}: ${value} !important;}`;
       }
 
       continue;
@@ -30,14 +39,16 @@ function classesGenerator(object: {}, options: Options): string {
 
     for (const variant in object[color]) {
       const value = object[color][variant];
-      string += `.${name}-${color}-${variant}{
-        ${attribute}: ${value} ${isImportant ? "!important" : ""};
-      }`;
+      string += `.${name}-${color}-${variant}{${attribute}: ${value} ${
+        isImportant ? "!important" : ""
+      };}`;
 
       if (hasDarkMode) {
-        string += `[data-theme="dark-theme"] .dark-${name}-${color}-${variant}{
-          ${attribute}: ${value} !important;
-        }`;
+        string += `[data-theme="dark-theme"] .dark-${name}-${color}-${variant}{${attribute}: ${value} !important;}`;
+      }
+
+      if (hover) {
+        string += `.hover\\:${name}-${color}-${variant}:hover {${attribute}: ${value} !important;}`;
       }
     }
   }

@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="shortcut icon" href="/az.ico" />
         <meta
           name="description"
-          content="This is my personal website where you can find my most important projects, some details about me and my social networks."
+          content="My personal website where you can find my most important projects, some details about me and my social networks."
         />
         <meta
           name="keywords"

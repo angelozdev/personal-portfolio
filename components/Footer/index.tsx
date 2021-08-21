@@ -1,16 +1,8 @@
 /* Components */
-import { SocialNetworkList, Wrapper } from "components";
+import { SocialNetworkList, Wrapper, Anchor } from "components";
 
 /* Styles */
-import {
-  Container,
-  Content,
-  Grid,
-  Pane,
-  Title,
-  Text,
-  Anchor,
-} from "./footer.styles";
+import { Container, Content, Grid, Pane, Title, Text } from "./footer.styles";
 
 function Footer() {
   return (
@@ -26,6 +18,8 @@ function Footer() {
               <Text>
                 Handcrafted by me,{" "}
                 <Anchor
+                  colorOnHover="black"
+                  color="cyan-200"
                   className="color-white"
                   target="_blank"
                   href="https://www.linkedin.com/in/angelozdev"
