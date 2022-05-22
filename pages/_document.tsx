@@ -13,9 +13,8 @@ class MyDocument extends Document {
   static async getInitialProps(
     ctx: DocumentContext
   ): Promise<DocumentInitialProps> {
-    const css = await transformCSS()
     const { styles, ...initialProps } = await Document.getInitialProps(ctx)
-
+    const css = await transformCSS()
     return {
       ...initialProps,
       styles: [
