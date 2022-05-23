@@ -6,8 +6,7 @@ import type { PropertyValue } from '@stitches/react'
 
 export const defaultTokens = {
   fonts: {
-    inter:
-      '"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif'
+    inter: "'Inter', sans-serif"
   },
   fontSizes: {
     tiny: '.75rem',

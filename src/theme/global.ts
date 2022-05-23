@@ -1,5 +1,9 @@
 import { globalCss } from './stitches.config'
 
-const globalStyles = globalCss({})
+const globalStyles = globalCss({
+  body: {
+    fontFamily: '$inter'
+  }
+})
 
 export default globalStyles
