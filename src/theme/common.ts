@@ -1,5 +1,5 @@
 import { defaultThemeMap as defaultStitchesThemeMap } from '@stitches/react'
-import { gray } from './colors'
+import { gray, blue } from './colors'
 
 // types
 import type { PropertyValue } from '@stitches/react'
@@ -113,14 +113,21 @@ export const defaultTokens = {
     black: '5px'
   },
   transitions: {
-    base: 'all 0.3s ease'
+    base: 'all 0.2s ease'
   },
-  breakpoints: {
+  bp: {
     xs: '650px',
     sm: '960px',
-    md: '1280px',
-    lg: '1400px',
-    xl: '1920px'
+    md: '1024px',
+    lg: '1280px',
+    xl: '1440px'
+  },
+  shadows: {
+    lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+    xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+    none: 'none',
+    sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+    md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
   }
 }
 
@@ -129,6 +136,7 @@ export const defaultColors = {
   black: '#333',
   white: '#fafafa',
   ...gray,
+  ...blue,
 
   // accent colors
   accents0: '$gray50',
@@ -144,16 +152,16 @@ export const defaultColors = {
 }
 
 export const defaultMedia = {
-  xs: `(min-width: ${defaultTokens.breakpoints.xs})`,
-  sm: `(min-width: ${defaultTokens.breakpoints.sm})`,
-  md: `(min-width: ${defaultTokens.breakpoints.md})`,
-  lg: `(min-width: ${defaultTokens.breakpoints.lg})`,
-  xl: `(min-width: ${defaultTokens.breakpoints.xl})`,
-  xsMax: `(max-width: ${defaultTokens.breakpoints.xs})`,
-  smMax: `(max-width: ${defaultTokens.breakpoints.sm})`,
-  mdMax: `(max-width: ${defaultTokens.breakpoints.md})`,
-  lgMax: `(max-width: ${defaultTokens.breakpoints.lg})`,
-  xlMax: `(max-width: ${defaultTokens.breakpoints.xl})`,
+  xs: `(min-width: ${defaultTokens.bp.xs})`,
+  sm: `(min-width: ${defaultTokens.bp.sm})`,
+  md: `(min-width: ${defaultTokens.bp.md})`,
+  lg: `(min-width: ${defaultTokens.bp.lg})`,
+  xl: `(min-width: ${defaultTokens.bp.xl})`,
+  xsMax: `(max-width: ${defaultTokens.bp.xs})`,
+  smMax: `(max-width: ${defaultTokens.bp.sm})`,
+  mdMax: `(max-width: ${defaultTokens.bp.md})`,
+  lgMax: `(max-width: ${defaultTokens.bp.lg})`,
+  xlMax: `(max-width: ${defaultTokens.bp.xl})`,
   dark: '(prefers-color-scheme: dark)',
   light: '(prefers-color-scheme: light)'
 }

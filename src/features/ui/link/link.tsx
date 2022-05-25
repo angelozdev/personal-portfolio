@@ -1,5 +1,19 @@
-import { StyledLink } from './link.styles'
+import { AnchorHTMLAttributes } from 'react'
+import { StyledAnchor } from './link.styles'
 
-export default function Link() {
-  return <StyledLink href="#">Link</StyledLink>
+interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  children: string
+  isActive?: boolean
+}
+
+export default function Link({
+  children,
+  isActive = false,
+  ...anchorProps
+}: Props) {
+  return (
+    <StyledAnchor title={children} isActive={isActive} {...anchorProps}>
+      {children}
+    </StyledAnchor>
+  )
 }

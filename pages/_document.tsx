@@ -1,24 +1,26 @@
-import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentContext,
-  DocumentInitialProps
-} from 'next/document'
 import React from 'react'
-import { transformCSS } from '@utils/css'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { processCSS } from '@utils/css'
+import { __DEV__ } from '@utils/assetions'
+import { getCssText } from '@theme'
+
+// types
+import type { DocumentContext, DocumentInitialProps } from 'next/document'
 
 class MyDocument extends Document {
   static async getInitialProps(
     ctx: DocumentContext
   ): Promise<DocumentInitialProps> {
     const { styles, ...initialProps } = await Document.getInitialProps(ctx)
-    const css = await transformCSS()
+    const cssTextFromStitches = getCssText()
+    const css = __DEV__
+      ? cssTextFromStitches
+      : await processCSS(cssTextFromStitches)
+
     return {
       ...initialProps,
       styles: [
-        <React.Fragment key="styles">
+        <React.Fragment key="stitches">
           <style id="stitches" dangerouslySetInnerHTML={{ __html: css }} />
           {styles}
         </React.Fragment>
@@ -28,8 +30,14 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
+          <meta
+            name="description"
+            content="My website where you can find my most important projects, some details about me and my social networks."
+          />
+
+          <meta name="author" content="Angelo Zambrano" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"

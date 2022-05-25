@@ -1,7 +1,22 @@
 import { styled } from '@theme'
 
-export const StyledLink = styled('a', {
-  color: '$gray900',
-  padding: '$4',
-  display: 'inline-flex'
+export const StyledAnchor = styled('a', {
+  color: '$gray800',
+  padding: '$2 0',
+  display: 'inline-flex',
+  textDecoration: 'none',
+  transition: '$base',
+  variants: {
+    isActive: {
+      true: {
+        fontWeight: '$medium',
+        color: '$gray900'
+      }
+    }
+  },
+  '&:hover': {
+    color: '$gray900'
+  }
 })
+
+StyledAnchor.displayName = '$Anchor'
