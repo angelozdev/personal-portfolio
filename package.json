@@ -31,5 +31,8 @@
   },
   "peerDependencies": {
     "serve": "^13.0.2"
+  },
+  "engines": {
+    "node": ">=16.15.0"
   }
 }
