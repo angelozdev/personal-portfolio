@@ -2,6 +2,7 @@ import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 
 import { Link } from '../link'
+import { Switch } from '../switch'
 import { routes } from './fixtures'
 import {
   StyleContainer,
@@ -32,7 +33,9 @@ export default function Header() {
               ))}
             </StyledList>
           </StyledNav>
-          <div>3</div>
+          <div>
+            <Switch />
+          </div>
         </StyledGrid>
       </StyledWrapper>
     </StyleContainer>

@@ -6,6 +6,7 @@ export const StyledAnchor = styled('a', {
   display: 'inline-flex',
   textDecoration: 'none',
   transition: '$base',
+  cursor: 'pointer',
   variants: {
     isActive: {
       true: {
