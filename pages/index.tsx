@@ -1,6 +1,7 @@
+import Head from 'next/head'
+
 // types
 import type { NextPage } from 'next'
-import Head from 'next/head'
 
 const Home: NextPage = () => {
   return (
@@ -8,6 +9,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Home | Angelo Zambrano</title>
       </Head>
+      <p>About</p>
     </>
   )
 }

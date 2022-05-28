@@ -10,7 +10,6 @@ export const StyledAnchor = styled('a', {
   variants: {
     isActive: {
       true: {
-        fontWeight: '$medium',
         color: '$gray900'
       }
     }

@@ -1,20 +1,9 @@
-import NextLink from 'next/link'
-import { useRouter } from 'next/router'
-
-import { Link } from '../link'
+// components
 import { Switch } from '../switch'
-import { routes } from './fixtures'
-import {
-  StyleContainer,
-  StyledWrapper,
-  StyledGrid,
-  StyledNav,
-  StyledList,
-  StyledItem
-} from './header.styles'
+import { StyleContainer, StyledWrapper, StyledGrid } from './header.styles'
+import { Navigation } from './navigation'
 
 export default function Header() {
-  const { pathname } = useRouter()
   return (
     <StyleContainer>
       <StyledWrapper>
@@ -22,19 +11,9 @@ export default function Header() {
           <div>
             <span>AZ</span>
           </div>
-          <StyledNav>
-            <StyledList>
-              {routes.map(({ name, path }) => (
-                <StyledItem key={name}>
-                  <NextLink passHref href={path}>
-                    <Link isActive={pathname === path}>{name}</Link>
-                  </NextLink>
-                </StyledItem>
-              ))}
-            </StyledList>
-          </StyledNav>
-          <div>
-            <Switch />
+          <Navigation />
+          <div role="presentation" title="Switch to dark mode">
+            <Switch aria-label="Switch to dark mode" />
           </div>
         </StyledGrid>
       </StyledWrapper>

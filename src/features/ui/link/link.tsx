@@ -1,28 +1,43 @@
 import React from 'react'
 import { useLink } from '@react-aria/link'
+import { mergeProps } from '@react-aria/utils'
 import { StyledAnchor } from './link.styles'
+import { __DEV__ } from '@utils/assetions'
 
 // types
 import type { AriaLinkProps } from '@react-types/link'
 interface Props extends AriaLinkProps {
-  children: string
   isActive?: boolean
 }
 
-function Link(props: Props) {
-  const { children, isActive } = props
+type NativeProps = Omit<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  keyof Props
+>
+
+type LinkProps = NativeProps & Props
+
+function Link(props: LinkProps) {
+  const { children, isActive, ...restProps } = props
   const anchorRef = React.useRef<HTMLAnchorElement>(null)
   const { linkProps } = useLink(props, anchorRef)
+  const title =
+    props.title || (typeof children === 'string' ? children : undefined)
+
   return (
     <StyledAnchor
-      {...linkProps}
-      title={children}
+      title={title}
       isActive={isActive}
       ref={anchorRef}
+      {...mergeProps(restProps, linkProps)}
     >
       {children}
     </StyledAnchor>
   )
+}
+
+if (__DEV__) {
+  Link.displayName = 'Link'
 }
 
 export default Link

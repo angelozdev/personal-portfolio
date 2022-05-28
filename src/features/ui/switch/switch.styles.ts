@@ -1,50 +1,73 @@
 import { styled } from '@theme'
+import { __DEV__ } from '@utils/assetions'
 
-const SWITCH_HEIGHT = 1.25
-const SWITCH_WIDTH = SWITCH_HEIGHT * 1.6
-const SLIDER_WIDTH = SWITCH_HEIGHT * 0.7
+const SWITCH_HEIGHT = 1.2
+const SWITCH_WIDTH = SWITCH_HEIGHT * 1.5
+const MOON_DIAMETER = SWITCH_HEIGHT * 0.7
 
 export const StyledSwitch = styled('label', {
   position: 'relative',
   display: 'inline-block',
   width: SWITCH_WIDTH + 'rem',
-  height: SWITCH_HEIGHT + 'rem'
-})
-
-export const StyledInput = styled('input', {
-  opacity: 0,
-  width: '0',
-  height: '0'
+  height: SWITCH_HEIGHT + 'rem',
+  overflow: 'hidden'
 })
 
 export const StyledSlider = styled('span', {
   position: 'absolute',
   cursor: 'pointer',
   inset: '0',
-  backgroundColor: '$gray400',
+  backgroundColor: '$gray600',
   transition: '$base',
   borderRadius: SWITCH_HEIGHT + 'rem',
   '&:before': {
     position: 'absolute',
     content: '',
-    height: SLIDER_WIDTH + 'rem',
-    width: SLIDER_WIDTH + 'rem',
-    left: SWITCH_HEIGHT * (0.3 / 2) + 'rem',
-    bottom: SWITCH_HEIGHT * (0.3 / 2) + 'rem',
+    height: SWITCH_HEIGHT + 'rem',
+    width: SWITCH_HEIGHT + 'rem',
+    left: '$0',
+    bottom: '$0',
     backgroundColor: 'white',
     transition: '$base',
-    borderRadius: '50%'
+    borderRadius: '$rounded',
+    border: '$space$1 solid $gray600',
+    zIndex: '$1'
+  },
+  '&:after': {
+    content: '',
+    position: 'absolute',
+    left: '$0',
+    top: '50%',
+    background: '$blue600',
+    height: MOON_DIAMETER + 'rem',
+    width: MOON_DIAMETER + 'rem',
+    borderRadius: '$rounded',
+    transform: 'translate(0, -50%)',
+    transition: '$base',
+    zIndex: '0',
+    opacity: 0,
+    visibility: 'hidden'
   },
   variants: {
     isSelected: {
       true: {
         backgroundColor: '$blue600',
         '&:before': {
-          transform: `translateX(${
-            SWITCH_WIDTH - SLIDER_WIDTH - SWITCH_HEIGHT * 0.3
-          }rem)`
+          transform: `translateX(${SWITCH_WIDTH - SWITCH_HEIGHT}rem)`,
+          borderColor: '$blue600'
+        },
+        '&:after': {
+          transform: `translate(${SWITCH_HEIGHT / 3}rem, -50%)`,
+          zIndex: '$2',
+          opacity: 1,
+          visibility: 'visible'
         }
       }
     }
   }
 })
+
+if (__DEV__) {
+  StyledSwitch.displayName = '$Switch'
+  StyledSlider.displayName = '$Slider'
+}
