@@ -16,6 +16,8 @@ specifiers:
   '@types/react-dom': 18.0.4
   eslint: 8.16.0
   eslint-config-next: 12.1.6
+  eslint-plugin-jsx-a11y: ^6.5.1
+  husky: ^8.0.1
   modern-normalize: ^1.1.0
   next: 12.1.6
   postcss: ^8.4.14
@@ -48,6 +50,8 @@ devDependencies:
   '@types/react-dom': 18.0.4
   eslint: 8.16.0
   eslint-config-next: 12.1.6_zvyojjozjfatsvh7rlqywb6lme
+  eslint-plugin-jsx-a11y: 6.5.1_eslint@8.16.0
+  husky: 8.0.1
   postcss: 8.4.14
   postcss-preset-env: 7.6.0_postcss@8.4.14
   prettier: 2.6.2
@@ -1649,6 +1653,12 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
+    dev: true
+
+  /husky/8.0.1:
+    resolution: {integrity: sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /ignore/5.2.0:
