@@ -1,4 +1,4 @@
-// components
+// Components
 import { Switch } from '../switch'
 import { StyleContainer, StyledWrapper, StyledGrid } from './header.styles'
 import { Navigation } from './navigation'

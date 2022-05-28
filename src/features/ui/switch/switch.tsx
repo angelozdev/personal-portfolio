@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSwitch } from '@react-aria/switch'
 import { useToggleState } from '@react-stately/toggle'
-import { useVisuallyHidden, VisuallyHidden } from '@react-aria/visually-hidden'
+import { VisuallyHidden } from '@react-aria/visually-hidden'
 import { mergeProps } from '@react-aria/utils'
 
 // components
