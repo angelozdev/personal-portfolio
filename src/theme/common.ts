@@ -136,19 +136,7 @@ export const defaultColors = {
   black: '#333',
   white: '#fafafa',
   ...gray,
-  ...blue,
-
-  // accent colors
-  accents0: '$gray50',
-  accents1: '$gray100',
-  accents2: '$gray200',
-  accents3: '$gray300',
-  accents4: '$gray400',
-  accents5: '$gray500',
-  accents6: '$gray600',
-  accents7: '$gray700',
-  accents8: '$gray800',
-  accents9: '$gray900'
+  ...blue
 }
 
 export const defaultMedia = {

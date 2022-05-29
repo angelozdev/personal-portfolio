@@ -16,8 +16,10 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@theme": ["src/theme"],
       "@features/*": ["src/features/*"],
+      "@hocs": ["src/hocs"],
+      "@hooks": ["src/hooks"],
+      "@theme": ["src/theme"],
       "@utils/*": ["src/utils/*"]
     }
   },

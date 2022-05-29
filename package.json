@@ -7,8 +7,8 @@
     "dev": "next dev",
     "export": "next export",
     "lint": "eslint src",
-    "start": "next start",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "next start"
   },
   "dependencies": {
     "@react-aria/link": "^3.2.5",

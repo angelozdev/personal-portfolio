@@ -1,7 +1,7 @@
 import { styled } from '@theme'
 
 export const StyledAnchor = styled('a', {
-  color: '$gray800',
+  color: '$text',
   padding: '$2 0',
   display: 'inline-flex',
   textDecoration: 'none',
