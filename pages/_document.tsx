@@ -13,9 +13,9 @@ class MyDocument extends Document {
   ): Promise<DocumentInitialProps> {
     const { styles, ...initialProps } = await Document.getInitialProps(ctx)
     const cssTextFromStitches = getCssText()
-    const css = __DEV__
-      ? cssTextFromStitches
-      : await processCSS(cssTextFromStitches)
+    const css = await Promise.resolve(
+      __DEV__ ? cssTextFromStitches : processCSS(cssTextFromStitches)
+    )
 
     return {
       ...initialProps,

@@ -5,7 +5,11 @@ import { VisuallyHidden } from '@react-aria/visually-hidden'
 import { mergeProps } from '@react-aria/utils'
 
 // components
-import { StyledSwitch, StyledSlider } from './switch.styles'
+import {
+  StyledSwitch,
+  StyledSlider,
+  SwitchVariantsProps
+} from './switch.styles'
 
 // types
 import type { AriaSwitchProps } from '@react-types/switch'
@@ -17,7 +21,7 @@ type NativeAttrs = Omit<
   keyof Props
 >
 
-type SwitchProps = NativeAttrs & Props
+type SwitchProps = NativeAttrs & Props & SwitchVariantsProps
 
 function Switch(props: SwitchProps) {
   const inputRef = React.useRef<HTMLInputElement>(null)
@@ -29,7 +33,11 @@ function Switch(props: SwitchProps) {
       <VisuallyHidden>
         <input {...mergeProps(props, inputProps)} ref={inputRef} />
       </VisuallyHidden>
-      <StyledSlider isSelected={state.isSelected} aria-hidden={true} />
+      <StyledSlider
+        color={props.color}
+        isSelected={state.isSelected}
+        aria-hidden={true}
+      />
     </StyledSwitch>
   )
 }

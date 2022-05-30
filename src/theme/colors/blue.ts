@@ -1,14 +1,13 @@
-const blue = {
-  blue50: '#eff6ff',
-  blue100: '#dbeafe',
-  blue200: '#bfdbfe',
-  blue300: '#93c5fd',
-  blue400: '#60a5fa',
-  blue500: '#3b82f6',
-  blue600: '#2563eb',
-  blue700: '#1d4ed8',
-  blue800: '#1e40af',
-  blue900: '#1e3a8a'
+export const blueLight = {
+  blue400: '#2680EB',
+  blue500: '#1473E6',
+  blue600: '#0D66D0',
+  blue700: '#095ABA'
 }
 
-export default blue
+export const blueDark = {
+  blue400: '#2680EB',
+  blue500: '#378EF0',
+  blue600: '#4B9CF5',
+  blue700: '#5AA9FA'
+}

@@ -1,6 +1,16 @@
+import { grayDark, blueDark, redDark } from './colors'
+
 const darkTheme = {
   colors: {
-    text: '#ffffff'
+    // semantic colors
+    ...grayDark,
+    ...blueDark,
+    ...redDark,
+
+    // backgrounds
+    background: '$gray50'
+
+    // texts
   }
 }
 

@@ -8,8 +8,9 @@ export const StyledWrapper = styled('div', {
 })
 
 export const StyleContainer = styled('header', {
-  bg: '$white',
-  borderBottom: '1px solid $gray300',
+  bg: '$background',
+  borderBottom: '$space$px solid',
+  borderColor: '$gray100',
   position: 'sticky',
   top: 0
 })

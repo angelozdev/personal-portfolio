@@ -1,2 +1,3 @@
-export { default as gray } from './gray'
-export { default as blue } from './blue'
+export * from './blue'
+export * from './gray'
+export * from './red'

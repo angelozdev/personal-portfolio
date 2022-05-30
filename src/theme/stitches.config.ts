@@ -3,6 +3,9 @@ import commonTheme from './common'
 import _darkTheme from './dark-theme'
 import _lightTheme from './light-theme'
 
+// types
+import type * as Stitches from '@stitches/react'
+
 const stitches = createStitches({
   ...commonTheme,
   theme: {
@@ -24,3 +27,5 @@ export const config = stitches.config
 
 export const darkTheme = createThemeBase('dark-theme', _darkTheme)
 export const lightTheme = createThemeBase('light-theme', _lightTheme)
+
+export type VariantProps<T> = Stitches.VariantProps<T>

@@ -1,5 +1,4 @@
 import { defaultThemeMap as defaultStitchesThemeMap } from '@stitches/react'
-import { gray, blue } from './colors'
 
 // types
 import type { PropertyValue } from '@stitches/react'
@@ -133,10 +132,8 @@ export const defaultTokens = {
 
 export const defaultColors = {
   // general colors
-  black: '#333',
-  white: '#fafafa',
-  ...gray,
-  ...blue
+  black: '#000000',
+  white: '#fafafa'
 }
 
 export const defaultMedia = {

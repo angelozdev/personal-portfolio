@@ -1,6 +1,9 @@
 import { styled } from '@theme'
 import { __DEV__ } from '@utils/assetions'
 
+// types
+import type { VariantProps } from '@theme'
+
 const SWITCH_HEIGHT = 1.2
 const SWITCH_WIDTH = SWITCH_HEIGHT * 1.5
 const MOON_DIAMETER = SWITCH_HEIGHT * 0.7
@@ -17,7 +20,7 @@ export const StyledSlider = styled('span', {
   position: 'absolute',
   cursor: 'pointer',
   inset: '0',
-  backgroundColor: '$gray600',
+  backgroundColor: '$gray500',
   transition: '$base',
   borderRadius: SWITCH_HEIGHT + 'rem',
   '&:before': {
@@ -30,7 +33,7 @@ export const StyledSlider = styled('span', {
     backgroundColor: 'white',
     transition: '$base',
     borderRadius: '$rounded',
-    border: '$space$1 solid $gray600',
+    border: '$space$1 solid $gray500',
     zIndex: '$1'
   },
   '&:after': {
@@ -38,7 +41,6 @@ export const StyledSlider = styled('span', {
     position: 'absolute',
     left: '$0',
     top: '50%',
-    background: '$blue600',
     height: MOON_DIAMETER + 'rem',
     width: MOON_DIAMETER + 'rem',
     borderRadius: '$rounded',
@@ -49,12 +51,11 @@ export const StyledSlider = styled('span', {
     visibility: 'hidden'
   },
   variants: {
+    color: { primary: {}, red: {}, blue: {} },
     isSelected: {
       true: {
-        backgroundColor: '$blue600',
         '&:before': {
-          transform: `translateX(${SWITCH_WIDTH - SWITCH_HEIGHT}rem)`,
-          borderColor: '$blue600'
+          transform: `translateX(${SWITCH_WIDTH - SWITCH_HEIGHT}rem)`
         },
         '&:after': {
           transform: `translate(${SWITCH_HEIGHT / 3}rem, -50%)`,
@@ -64,6 +65,39 @@ export const StyledSlider = styled('span', {
         }
       }
     }
+  },
+  compoundVariants: [
+    {
+      isSelected: true,
+      color: 'primary',
+      css: {
+        backgroundColor: '$blue400',
+        '&:before': { borderColor: '$blue400' },
+        '&:after': { background: '$blue400' }
+      }
+    },
+    {
+      isSelected: true,
+      color: 'blue',
+      css: {
+        backgroundColor: '$blue400',
+        '&:before': { borderColor: '$blue400' },
+        '&:after': { background: '$blue400' }
+      }
+    },
+    {
+      isSelected: true,
+      color: 'red',
+      css: {
+        backgroundColor: '$red400',
+        '&:before': { borderColor: '$red400' },
+        '&:after': { background: '$red400' }
+      }
+    }
+  ],
+  defaultVariants: {
+    color: 'primary',
+    isSelected: false
   }
 })
 
@@ -71,3 +105,5 @@ if (__DEV__) {
   StyledSwitch.displayName = '$Switch'
   StyledSlider.displayName = '$Slider'
 }
+
+export type SwitchVariantsProps = VariantProps<typeof StyledSlider>
