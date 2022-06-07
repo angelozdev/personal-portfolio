@@ -1,5 +1,5 @@
 import { styled } from '@theme'
-import { __DEV__ } from '@utils/assetions'
+import { __DEV__ } from '@utils/assertions'
 
 export const StyledWrapper = styled('div', {
   p: '$8',
@@ -10,7 +10,7 @@ export const StyledWrapper = styled('div', {
 export const StyleContainer = styled('header', {
   bg: '$background',
   borderBottom: '$space$px solid',
-  borderColor: '$gray100',
+  borderColor: '$gray200',
   position: 'sticky',
   top: 0
 })

@@ -1,15 +1,16 @@
+import { Hero } from '@features/ui'
 import Head from 'next/head'
 
-// types
-import type { NextPage } from 'next'
-
-const Home: NextPage = () => {
+function Home() {
   return (
     <>
       <Head>
-        <title>Home | Angelo Zambrano</title>
+        <title>About | Angelo Zambrano</title>
       </Head>
-      <p>About</p>
+      <Hero
+        title="Angelo Zambrano"
+        subtitle="Frontend Developer | React.js | TypeScript - JavaScript"
+      />
     </>
   )
 }

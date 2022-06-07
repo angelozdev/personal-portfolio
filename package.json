@@ -8,7 +8,8 @@
     "export": "next export",
     "lint": "eslint src",
     "prepare": "husky install",
-    "start": "next start"
+    "start": "next start",
+    "start:dev": "npm run build && serve out"
   },
   "dependencies": {
     "@react-aria/link": "^3.2.5",

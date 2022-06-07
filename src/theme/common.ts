@@ -5,7 +5,8 @@ import type { PropertyValue } from '@stitches/react'
 
 export const defaultTokens = {
   fonts: {
-    inter: "'Inter', sans-serif"
+    inter:
+      '"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif'
   },
   fontSizes: {
     tiny: '.75rem',
@@ -14,7 +15,11 @@ export const defaultTokens = {
     sm: '1.25rem',
     md: '1.5rem',
     lg: '2.25rem',
-    xl: '3rem'
+    xl: '3rem',
+    '2xl': '4rem',
+    '3xl': '5rem',
+    '4xl': '6rem',
+    '5xl': '7rem'
   },
   fontWeights: {
     hairline: 100,

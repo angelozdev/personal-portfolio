@@ -1,5 +1,5 @@
 import { styled } from '@theme'
-import { __DEV__ } from '@utils/assetions'
+import { __DEV__ } from '@utils/assertions'
 
 // types
 import type { VariantProps } from '@theme'

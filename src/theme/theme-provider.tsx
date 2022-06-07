@@ -1,7 +1,7 @@
 import React from 'react'
 
 // uitls
-import { __DEV__ } from '@utils/assetions'
+import { __DEV__ } from '@utils/assertions'
 import { darkTheme, lightTheme } from './stitches.config'
 import ThemeContext, { IThemeContext, ThemeType } from './theme-context'
 

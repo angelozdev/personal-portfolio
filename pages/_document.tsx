@@ -1,7 +1,7 @@
 import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { processCSS } from '@utils/css'
-import { __DEV__ } from '@utils/assetions'
+import { __DEV__ } from '@utils/assertions'
 import { getCssText } from '@theme'
 
 // types
@@ -45,7 +45,7 @@ class MyDocument extends Document {
             crossOrigin=""
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap"
             rel="stylesheet"
           />
         </Head>

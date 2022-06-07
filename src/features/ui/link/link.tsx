@@ -2,7 +2,7 @@ import React from 'react'
 import { useLink } from '@react-aria/link'
 import { mergeProps } from '@react-aria/utils'
 import { StyledAnchor } from './link.styles'
-import { __DEV__ } from '@utils/assetions'
+import { __DEV__ } from '@utils/assertions'
 
 // types
 import type { AriaLinkProps } from '@react-types/link'

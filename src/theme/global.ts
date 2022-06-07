@@ -2,7 +2,8 @@ import { globalCss } from './stitches.config'
 
 const globalStyles = globalCss({
   body: {
-    fontFamily: '$inter'
+    fontFamily: '$inter',
+    bg: '$background'
   }
 })
 
