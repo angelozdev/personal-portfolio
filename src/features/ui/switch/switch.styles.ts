@@ -17,10 +17,11 @@ export const StyledSwitch = styled('label', {
 })
 
 export const StyledSlider = styled('span', {
+  $$background: '$colors$accent3',
   position: 'absolute',
   cursor: 'pointer',
   inset: '0',
-  backgroundColor: '$gray500',
+  backgroundColor: '$$background',
   transition: '$base',
   borderRadius: SWITCH_HEIGHT + 'rem',
   '&:before': {
@@ -33,7 +34,7 @@ export const StyledSlider = styled('span', {
     backgroundColor: 'white',
     transition: '$base',
     borderRadius: '$rounded',
-    border: '$space$1 solid $gray500',
+    border: '$space$1 solid $$background',
     zIndex: '$1'
   },
   '&:after': {
@@ -51,7 +52,7 @@ export const StyledSlider = styled('span', {
     visibility: 'hidden'
   },
   variants: {
-    color: { primary: {}, red: {}, blue: {} },
+    color: { success: {} },
     isSelected: {
       true: {
         '&:before': {
@@ -69,20 +70,12 @@ export const StyledSlider = styled('span', {
   compoundVariants: [
     {
       isSelected: true,
-      color: 'primary',
+      color: 'success',
       css: {
-        backgroundColor: '$blue400',
-        '&:before': { borderColor: '$blue400' },
-        '&:after': { background: '$blue400' }
-      }
-    },
-    {
-      isSelected: true,
-      color: 'blue',
-      css: {
-        backgroundColor: '$blue400',
-        '&:before': { borderColor: '$blue400' },
-        '&:after': { background: '$blue400' }
+        $$background: '$colors$success',
+        backgroundColor: '$$background',
+        '&:before': { borderColor: '$$background' },
+        '&:after': { background: '$$background' }
       }
     },
     {
@@ -96,7 +89,7 @@ export const StyledSlider = styled('span', {
     }
   ],
   defaultVariants: {
-    color: 'primary',
+    color: 'success',
     isSelected: false
   }
 })

@@ -26,8 +26,8 @@ export const StyledTitle = styled('h1', {
 export const StyledSubtitle = styled('h2', {
   fontWeight: '$thin',
   m: '$0',
-  fontSize: 'clamp($xs, 4vmin, $md)',
-  color: '$gray800'
+  fontSize: 'clamp($xs, 4vmin, $sm)',
+  color: '$accent5'
 })
 
 if (__DEV__) {

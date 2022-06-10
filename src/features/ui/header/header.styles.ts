@@ -8,11 +8,11 @@ export const StyledWrapper = styled('div', {
 })
 
 export const StyleContainer = styled('header', {
-  bg: '$background',
   borderBottom: '$space$px solid',
-  borderColor: '$gray200',
+  borderColor: '$accent1',
   position: 'sticky',
-  top: 0
+  top: 0,
+  bg: '$background'
 })
 
 export const StyledGrid = styled('div', {

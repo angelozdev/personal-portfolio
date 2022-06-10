@@ -3,7 +3,11 @@ import { globalCss } from './stitches.config'
 const globalStyles = globalCss({
   body: {
     fontFamily: '$inter',
-    bg: '$background'
+    bg: '$background',
+    '::selection': {
+      bg: '$blue4',
+      color: '$accent1'
+    }
   }
 })
 

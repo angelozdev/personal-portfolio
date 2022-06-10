@@ -1,3 +1,2 @@
-export * from './blue'
-export * from './gray'
-export * from './red'
+export * from './accents'
+export * from './success'
