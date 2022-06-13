@@ -1,7 +1,9 @@
-import React from 'react'
 import { ThemeProvider } from '@theme'
 
-function withThemeProvider<T>(Component: React.ComponentType<T>) {
+// types
+import { ComponentType } from 'react'
+
+function withThemeProvider<T>(Component: ComponentType<T>): ComponentType<T> {
   return function WithThemeProvider(props: T) {
     return (
       <ThemeProvider>

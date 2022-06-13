@@ -10,7 +10,7 @@ export const StyledContainer = styled('section', {
   bg: '$background'
 })
 
-export const StyledWrapper = styled('div', {
+export const StyledLayout = styled('div', {
   textAlign: 'center',
   display: 'flex',
   flexDirection: 'column',
@@ -32,7 +32,7 @@ export const StyledSubtitle = styled('h2', {
 
 if (__DEV__) {
   StyledContainer.displayName = '$Container'
-  StyledWrapper.displayName = '$Wrapper'
+  StyledLayout.displayName = '$HeroLayout'
   StyledTitle.displayName = '$Title'
   StyledSubtitle.displayName = '$Subtitle'
 }

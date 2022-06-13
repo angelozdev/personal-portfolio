@@ -1,7 +1,8 @@
 // components
 import { Switch } from '../switch'
-import { StyleContainer, StyledWrapper, StyledGrid } from './header.styles'
 import { Navigation } from './navigation'
+import { Wrapper } from '../wrapper'
+import { StyleContainer, StyledGrid } from './header.styles'
 
 // utils
 import { useTheme } from '@hooks'
@@ -12,7 +13,7 @@ function Header() {
 
   return (
     <StyleContainer>
-      <StyledWrapper>
+      <Wrapper>
         <StyledGrid>
           <div>
             <span role="img">AZ</span>
@@ -26,7 +27,7 @@ function Header() {
             />
           </div>
         </StyledGrid>
-      </StyledWrapper>
+      </Wrapper>
     </StyleContainer>
   )
 }

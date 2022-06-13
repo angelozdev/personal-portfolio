@@ -1,5 +1,7 @@
+import { TechSection } from '@features/ui'
+
 function SkillsPage() {
-  return <div>SkillsPage</div>
+  return <TechSection title="Frontend Technologies." />
 }
 
 export default SkillsPage

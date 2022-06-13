@@ -1,8 +1,9 @@
+import { Wrapper } from '../wrapper'
 import {
   StyledContainer,
+  StyledLayout,
   StyledSubtitle,
-  StyledTitle,
-  StyledWrapper
+  StyledTitle
 } from './hero.styles'
 
 interface Props {
@@ -13,12 +14,14 @@ interface Props {
 function Hero({ subtitle, title }: Props) {
   return (
     <StyledContainer>
-      <StyledWrapper>
-        <StyledTitle title={title}>{title}</StyledTitle>
-        {subtitle && (
-          <StyledSubtitle title={subtitle}>{subtitle}</StyledSubtitle>
-        )}
-      </StyledWrapper>
+      <Wrapper>
+        <StyledLayout>
+          <StyledTitle title={title}>{title}</StyledTitle>
+          {subtitle && (
+            <StyledSubtitle title={subtitle}>{subtitle}</StyledSubtitle>
+          )}
+        </StyledLayout>
+      </Wrapper>
     </StyledContainer>
   )
 }

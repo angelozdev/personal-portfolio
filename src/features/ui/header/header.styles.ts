@@ -1,12 +1,6 @@
 import { styled } from '@theme'
 import { __DEV__ } from '@utils/assertions'
 
-export const StyledWrapper = styled('div', {
-  p: '$8',
-  maxWidth: '$bp$md',
-  mx: 'auto'
-})
-
 export const StyleContainer = styled('header', {
   borderBottom: '$space$px solid',
   borderColor: '$accent1',
@@ -25,5 +19,4 @@ export const StyledGrid = styled('div', {
 if (__DEV__) {
   StyleContainer.displayName = '$HeaderContainer'
   StyledGrid.displayName = '$HeaderGrid'
-  StyledWrapper.displayName = '$HeaderWrapper'
 }

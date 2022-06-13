@@ -1,5 +1,5 @@
-import { Hero } from '@features/ui'
 import Head from 'next/head'
+import { Hero } from '@features/ui'
 
 function Home() {
   return (
