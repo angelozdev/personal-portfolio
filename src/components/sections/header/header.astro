@@ -1,4 +1,5 @@
 ---
+import Anchor from "../../common/anchor.astro";
 import Container from "../../common/container.astro";
 
 interface IItem {
@@ -6,14 +7,35 @@ interface IItem {
   label: string;
 }
 
+enum Sections {
+  HERO = "hero",
+  ABOUT = "about",
+  PROJECTS = "projects",
+  SKILLS = "skills",
+  EXPERIENCE = "experience",
+  CONTACT = "contact",
+}
+
 const items: IItem[] = [
   {
-    path: "/",
-    label: "Home",
+    path: `#${Sections.ABOUT}`,
+    label: "About",
   },
   {
-    path: "/about-me",
-    label: "About Me",
+    path: `#${Sections.PROJECTS}`,
+    label: "Projects",
+  },
+  {
+    path: `#${Sections.SKILLS}`,
+    label: "Skills",
+  },
+  {
+    path: `#${Sections.EXPERIENCE}`,
+    label: "Experience",
+  },
+  {
+    path: `#${Sections.CONTACT}`,
+    label: "Contact",
   },
 ];
 ---
@@ -21,8 +43,17 @@ const items: IItem[] = [
 <header class="header">
   <Container>
     <nav class="header__nav">
+      <span>A</span>
       <ul class="header__list">
-        {items.map(({ label, path }) => <li class="header__item">{label}</li>)}
+        {
+          items.map(({ label, path }) => (
+            <li class="header__item">
+              <Anchor fontSize="lg" fontWeight="bold" href={path}>
+                {label}
+              </Anchor>
+            </li>
+          ))
+        }
       </ul>
     </nav>
   </Container>
@@ -30,13 +61,18 @@ const items: IItem[] = [
 
 <style>
   .header {
-    padding: 0;
-    margin: 0;
+    padding: var(--space-0);
+    margin: var(--space-0);
   }
 
   .header__list {
-    padding: 0;
-    margin: 0;
+    padding: var(--space-0);
+    margin: var(--space-0);
     list-style: none;
+    display: flex;
+  }
+
+  .header__item {
+    margin: 0 var(--space-4);
   }
 </style>

@@ -1,0 +1,71 @@
+---
+interface Props {
+  href?: string;
+  fontWeight?: "normal" | "medium" | "bold";
+  fontSize?: "xs" | "sm" | "base" | "lg" | "xl";
+}
+
+const { href = "/", fontWeight = "normal", fontSize = "base" } = Astro.props;
+---
+
+<a
+  class:list={[
+    "anchor",
+    `anchor--weight-${fontWeight}`,
+    `anchor--size-${fontSize}`,
+  ]}
+  href={href}
+>
+  <slot />
+</a>
+
+<style>
+  .anchor {
+    text-decoration: none;
+    padding: var(--space-1) var(--space-2);
+    color: var(--color-text);
+    border-radius: var(--radius-sm);
+    transition:
+      background-color var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .anchor:hover {
+    background-color: var(--color-text);
+    color: var(--color-background);
+  }
+
+  /* Font weights */
+  .anchor--weight-normal {
+    font-weight: var(--font-normal);
+  }
+
+  .anchor--weight-medium {
+    font-weight: var(--font-medium);
+  }
+
+  .anchor--weight-bold {
+    font-weight: var(--font-bold);
+  }
+
+  /* Font sizes */
+  .anchor--size-xs {
+    font-size: var(--text-xs);
+  }
+
+  .anchor--size-sm {
+    font-size: var(--text-sm);
+  }
+
+  .anchor--size-base {
+    font-size: var(--text-base);
+  }
+
+  .anchor--size-lg {
+    font-size: var(--text-lg);
+  }
+
+  .anchor--size-xl {
+    font-size: var(--text-xl);
+  }
+</style>
