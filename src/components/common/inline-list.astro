@@ -1,0 +1,40 @@
+---
+interface Props {
+  items: string[];
+  separator?: string;
+}
+
+const { items, separator = "·" } = Astro.props;
+---
+
+<ul class="inline-list">
+  {
+    items.map((item) => (
+      <li class="inline-list__item" data-separator={separator}>
+        <span>{item}</span>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .inline-list {
+    display: flex;
+    gap: var(--space-3);
+    list-style: none;
+    padding: var(--space-0);
+    margin: var(--space-0);
+  }
+
+  .inline-list__item {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: var(--font-normal);
+    color: var(--color-text-muted);
+  }
+
+  .inline-list__item:not(:last-child)::after {
+    content: attr(data-separator);
+    margin-left: var(--space-3);
+  }
+</style>

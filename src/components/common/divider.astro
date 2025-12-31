@@ -1,0 +1,29 @@
+---
+interface Props {
+  spacing?: "sm" | "md" | "lg";
+}
+
+const { spacing = "md" } = Astro.props;
+---
+
+<hr class:list={["divider", `divider--${spacing}`]} />
+
+<style>
+  .divider {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    width: 100%;
+  }
+
+  .divider--sm {
+    margin: var(--space-2) var(--space-0);
+  }
+
+  .divider--md {
+    margin: var(--space-3) var(--space-0);
+  }
+
+  .divider--lg {
+    margin: var(--space-4) var(--space-0);
+  }
+</style>

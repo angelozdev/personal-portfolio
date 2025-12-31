@@ -1,7 +1,7 @@
 :root {
   /* Font families */
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-mono: ui-monospace, monospace;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
   /* Font sizes */
   --text-xs: 0.75rem;

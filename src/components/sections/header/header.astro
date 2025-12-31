@@ -1,19 +1,11 @@
 ---
 import Anchor from "../../common/anchor.astro";
 import Container from "../../common/container.astro";
+import { Sections } from "../../../constants/sections";
 
 interface IItem {
   path: string;
   label: string;
-}
-
-enum Sections {
-  HERO = "hero",
-  ABOUT = "about",
-  PROJECTS = "projects",
-  SKILLS = "skills",
-  EXPERIENCE = "experience",
-  CONTACT = "contact",
 }
 
 const items: IItem[] = [
@@ -43,12 +35,12 @@ const items: IItem[] = [
 <header class="header">
   <Container>
     <nav class="header__nav">
-      <span>A</span>
+      <span class="header__logo">Angelo Z</span>
       <ul class="header__list">
         {
           items.map(({ label, path }) => (
             <li class="header__item">
-              <Anchor fontSize="lg" fontWeight="bold" href={path}>
+              <Anchor fontSize="lg" fontWeight="medium" href={path}>
                 {label}
               </Anchor>
             </li>
@@ -63,6 +55,19 @@ const items: IItem[] = [
   .header {
     padding: var(--space-0);
     margin: var(--space-0);
+    background-color: var(--color-background);
+  }
+
+  .header__logo {
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--text-sm);
+    border: 1px solid var(--color-border);
+  }
+
+  .header__nav {
+    display: flex;
+    padding: var(--space-5) var(--space-0);
+    align-items: center;
   }
 
   .header__list {

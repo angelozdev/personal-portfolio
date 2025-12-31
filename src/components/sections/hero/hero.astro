@@ -1,16 +1,43 @@
 ---
+import Button from "../../common/button.astro";
 import Container from "../../common/container.astro";
+import InlineList from "../../common/inline-list.astro";
+import { stack } from "../../../data/stack";
+import { metrics } from "../../../data/metrics";
+import { Sections } from "../../../constants/sections";
+import Divider from "../../common/divider.astro";
 ---
 
-<section class="hero">
-  <Container>
-    <div class="hero__content">
-      <h1 class="hero__name"></h1>
-      <p class="hero__title"></p>
-      <p class="hero__metric"></p>
-      <div class="hero__cta">
-        <a href="#" class="hero__button hero__button--primary"></a>
-        <a href="#" class="hero__button hero__button--secondary"></a>
+<section class="hero" id={Sections.HERO}>
+  <Container maxWidth="md">
+    <div class="hero__wrapper">
+      <div class="hero__photo">
+        <img
+          src="/angelozam.jpeg"
+          alt="Angelo Zambrano"
+          class="hero__image"
+        />
+      </div>
+      <div class="hero__content">
+        <div>
+          <h1 class="hero__name">Angelo Zambrano</h1>
+          <Divider />
+          <p class="hero__title">Senior Software Engineer & Mobile Team Lead</p>
+        </div>
+        <ul class="hero__metrics">
+          {metrics.map((metric) => <li>{metric}</li>)}
+        </ul>
+        <div class="hero__cta">
+          <Button href={`#${Sections.PROJECTS}`} variant="primary"
+            >Ver proyectos</Button
+          >
+          <Button href={`#${Sections.CONTACT}`} variant="secondary"
+            >Contactar</Button
+          >
+        </div>
+        <div class="hero__stack">
+          <InlineList items={stack} />
+        </div>
       </div>
     </div>
   </Container>
@@ -18,29 +45,81 @@ import Container from "../../common/container.astro";
 
 <style>
   .hero {
+    padding: var(--space-20) var(--space-0);
+  }
+
+  .hero__wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-16);
+  }
+
+  .hero__photo {
+    flex-shrink: 0;
+  }
+
+  .hero__image {
+    width: 200px;
+    height: 200px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    background-color: var(--color-gray-200);
   }
 
   .hero__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
   }
 
   .hero__name {
+    font-family: var(--font-mono);
+    font-size: var(--text-4xl);
+    font-weight: var(--font-bold);
+    color: var(--color-text);
+    margin: var(--space-0);
+    letter-spacing: var(--tracking-tight);
+    text-transform: uppercase;
   }
 
   .hero__title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-normal);
+    color: var(--color-text);
+    margin: var(--space-0);
+    line-height: var(--leading-relaxed);
   }
 
-  .hero__metric {
+  .hero__metrics {
+    font-size: var(--text-base);
+    font-weight: var(--font-normal);
+    color: var(--color-text-muted);
+    margin: var(--space-0);
+    padding-left: var(--space-5);
+    line-height: var(--leading-relaxed);
+    list-style: disc;
+  }
+
+  .hero__metrics li {
+    margin-bottom: var(--space-1);
   }
 
   .hero__cta {
+    display: flex;
+    gap: var(--space-3);
   }
 
-  .hero__button {
+  .hero__stack {
   }
 
-  .hero__button--primary {
-  }
+  @media (max-width: 768px) {
+    .hero__wrapper {
+      flex-direction: column;
+      text-align: center;
+    }
 
-  .hero__button--secondary {
+    .hero__cta {
+      justify-content: center;
+    }
   }
 </style>

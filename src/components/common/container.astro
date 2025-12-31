@@ -1,13 +1,44 @@
-<div class="container">
+---
+interface Props {
+  maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl" | "full";
+}
+
+const { maxWidth = "xl" } = Astro.props;
+---
+
+<div class:list={["container", `container--${maxWidth}`]}>
   <slot />
 </div>
 
 <style>
   .container {
-    max-width: 1080px;
     width: 100%;
     padding: var(--space-0) var(--space-4);
     margin: var(--space-0) auto;
     box-sizing: border-box;
+  }
+
+  .container--sm {
+    max-width: var(--breakpoint-sm);
+  }
+
+  .container--md {
+    max-width: var(--breakpoint-md);
+  }
+
+  .container--lg {
+    max-width: var(--breakpoint-lg);
+  }
+
+  .container--xl {
+    max-width: var(--breakpoint-xl);
+  }
+
+  .container--2xl {
+    max-width: var(--breakpoint-2xl);
+  }
+
+  .container--full {
+    max-width: 100%;
   }
 </style>
