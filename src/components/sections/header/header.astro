@@ -1,0 +1,42 @@
+---
+import Container from "../../common/container.astro";
+
+interface IItem {
+  path: string;
+  label: string;
+}
+
+const items: IItem[] = [
+  {
+    path: "/",
+    label: "Home",
+  },
+  {
+    path: "/about-me",
+    label: "About Me",
+  },
+];
+---
+
+<header class="header">
+  <Container>
+    <nav class="header__nav">
+      <ul class="header__list">
+        {items.map(({ label, path }) => <li class="header__item">{label}</li>)}
+      </ul>
+    </nav>
+  </Container>
+</header>
+
+<style>
+  .header {
+    padding: 0;
+    margin: 0;
+  }
+
+  .header__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+</style>
