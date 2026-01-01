@@ -1,0 +1,57 @@
+---
+import { Sun, Moon } from "lucide-astro";
+import type { ThemeToggleData } from "../get-theme-toggle-data";
+
+interface Props {
+  data: ThemeToggleData;
+}
+
+const { data } = Astro.props;
+---
+
+<button type="button" class="theme-toggle" aria-label={data.ariaLabel}>
+  <Sun class="theme-toggle__icon theme-toggle__icon--sun" size={20} />
+  <Moon class="theme-toggle__icon theme-toggle__icon--moon" size={20} />
+</button>
+
+<script>
+  import initThemeToggle from "../theme-toggle-client";
+  initThemeToggle();
+</script>
+
+<style>
+  .theme-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: transform var(--transition-fast);
+  }
+
+  .theme-toggle:hover {
+    transform: scale(1.1);
+  }
+
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--color-primary-focus);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  .theme-toggle__icon {
+    position: absolute;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+  }
+
+  .theme-toggle__icon--active {
+    opacity: 1;
+  }
+</style>

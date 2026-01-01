@@ -3,7 +3,7 @@ import { Menu } from "lucide-astro";
 import Anchor from "../../../common/anchor.astro";
 import Popover from "../../../common/popover.astro";
 import Switcher from "../../../common/switcher.astro";
-import ThemeToggle from "../../../common/theme-toggle.astro";
+import ThemeToggle from "../../../common/theme-toggle/theme-toggle.astro";
 
 interface NavItem {
   href: string;
@@ -20,10 +20,9 @@ interface LangItem {
 interface Props {
   navItems: NavItem[];
   langItems: LangItem[];
-  themeToggleLabel: string;
 }
 
-const { navItems, langItems, themeToggleLabel } = Astro.props;
+const { navItems, langItems } = Astro.props;
 ---
 
 <div class="mobile-nav">
@@ -41,7 +40,7 @@ const { navItems, langItems, themeToggleLabel } = Astro.props;
       }
     </ul>
     <div class="mobile-nav__controls">
-      <ThemeToggle ariaLabel={themeToggleLabel} />
+      <ThemeToggle />
       <Switcher items={langItems} ariaLabel="Language" />
     </div>
   </Popover>

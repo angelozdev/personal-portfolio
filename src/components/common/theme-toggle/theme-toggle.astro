@@ -1,0 +1,9 @@
+---
+import ThemeToggleView from "./components/theme-toggle-view.astro";
+import getThemeToggleData from "./get-theme-toggle-data";
+import { defaultLocale } from "../../../i18n/utils";
+
+const data = getThemeToggleData(Astro.currentLocale ?? defaultLocale);
+---
+
+<ThemeToggleView data={data} />

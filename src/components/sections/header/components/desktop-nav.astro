@@ -1,7 +1,7 @@
 ---
 import Anchor from "../../../common/anchor.astro";
 import Switcher from "../../../common/switcher.astro";
-import ThemeToggle from "../../../common/theme-toggle.astro";
+import ThemeToggle from "../../../common/theme-toggle/theme-toggle.astro";
 
 interface NavItem {
   href: string;
@@ -18,10 +18,9 @@ interface LangItem {
 interface Props {
   navItems: NavItem[];
   langItems: LangItem[];
-  themeToggleLabel: string;
 }
 
-const { navItems, langItems, themeToggleLabel } = Astro.props;
+const { navItems, langItems } = Astro.props;
 ---
 
 <ul class="desktop-nav">
@@ -36,7 +35,7 @@ const { navItems, langItems, themeToggleLabel } = Astro.props;
   }
 </ul>
 <div class="desktop-nav__controls">
-  <ThemeToggle ariaLabel={themeToggleLabel} />
+  <ThemeToggle />
   <Switcher items={langItems} ariaLabel="Language" class="desktop-nav__lang" />
 </div>
 

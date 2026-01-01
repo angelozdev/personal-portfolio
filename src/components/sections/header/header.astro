@@ -8,12 +8,10 @@ import {
   type Locale,
   defaultLocale,
   getLocalizedPath,
-  getTranslations,
 } from "../../../i18n/utils";
 
 const currentLocale = Astro.currentLocale ?? defaultLocale;
 const navItems = getNavItems(currentLocale);
-const t = getTranslations(currentLocale);
 
 const langLabels: Record<Locale, string> = { es: "ES", en: "EN" };
 const langItems = locales.map((locale) => ({
@@ -28,8 +26,8 @@ const langItems = locales.map((locale) => ({
   <Container>
     <nav class="header__nav">
       <span class="header__logo">AZ</span>
-      <DesktopNav navItems={navItems} langItems={langItems} themeToggleLabel={t("theme.toggle")} />
-      <MobileNav navItems={navItems} langItems={langItems} themeToggleLabel={t("theme.toggle")} />
+      <DesktopNav navItems={navItems} langItems={langItems} />
+      <MobileNav navItems={navItems} langItems={langItems} />
     </nav>
   </Container>
 </header>
