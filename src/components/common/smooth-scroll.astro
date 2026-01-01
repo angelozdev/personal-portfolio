@@ -10,6 +10,17 @@
     smoothWheel: true,
   });
 
+  // Handle anchor links for smooth scrolling
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      e.preventDefault();
+      const href = anchor.getAttribute("href");
+      if (href) {
+        lenis.scrollTo(href);
+      }
+    });
+  });
+
   function raf(time: number) {
     lenis.raf(time);
     requestAnimationFrame(raf);

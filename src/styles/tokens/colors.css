@@ -25,15 +25,26 @@
   --color-primary-800: #1e40af;
   --color-primary-900: #1e3a8a;
 
+  /* Success */
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+
   /* Semantic */
   --color-text: #33332d;
   --color-text-muted: var(--color-gray-600);
   --color-background: var(--color-white);
   --color-surface: var(--color-gray-50);
   --color-border: var(--color-gray-200);
+  --color-success: var(--color-success-500);
 
   /* Semantic primary (themeable) */
   --color-primary: var(--color-primary-500);
   --color-primary-hover: var(--color-primary-600);
   --color-primary-focus: var(--color-primary-500);
+
+  /* Button */
+  --color-button-primary-bg: var(--color-gray-900);
+  --color-button-primary-bg-hover: var(--color-gray-700);
+  --color-button-primary-text: var(--color-white);
 }

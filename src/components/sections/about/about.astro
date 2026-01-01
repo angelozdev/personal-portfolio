@@ -1,21 +1,9 @@
 ---
-import Container from "../../common/container.astro";
+import AboutView from "./components/about-view.astro";
+import getAboutData from "./get-about-data";
+import { defaultLocale } from "../../../i18n/utils";
+
+const aboutData = getAboutData(Astro.currentLocale ?? defaultLocale);
 ---
 
-<section class="about">
-  <Container>
-    <h2 class="about__heading"></h2>
-    <p class="about__text"></p>
-  </Container>
-</section>
-
-<style>
-  .about {
-  }
-
-  .about__heading {
-  }
-
-  .about__text {
-  }
-</style>
+<AboutView data={aboutData} />

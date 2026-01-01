@@ -1,0 +1,149 @@
+---
+import Container from "../../../common/container.astro";
+import Divider from "../../../common/divider.astro";
+import type { AboutData } from "../get-about-data";
+
+interface Props {
+  data: AboutData;
+}
+
+const { data } = Astro.props;
+---
+
+<section class="about" id={data.sectionId}>
+  <Container>
+    <div class="about__content">
+      <p class="about__comment">{data.commentLabel}</p>
+      <h2 class="about__headline">{data.headline}</h2>
+
+      <div class="about__paragraphs">
+        {
+          data.paragraphs.map((paragraph) => (
+            <p class="about__paragraph">{paragraph}</p>
+          ))
+        }
+      </div>
+
+      <Divider />
+
+      <div class="about__stats">
+        {
+          data.stats.map((stat) => (
+            <div class="about__stat">
+              {stat.value && <div class="about__stat-value">{stat.value}</div>}
+              <div class="about__stat-label">{stat.label}</div>
+            </div>
+          ))
+        }
+      </div>
+
+      <Divider />
+
+      <div class="about__availability">
+        <span class="about__availability-indicator" aria-hidden="true"></span>
+        <span class="about__availability-label">{data.availability.label}</span>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .about {
+    padding: var(--space-20) var(--space-0);
+  }
+
+  .about__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .about__comment {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: var(--space-0);
+  }
+
+  .about__headline {
+    font-family: var(--font-sans);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text);
+    margin: var(--space-0);
+  }
+
+  .about__paragraphs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .about__paragraph {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text);
+    margin: var(--space-0);
+  }
+
+  .about__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .about__stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .about__stat-value {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-text);
+  }
+
+  .about__stat-label {
+    font-size: var(--text-sm);
+    font-weight: var(--font-normal);
+    color: var(--color-text-muted);
+  }
+
+  .about__availability {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .about__availability-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-success);
+  }
+
+  .about__availability-label {
+    font-size: var(--text-sm);
+    color: var(--color-text);
+  }
+
+  @media (max-width: 768px) {
+    .about__headline {
+      font-size: var(--text-2xl);
+    }
+
+    .about__stats {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .about__stat {
+      flex-direction: row;
+      align-items: baseline;
+      gap: var(--space-2);
+    }
+  }
+</style>
