@@ -1,0 +1,43 @@
+---
+import Badge from "./badge.astro";
+
+interface Props {
+  code: string;
+  language?: string;
+}
+
+const { code, language } = Astro.props;
+---
+
+<div class="code-snippet">
+  {language && <Badge class="code-snippet__badge">{language}</Badge>}
+  <pre class="code-snippet__pre"><code>{code}</code></pre>
+</div>
+
+<style>
+  .code-snippet {
+    position: relative;
+  }
+
+  .code-snippet__badge {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
+  }
+
+  .code-snippet__pre {
+    margin: var(--space-0);
+    padding: var(--space-4);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    overflow-x: auto;
+  }
+
+  .code-snippet__pre code {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text);
+  }
+</style>

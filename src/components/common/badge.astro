@@ -1,13 +1,15 @@
 ---
-interface Props {
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"span"> {
   color?: "default" | "primary" | "success" | "warning" | "error";
   size?: "sm" | "md";
 }
 
-const { color = "default", size = "sm" } = Astro.props;
+const { color = "default", size = "sm", class: className, ...rest } = Astro.props;
 ---
 
-<span class:list={["badge", `badge--${color}`, `badge--${size}`]}>
+<span class:list={["badge", `badge--${color}`, `badge--${size}`, className]} {...rest}>
   <slot />
 </span>
 

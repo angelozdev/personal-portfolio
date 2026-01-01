@@ -1,5 +1,6 @@
 ---
 import { ExternalLink } from "lucide-astro";
+import CodeSnippet from "../../../common/code-snippet.astro";
 import InlineList from "../../../common/inline-list.astro";
 import Link from "../../../common/link.astro";
 import type { OSSProject } from "../get-projects-data";
@@ -17,9 +18,7 @@ const { project } = Astro.props;
 
   {
     project.codeSnippet && (
-      <pre class="oss-card__snippet">
-        <code>{project.codeSnippet}</code>
-      </pre>
+      <CodeSnippet code={project.codeSnippet} language={project.codeLanguage} />
     )
   }
 
@@ -68,22 +67,6 @@ const { project } = Astro.props;
     line-height: var(--leading-relaxed);
     color: var(--color-text);
     margin: var(--space-0);
-  }
-
-  .oss-card__snippet {
-    margin: var(--space-0);
-    padding: var(--space-4);
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    overflow-x: auto;
-  }
-
-  .oss-card__snippet code {
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    line-height: var(--leading-relaxed);
-    color: var(--color-text);
   }
 
   .oss-card__links {

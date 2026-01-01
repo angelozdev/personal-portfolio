@@ -29,6 +29,7 @@ export interface OSSProject {
 	name: string;
 	description: string;
 	codeSnippet?: string;
+	codeLanguage?: string;
 	techStack: string[];
 	links: ProjectLink[];
 	featured: boolean;
@@ -124,6 +125,7 @@ export default function getProjectsData(lang: string): ProjectsData {
 			description: t("projects.oss.rustifyTs.description"),
 			techStack: parseTechStack("projects.oss.rustifyTs.techStack"),
 			codeSnippet: t("projects.oss.rustifyTs.codeSnippet"),
+			codeLanguage: "typescript",
 			links: buildLinks("projects.oss.rustifyTs"),
 			featured: false,
 		},
@@ -132,6 +134,7 @@ export default function getProjectsData(lang: string): ProjectsData {
 			description: t("projects.oss.chronoConvert.description"),
 			techStack: parseTechStack("projects.oss.chronoConvert.techStack"),
 			codeSnippet: t("projects.oss.chronoConvert.codeSnippet"),
+			codeLanguage: "typescript",
 			links: buildLinks("projects.oss.chronoConvert"),
 			featured: false,
 		},
