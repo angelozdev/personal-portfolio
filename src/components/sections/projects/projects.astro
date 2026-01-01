@@ -1,37 +1,9 @@
 ---
-import Container from "../../common/container.astro";
+import { defaultLocale } from "../../../i18n/utils";
+import ProjectsView from "./components/projects-view.astro";
+import getProjectsData from "./get-projects-data";
+
+const projectsData = getProjectsData(Astro.currentLocale ?? defaultLocale);
 ---
 
-<section class="projects">
-  <Container>
-    <h2 class="projects__heading"></h2>
-    <ul class="projects__list">
-      <li class="projects__item">
-        <article class="projects__card"></article>
-      </li>
-      <li class="projects__item">
-        <article class="projects__card"></article>
-      </li>
-      <li class="projects__item">
-        <article class="projects__card"></article>
-      </li>
-    </ul>
-  </Container>
-</section>
-
-<style>
-  .projects {
-  }
-
-  .projects__heading {
-  }
-
-  .projects__list {
-  }
-
-  .projects__item {
-  }
-
-  .projects__card {
-  }
-</style>
+<ProjectsView data={projectsData} />

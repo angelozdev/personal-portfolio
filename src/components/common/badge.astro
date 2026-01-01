@@ -1,0 +1,104 @@
+---
+interface Props {
+  color?: "default" | "primary" | "success" | "warning" | "error";
+  size?: "sm" | "md";
+}
+
+const { color = "default", size = "sm" } = Astro.props;
+---
+
+<span class:list={["badge", `badge--${color}`, `badge--${size}`]}>
+  <slot />
+</span>
+
+<style>
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-weight: var(--font-semibold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+  }
+
+  /* Sizes */
+  .badge--sm {
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--text-xs);
+  }
+
+  .badge--md {
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--text-sm);
+  }
+
+  /* Colors */
+  .badge--default {
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+  }
+
+  .badge--primary {
+    color: var(--color-primary-900);
+    background-color: var(--color-primary-100);
+    border: 1px solid var(--color-primary-200);
+  }
+
+  .badge--success {
+    color: var(--color-success-600);
+    background-color: var(--color-success-50);
+    border: 1px solid var(--color-success-200);
+  }
+
+  .badge--warning {
+    color: var(--color-warning-600);
+    background-color: var(--color-warning-50);
+    border: 1px solid var(--color-warning-200);
+  }
+
+  .badge--error {
+    color: var(--color-error-600);
+    background-color: var(--color-error-50);
+    border: 1px solid var(--color-error-200);
+  }
+
+  /* Dark mode adjustments */
+  :global([data-theme="dark"]) .badge--primary {
+    color: var(--color-primary-200);
+    background-color: var(--color-primary-900);
+    border-color: var(--color-primary-700);
+  }
+
+  :global([data-theme="dark"]) .badge--success {
+    color: var(--color-success-400);
+    background-color: color-mix(
+      in srgb,
+      var(--color-success-500) 10%,
+      transparent
+    );
+    border-color: color-mix(in srgb, var(--color-success-500) 30%, transparent);
+  }
+
+  :global([data-theme="dark"]) .badge--warning {
+    color: var(--color-warning-400);
+    background-color: color-mix(
+      in srgb,
+      var(--color-warning-500) 10%,
+      transparent
+    );
+    border-color: color-mix(in srgb, var(--color-warning-500) 30%, transparent);
+  }
+
+  :global([data-theme="dark"]) .badge--error {
+    color: var(--color-error-400);
+    background-color: color-mix(
+      in srgb,
+      var(--color-error-500) 10%,
+      transparent
+    );
+    border-color: color-mix(in srgb, var(--color-error-500) 30%, transparent);
+  }
+</style>

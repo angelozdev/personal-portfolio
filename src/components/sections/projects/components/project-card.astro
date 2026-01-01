@@ -1,0 +1,167 @@
+---
+import { ExternalLink } from "lucide-astro";
+import Badge from "../../../common/badge.astro";
+import InlineList from "../../../common/inline-list.astro";
+import Link from "../../../common/link.astro";
+import type { ProjectLink } from "../get-projects-data";
+
+interface Props {
+  project: {
+    name: string;
+    badge?: string;
+    description: string;
+    techStack: string[];
+    image: {
+      src: string;
+      alt: string;
+    };
+    links: ProjectLink[];
+  };
+}
+
+const { project } = Astro.props;
+---
+
+<div class="project-card-container">
+  <article class="project-card">
+    <div class="project-card__image-wrapper">
+      <img
+        src={project.image.src}
+        alt={project.image.alt}
+        class="project-card__image"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="project-card__content">
+      <div class="project-card__header">
+        <h3 class="project-card__name">{project.name}</h3>
+        {project.badge && <Badge>{project.badge}</Badge>}
+      </div>
+
+      <p class="project-card__description">{project.description}</p>
+
+      <InlineList items={project.techStack} />
+
+      <div class="project-card__links">
+        {
+          project.links.map((link) => (
+            <Link href={link.url} external={link.external} label={link.label}>
+              {link.label}
+              {link.external && (
+                <ExternalLink slot="suffix" size={14} aria-hidden="true" />
+              )}
+            </Link>
+          ))
+        }
+      </div>
+    </div>
+  </article>
+</div>
+
+<style>
+  .project-card-container {
+    container-type: inline-size;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-bg-secondary);
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+
+  .project-card:hover {
+    border-color: var(--color-border-hover);
+  }
+
+  .project-card__image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: var(--color-bg);
+  }
+
+  .project-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover .project-card__image {
+    transform: scale(1.05);
+  }
+
+  .project-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-6);
+  }
+
+  .project-card__header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .project-card__name {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--color-text);
+    margin: var(--space-0);
+  }
+
+  .project-card__description {
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text);
+    margin: var(--space-0);
+  }
+
+  .project-card__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: auto;
+  }
+
+  @container (min-width: 640px) {
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: var(--radius-lg);
+    }
+
+    .project-card__image-wrapper {
+      aspect-ratio: 4 / 3;
+    }
+
+    .project-card__content {
+      padding: var(--space-8);
+      justify-content: center;
+    }
+
+    .project-card__header {
+      justify-content: space-between;
+    }
+
+    .project-card__name {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-bold);
+    }
+
+    .project-card__description {
+      font-size: var(--text-base);
+    }
+
+    .project-card__links {
+      margin-top: var(--space-2);
+    }
+  }
+</style>

@@ -1,0 +1,129 @@
+---
+import Container from "../../../common/container.astro";
+import Divider from "../../../common/divider.astro";
+import OssCard from "./oss-card.astro";
+import ProjectCard from "./project-card.astro";
+import type { ProjectsData } from "../get-projects-data";
+
+interface Props {
+  data: ProjectsData;
+}
+
+const { data } = Astro.props;
+---
+
+<section class="projects" id={data.sectionId}>
+  <Container>
+    <div class="projects__content">
+      <p class="projects__comment">{data.commentLabel}</p>
+      <h2 class="projects__headline">{data.headline}</h2>
+
+      {
+        data.projects.length > 0 && (
+          <div class="projects__grid">
+            {data.projects.map((project) => (
+              <div
+                class:list={[
+                  "projects__item",
+                  { "projects__item--featured": project.featured },
+                ]}
+              >
+                <ProjectCard project={project} />
+              </div>
+            ))}
+          </div>
+        )
+      }
+
+      <Divider label={data.openSource.dividerLabel} spacing="lg" />
+
+      {
+        data.openSource.projects.length > 0 && (
+          <div class="projects__oss-grid">
+            {data.openSource.projects.map((project) => (
+              <div
+                class:list={[
+                  "projects__oss-item",
+                  { "projects__oss-item--featured": project.featured },
+                ]}
+              >
+                <OssCard project={project} />
+              </div>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </Container>
+</section>
+
+<style>
+  .projects {
+    padding: var(--space-20) var(--space-0);
+  }
+
+  .projects__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .projects__comment {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: var(--space-0);
+  }
+
+  .projects__headline {
+    font-family: var(--font-sans);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text);
+    margin: var(--space-0);
+  }
+
+  .projects__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  .projects__item--featured {
+    grid-column: span 2;
+  }
+
+  .projects__oss-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  .projects__oss-item--featured {
+    grid-column: span 2;
+  }
+
+  @media (max-width: 768px) {
+    .projects__headline {
+      font-size: var(--text-2xl);
+    }
+
+    .projects__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .projects__item--featured {
+      grid-column: span 1;
+    }
+
+    .projects__oss-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .projects__oss-item--featured {
+      grid-column: span 1;
+    }
+  }
+</style>

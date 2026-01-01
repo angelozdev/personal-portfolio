@@ -1,18 +1,50 @@
 ---
 interface Props {
   spacing?: "sm" | "md" | "lg";
+  label?: string;
 }
 
-const { spacing = "md" } = Astro.props;
+const { spacing = "md", label } = Astro.props;
 ---
 
-<hr class:list={["divider", `divider--${spacing}`]} />
+{
+  label ? (
+    <div class:list={["divider", "divider--labeled", `divider--${spacing}`]}>
+      <div class="divider__line" />
+      <span class="divider__label">{label}</span>
+      <div class="divider__line" />
+    </div>
+  ) : (
+    <hr class:list={["divider", `divider--${spacing}`]} />
+  )
+}
 
 <style>
   .divider {
     border: none;
     border-top: 1px solid var(--color-border);
     width: 100%;
+  }
+
+  .divider--labeled {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    border: none;
+  }
+
+  .divider__line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--color-border);
+  }
+
+  .divider__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .divider--sm {

@@ -1,0 +1,54 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
+  href: string;
+  external?: boolean;
+  label?: string;
+}
+
+const {
+  href,
+  external = false,
+  label,
+  class: className,
+  ...rest
+} = Astro.props;
+
+const externalProps = external
+  ? {
+      target: "_blank",
+      rel: "noopener noreferrer",
+      "aria-label": label ? `${label} (opens in new tab)` : undefined,
+    }
+  : {};
+---
+
+<a href={href} class:list={["link", className]} {...externalProps} {...rest}>
+  <slot name="prefix" />
+  <slot />
+  <slot name="suffix" />
+</a>
+
+<style>
+  .link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .link:hover {
+    color: var(--color-accent);
+  }
+
+  .link:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+</style>

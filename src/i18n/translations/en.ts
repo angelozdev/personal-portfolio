@@ -49,4 +49,66 @@ export default {
 	"about.stats.clients.value": "",
 	"about.stats.clients.label": "Clients in US, EU, LATAM",
 	"about.availability": "Available for remote projects",
+
+	// Projects
+	"projects.comment": "// projects",
+	"projects.headline": "Some things I've built",
+	"projects.openSource.divider": "Open Source",
+
+	// Featured Project: Ubidots Mobile
+	"projects.featured.ubidots.name": "Ubidots Mobile",
+	"projects.featured.ubidots.badge": "PRODUCT",
+	"projects.featured.ubidots.description": "IoT monitoring app with 50K+ users",
+	"projects.featured.ubidots.techStack": "React Native, TypeScript, Firebase",
+	"projects.featured.ubidots.imageAlt": "Ubidots Mobile app screenshot",
+	"projects.featured.ubidots.links.0.label": "App Store",
+	"projects.featured.ubidots.links.0.url":
+		"https://apps.apple.com/app/ubidots/id1190666194",
+	"projects.featured.ubidots.links.1.label": "Play Store",
+	"projects.featured.ubidots.links.1.url":
+		"https://play.google.com/store/apps/details?id=com.ubidots.ubidots",
+
+	// Regular Projects
+	"projects.regular.project1.name": "E-commerce Platform",
+	"projects.regular.project1.description":
+		"Custom headless e-commerce solution with Shopify integration",
+	"projects.regular.project1.techStack": "Next.js, TypeScript, Shopify API",
+	"projects.regular.project1.imageAlt": "E-commerce platform screenshot",
+	"projects.regular.project1.links.0.label": "Demo",
+	"projects.regular.project1.links.0.url": "https://example.com",
+	"projects.regular.project1.links.1.label": "GitHub",
+	"projects.regular.project1.links.1.url": "https://github.com",
+
+	"projects.regular.project2.name": "Analytics Dashboard",
+	"projects.regular.project2.description":
+		"Real-time analytics dashboard for IoT devices",
+	"projects.regular.project2.techStack": "React, TypeScript, D3.js",
+	"projects.regular.project2.imageAlt": "Analytics dashboard screenshot",
+	"projects.regular.project2.links.0.label": "Demo",
+	"projects.regular.project2.links.0.url": "https://example.com",
+	"projects.regular.project2.links.1.label": "GitHub",
+	"projects.regular.project2.links.1.url": "https://github.com",
+
+	// Open Source Projects
+	"projects.oss.rustifyTs.name": "rustify-ts",
+	"projects.oss.rustifyTs.description":
+		"Rust-inspired Result and Option types for TypeScript",
+	"projects.oss.rustifyTs.techStack": "TypeScript",
+	"projects.oss.rustifyTs.codeSnippet":
+		"const result = Ok(42);\nif (result.isOk()) {\n  console.log(result.unwrap());\n}",
+	"projects.oss.rustifyTs.links.0.label": "GitHub",
+	"projects.oss.rustifyTs.links.0.url": "https://github.com",
+	"projects.oss.rustifyTs.links.1.label": "npm",
+	"projects.oss.rustifyTs.links.1.url": "https://npmjs.com",
+
+	"projects.oss.chronoConvert.name": "chrono-convert",
+	"projects.oss.chronoConvert.description":
+		"Type-safe time unit conversions inspired by Rust's chrono",
+	"projects.oss.chronoConvert.techStack": "TypeScript",
+	"projects.oss.chronoConvert.codeSnippet":
+		"chrono(2).hours().toMinutes() // 120",
+	"projects.oss.chronoConvert.links.0.label": "GitHub",
+	"projects.oss.chronoConvert.links.0.url": "https://github.com",
+	"projects.oss.chronoConvert.links.1.label": "npm",
+	"projects.oss.chronoConvert.links.1.url": "https://npmjs.com",
 } as const;
