@@ -25,7 +25,7 @@ const { navItems, langItems } = Astro.props;
 ---
 
 <div class="mobile-nav">
-  <Popover id="mobile-menu" position="bottom-end">
+  <Popover id="mobile-menu" position="bottom-end" ariaLabel="Open navigation menu">
     <Menu slot="trigger" class="mobile-nav__burger" size={42} />
     <ul class="mobile-nav__list">
       {

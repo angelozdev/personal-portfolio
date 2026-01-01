@@ -4,9 +4,10 @@ interface Props {
   position?: "top" | "bottom" | "bottom-end" | "left" | "right" | "fullscreen";
   gap?: number;
   class?: string;
+  ariaLabel: string;
 }
 
-const { id, position = "bottom", gap = 8, class: className } = Astro.props;
+const { id, position = "bottom", gap = 8, class: className, ariaLabel } = Astro.props;
 const isFullscreen = position === "fullscreen";
 ---
 
@@ -15,7 +16,7 @@ const isFullscreen = position === "fullscreen";
   data-position={position}
   data-gap={gap}
 >
-  <button type="button" popovertarget={id} class="popover__trigger">
+  <button type="button" popovertarget={id} class="popover__trigger" aria-label={ariaLabel}>
     <slot name="trigger" />
   </button>
   <div

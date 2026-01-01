@@ -10,6 +10,11 @@ import "../styles/index.css";
 import "../styles/lenis.css";
 import { getTranslations, defaultLocale } from "../i18n/utils";
 
+// Preload critical fonts to avoid render-blocking chain
+import plexSans400 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2?url";
+import plexSans700 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-700-normal.woff2?url";
+import plexMono400 from "@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2?url";
+
 const lang = Astro.currentLocale ?? defaultLocale;
 const t = getTranslations(lang);
 
@@ -64,6 +69,11 @@ const jsonLd = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" as="font" type="font/woff2" href={plexSans400} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={plexSans700} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={plexMono400} crossorigin />
 
     <!-- Primary Meta Tags -->
     <title>{seo.title}</title>
