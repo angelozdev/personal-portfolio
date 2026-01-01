@@ -1,8 +1,8 @@
 ---
-import Anchor from "../../common/anchor.astro";
 import Container from "../../common/container.astro";
-import Switcher from "../../common/switcher.astro";
-import { useNavItems } from "./use-nav-items";
+import DesktopNav from "./components/desktop-nav.astro";
+import MobileNav from "./components/mobile-nav.astro";
+import getNavItems from "./get-nav-items";
 import {
   locales,
   type Locale,
@@ -11,7 +11,7 @@ import {
 } from "../../../i18n/utils";
 
 const currentLocale = Astro.currentLocale ?? defaultLocale;
-const navItems = useNavItems(currentLocale);
+const navItems = getNavItems(currentLocale);
 
 const langLabels: Record<Locale, string> = { es: "ES", en: "EN" };
 const langItems = locales.map((locale) => ({
@@ -26,18 +26,8 @@ const langItems = locales.map((locale) => ({
   <Container>
     <nav class="header__nav">
       <span class="header__logo">Angelo Z</span>
-      <ul class="header__list">
-        {
-          navItems.map(({ href, label }) => (
-            <li class="header__item">
-              <Anchor fontSize="lg" fontWeight="medium" href={href}>
-                {label}
-              </Anchor>
-            </li>
-          ))
-        }
-      </ul>
-      <Switcher items={langItems} ariaLabel="Language" />
+      <DesktopNav navItems={navItems} langItems={langItems} />
+      <MobileNav navItems={navItems} langItems={langItems} />
     </nav>
   </Container>
 </header>
@@ -61,17 +51,5 @@ const langItems = locales.map((locale) => ({
     padding: var(--space-5) var(--space-0);
     align-items: center;
     gap: 2rem;
-  }
-
-  .header__list {
-    padding: var(--space-0);
-    margin: var(--space-0);
-    margin-right: auto;
-    list-style: none;
-    display: flex;
-  }
-
-  .header__item {
-    margin: 0 var(--space-4);
   }
 </style>

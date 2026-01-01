@@ -30,14 +30,13 @@ Astro 5 portfolio site with i18n support (EN default, ES) and file-based routing
 Translations are TypeScript files for type safety:
 - `src/i18n/translations/en.ts` - English (default)
 - `src/i18n/translations/es.ts` - Spanish
-- `src/i18n/utils.ts` - `useTranslations(lang)`, `getLangFromUrl()`, `getLocalizedPath()`
+- `src/i18n/utils.ts` - `getTranslations(lang)`, `getLangFromUrl()`, `getLocalizedPath()`
 
 Usage in components:
 ```astro
 ---
-import { useTranslations, type Locale } from "../i18n/utils";
-const { lang } = Astro.props;
-const t = useTranslations(lang);
+import { getTranslations } from "../i18n/utils";
+const t = getTranslations(Astro.currentLocale);
 ---
 <h1>{t("hero.title")}</h1>
 ```
@@ -60,3 +59,7 @@ pnpm biome check --fix .  # Auto-fix issues
 ## TypeScript
 
 Uses Astro's strict TypeScript config. Type definitions auto-generated in `.astro/types.d.ts`.
+
+### Export Convention
+
+Always use `export default` for functions and components. Prefer default exports over named exports.

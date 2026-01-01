@@ -12,6 +12,7 @@ export default {
 	"nav.skills": "Habilidades",
 	"nav.experience": "Experiencia",
 	"nav.contact": "Contacto",
+	"nav.menu": "Menú",
 
 	// Hero
 	"hero.title": "Senior Software Engineer & Mobile Team Lead",

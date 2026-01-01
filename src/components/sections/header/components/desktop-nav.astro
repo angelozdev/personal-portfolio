@@ -1,0 +1,60 @@
+---
+import Anchor from "../../../common/anchor.astro";
+import Switcher from "../../../common/switcher.astro";
+
+interface NavItem {
+  href: string;
+  label: string;
+}
+
+interface LangItem {
+  href: string;
+  label: string;
+  isActive: boolean;
+  hreflang: string;
+}
+
+interface Props {
+  navItems: NavItem[];
+  langItems: LangItem[];
+}
+
+const { navItems, langItems } = Astro.props;
+---
+
+<ul class="desktop-nav">
+  {
+    navItems.map(({ href, label }) => (
+      <li class="desktop-nav__item">
+        <Anchor fontSize="lg" fontWeight="medium" href={href}>
+          {label}
+        </Anchor>
+      </li>
+    ))
+  }
+</ul>
+<Switcher items={langItems} ariaLabel="Language" class="desktop-nav__lang" />
+
+<style>
+  .desktop-nav {
+    padding: var(--space-0);
+    margin: var(--space-0);
+    margin-right: auto;
+    list-style: none;
+    display: flex;
+  }
+
+  .desktop-nav__item {
+    margin: 0 var(--space-4);
+  }
+
+  @media (max-width: 1024px) {
+    .desktop-nav {
+      display: none;
+    }
+
+    :global(.desktop-nav__lang) {
+      display: none;
+    }
+  }
+</style>

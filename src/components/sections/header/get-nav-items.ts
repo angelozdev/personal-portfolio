@@ -1,13 +1,13 @@
 import { Sections } from "../../../constants/sections";
-import { useTranslations } from "../../../i18n/utils";
+import { getTranslations } from "../../../i18n/utils";
 
 export interface NavItem {
 	href: string;
 	label: string;
 }
 
-export function useNavItems(lang: string): NavItem[] {
-	const t = useTranslations(lang);
+export default function getNavItems(lang: string): NavItem[] {
+	const t = getTranslations(lang);
 	return [
 		{ href: `#${Sections.ABOUT}`, label: t("nav.about") },
 		{ href: `#${Sections.PROJECTS}`, label: t("nav.projects") },

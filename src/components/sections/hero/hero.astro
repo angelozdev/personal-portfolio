@@ -5,9 +5,13 @@ import InlineList from "../../common/inline-list.astro";
 import Divider from "../../common/divider.astro";
 import { stack } from "../../../data/stack";
 import { Sections } from "../../../constants/sections";
-import { useTranslations, type TranslationKey } from "../../../i18n/utils";
+import {
+  getTranslations,
+  defaultLocale,
+  type TranslationKey,
+} from "../../../i18n/utils";
 
-const t = useTranslations(Astro.currentLocale);
+const t = getTranslations(Astro.currentLocale ?? defaultLocale);
 
 const metricsKeys: TranslationKey[] = [
   "metrics.years",

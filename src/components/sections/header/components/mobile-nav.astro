@@ -1,0 +1,87 @@
+---
+import { Menu } from "lucide-astro";
+import Anchor from "../../../common/anchor.astro";
+import Popover from "../../../common/popover.astro";
+import Switcher from "../../../common/switcher.astro";
+
+interface NavItem {
+  href: string;
+  label: string;
+}
+
+interface LangItem {
+  href: string;
+  label: string;
+  isActive: boolean;
+  hreflang: string;
+}
+
+interface Props {
+  navItems: NavItem[];
+  langItems: LangItem[];
+}
+
+const { navItems, langItems } = Astro.props;
+---
+
+<div class="mobile-nav">
+  <Popover id="mobile-menu" position="bottom-end">
+    <Menu slot="trigger" class="mobile-nav__burger" size={42} />
+    <ul class="mobile-nav__list">
+      {
+        navItems.map(({ href, label }) => (
+          <li class="mobile-nav__item">
+            <Anchor fontSize="xl" fontWeight="medium" href={href}>
+              {label}
+            </Anchor>
+          </li>
+        ))
+      }
+    </ul>
+    <Switcher items={langItems} ariaLabel="Language" />
+  </Popover>
+</div>
+
+<style>
+  .mobile-nav {
+    display: none;
+    margin-left: auto;
+  }
+
+  .mobile-nav :global(.mobile-nav__burger) {
+    padding: var(--space-2);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+
+  .mobile-nav__list {
+    list-style: none;
+    padding: var(--space-0);
+    margin: var(--space-0);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: 1rem;
+  }
+
+  .mobile-nav__item {
+    padding: var(--space-2) var(--space-0);
+  }
+
+  @media (max-width: 1024px) {
+    .mobile-nav {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuLinks = mobileMenu?.querySelectorAll("a");
+
+  menuLinks?.forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu?.hidePopover();
+    });
+  });
+</script>

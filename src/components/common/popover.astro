@@ -1,0 +1,182 @@
+---
+interface Props {
+  id: string;
+  position?: "top" | "bottom" | "bottom-end" | "left" | "right" | "fullscreen";
+  gap?: number;
+  class?: string;
+}
+
+const { id, position = "bottom", gap = 8, class: className } = Astro.props;
+const isFullscreen = position === "fullscreen";
+---
+
+<div
+  class:list={["popover", className]}
+  data-position={position}
+  data-gap={gap}
+>
+  <button type="button" popovertarget={id} class="popover__trigger">
+    <slot name="trigger" />
+  </button>
+  <div
+    id={id}
+    popover
+    class:list={[
+      "popover__content",
+      { "popover__content--fullscreen": isFullscreen },
+    ]}
+  >
+    <slot />
+  </div>
+</div>
+
+<style>
+  .popover {
+    display: inline-block;
+    line-height: 0;
+  }
+
+  .popover__trigger {
+    all: unset;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .popover__trigger:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 2px;
+  }
+
+  .popover__content {
+    position: fixed;
+    margin: 0;
+    padding: var(--space-3);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+    line-height: normal;
+    opacity: 0;
+    transition:
+      opacity 0.15s ease,
+      display 0.15s ease allow-discrete;
+  }
+
+  .popover__content:popover-open {
+    opacity: 1;
+  }
+
+  .popover__content::backdrop {
+    background-color: transparent;
+  }
+
+  @starting-style {
+    .popover__content:popover-open {
+      opacity: 0;
+    }
+  }
+
+  .popover__content--fullscreen {
+    padding: var(--space-8);
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  .popover__content--fullscreen:popover-open {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+</style>
+
+<script>
+  type Position =
+    | "bottom"
+    | "bottom-end"
+    | "top"
+    | "left"
+    | "right"
+    | "fullscreen";
+
+  type Styles = {
+    top?: string;
+    bottom?: string;
+    left?: string;
+    right?: string;
+    inset?: string;
+    transform?: string;
+  };
+
+  function getPositionStyles(
+    rect: DOMRect,
+    gap: number
+  ): Record<Position, Styles> {
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    return {
+      bottom: {
+        top: `${rect.bottom + gap}px`,
+        left: `${centerX}px`,
+        transform: "translateX(-50%)",
+      },
+      "bottom-end": {
+        top: `${rect.bottom + gap}px`,
+        right: `${window.innerWidth - rect.right}px`,
+      },
+      top: {
+        bottom: `${window.innerHeight - rect.top + gap}px`,
+        left: `${centerX}px`,
+        transform: "translateX(-50%)",
+      },
+      left: {
+        top: `${centerY}px`,
+        right: `${window.innerWidth - rect.left + gap}px`,
+        transform: "translateY(-50%)",
+      },
+      right: {
+        top: `${centerY}px`,
+        left: `${rect.right + gap}px`,
+        transform: "translateY(-50%)",
+      },
+      fullscreen: { inset: "0" },
+    };
+  }
+
+  function positionPopover(popover: HTMLElement, trigger: HTMLElement) {
+    const container = popover.closest(".popover");
+    const position = container?.getAttribute("data-position") as Position;
+    const gap = Number(container?.getAttribute("data-gap")) || 8;
+    const rect = trigger.getBoundingClientRect();
+    const styles = getPositionStyles(rect, gap)[position];
+
+    popover.style.inset = styles.inset ?? "unset";
+    popover.style.top = styles.top ?? "unset";
+    popover.style.bottom = styles.bottom ?? "unset";
+    popover.style.left = styles.left ?? "unset";
+    popover.style.right = styles.right ?? "unset";
+    popover.style.transform = styles.transform ?? "none";
+  }
+
+  document.querySelectorAll(".popover").forEach((container) => {
+    const trigger = container.querySelector(".popover__trigger") as HTMLElement;
+    const popover = container.querySelector(".popover__content") as HTMLElement;
+
+    if (!trigger || !popover) return;
+
+    popover.addEventListener("toggle", (e) => {
+      const isOpen = (e as ToggleEvent).newState === "open";
+
+      if (isOpen) {
+        positionPopover(popover, trigger);
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    });
+  });
+</script>

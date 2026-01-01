@@ -52,13 +52,12 @@ export function getLangFromUrl(url: URL): Locale {
  * @returns A function that takes a translation key and returns the translated string.
  *
  * @example
- * // In an Astro component (no prop drilling needed):
- * const t = useTranslations(Astro.currentLocale);
+ * const t = getTranslations(Astro.currentLocale);
  * t("nav.about"); // Returns "About" or "Acerca" based on current locale
  */
-export function useTranslations(lang?: string) {
+export function getTranslations(lang: string) {
 	const locale: Locale =
-		lang && lang in translations ? (lang as Locale) : defaultLocale;
+		lang in translations ? (lang as Locale) : defaultLocale;
 	return function t(key: TranslationKey): string {
 		return translations[locale][key] || translations[defaultLocale][key];
 	};
