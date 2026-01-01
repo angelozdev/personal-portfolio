@@ -6,6 +6,7 @@
 @import "./tokens/radii.css";
 @import "./tokens/breakpoints.css";
 @import "./tokens/transitions.css";
+@import "./tokens/theme.css";
 
 /* Base */
 @import "./base.css";

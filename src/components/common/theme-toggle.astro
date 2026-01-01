@@ -1,0 +1,151 @@
+---
+import { Sun, Moon } from "lucide-astro";
+
+interface Props {
+  ariaLabel?: string;
+}
+
+const { ariaLabel = "Toggle theme" } = Astro.props;
+---
+
+<button type="button" class="theme-toggle" aria-label={ariaLabel}>
+  <Sun class="theme-toggle__icon theme-toggle__icon--sun" size={20} />
+  <Moon class="theme-toggle__icon theme-toggle__icon--moon" size={20} />
+</button>
+
+<script>
+  import { toggleTheme, watchSystemPreference } from "../../scripts/theme";
+
+  // Store references for cleanup
+  let observer: MutationObserver | null = null;
+  let cleanupSystemWatch: (() => void) | null = null;
+  const clickHandlers = new WeakMap<Element, () => void>();
+
+  function updateToggleIcons() {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const buttons = document.querySelectorAll(".theme-toggle");
+
+    buttons.forEach((button) => {
+      const sunIcon = button.querySelector(".theme-toggle__icon--sun");
+      const moonIcon = button.querySelector(".theme-toggle__icon--moon");
+
+      if (currentTheme === "dark") {
+        sunIcon?.classList.add("theme-toggle__icon--active");
+        moonIcon?.classList.remove("theme-toggle__icon--active");
+      } else {
+        moonIcon?.classList.add("theme-toggle__icon--active");
+        sunIcon?.classList.remove("theme-toggle__icon--active");
+      }
+    });
+  }
+
+  function cleanup() {
+    // Disconnect MutationObserver
+    if (observer) {
+      observer.disconnect();
+      observer = null;
+    }
+
+    // Remove system preference watcher
+    if (cleanupSystemWatch) {
+      cleanupSystemWatch();
+      cleanupSystemWatch = null;
+    }
+
+    // Remove click handlers from buttons
+    const buttons = document.querySelectorAll(".theme-toggle");
+    buttons.forEach((button) => {
+      const handler = clickHandlers.get(button);
+      if (handler) {
+        button.removeEventListener("click", handler);
+        clickHandlers.delete(button);
+      }
+    });
+  }
+
+  function initThemeToggle() {
+    // Cleanup any previous initialization (for View Transitions)
+    cleanup();
+
+    // Initialize icon states
+    updateToggleIcons();
+
+    // Attach click handlers to all theme toggle buttons
+    const buttons = document.querySelectorAll(".theme-toggle");
+    buttons.forEach((button) => {
+      const handler = () => {
+        toggleTheme();
+        updateToggleIcons();
+      };
+      clickHandlers.set(button, handler);
+      button.addEventListener("click", handler);
+    });
+
+    // Watch for system preference changes (returns cleanup function)
+    cleanupSystemWatch = watchSystemPreference();
+
+    // Watch for theme changes (in case multiple toggles exist)
+    observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "data-theme"
+        ) {
+          updateToggleIcons();
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initThemeToggle);
+  } else {
+    initThemeToggle();
+  }
+
+  // Cleanup on page navigation (for View Transitions)
+  document.addEventListener("astro:before-swap", cleanup);
+</script>
+
+<style>
+  .theme-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: transform var(--transition-fast);
+  }
+
+  .theme-toggle:hover {
+    transform: scale(1.1);
+  }
+
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--color-primary-focus);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  .theme-toggle__icon {
+    position: absolute;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+  }
+
+  .theme-toggle__icon--active {
+    opacity: 1;
+  }
+</style>

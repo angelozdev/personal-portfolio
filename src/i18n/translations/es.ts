@@ -26,4 +26,9 @@ export default {
 	"metrics.testing":
 		"Testing culture: reducción significativa de bugs en producción",
 	"metrics.consulting": "Consultoría frontend para clientes en USA",
+
+	// Theme
+	"theme.toggle": "Cambiar tema",
+	"theme.light": "Modo claro",
+	"theme.dark": "Modo oscuro",
 } as const;

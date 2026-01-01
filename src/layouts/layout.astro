@@ -63,12 +63,48 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} data-theme="light">
   <head>
+    <!-- Theme initialization script (must run before CSS to prevent FOUC) -->
+    <script is:inline>
+      (function() {
+        const STORAGE_KEY = "theme-preference";
+        const THEME_ATTRIBUTE = "data-theme";
+
+        function getSystemPreference() {
+          return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+
+        function getStoredTheme() {
+          try {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored === "light" || stored === "dark") {
+              return stored;
+            }
+            return null;
+          } catch (e) {
+            return null;
+          }
+        }
+
+        function getResolvedTheme() {
+          const stored = getStoredTheme();
+          if (stored === "light" || stored === "dark") {
+            return stored;
+          }
+          return getSystemPreference();
+        }
+
+        const theme = getResolvedTheme();
+        document.documentElement.setAttribute(THEME_ATTRIBUTE, theme);
+      })();
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#ffffff" />
 
     <!-- Preload critical fonts -->
     <link rel="preload" as="font" type="font/woff2" href={plexSans400} crossorigin />

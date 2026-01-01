@@ -31,4 +31,9 @@
   --color-background: var(--color-white);
   --color-surface: var(--color-gray-50);
   --color-border: var(--color-gray-200);
+
+  /* Semantic primary (themeable) */
+  --color-primary: var(--color-primary-500);
+  --color-primary-hover: var(--color-primary-600);
+  --color-primary-focus: var(--color-primary-500);
 }
