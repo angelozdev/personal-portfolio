@@ -20,13 +20,16 @@ const { items, separator = "·" } = Astro.props;
 <style>
   .inline-list {
     display: flex;
-    gap: var(--space-3);
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
     list-style: none;
     padding: var(--space-0);
     margin: var(--space-0);
   }
 
   .inline-list__item {
+    display: inline-flex;
+    align-items: center;
     font-family: var(--font-mono);
     font-size: var(--text-sm);
     font-weight: var(--font-normal);

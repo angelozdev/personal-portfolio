@@ -2,10 +2,20 @@
 import Button from "../../common/button.astro";
 import Container from "../../common/container.astro";
 import InlineList from "../../common/inline-list.astro";
-import { stack } from "../../../data/stack";
-import { metrics } from "../../../data/metrics";
-import { Sections } from "../../../constants/sections";
 import Divider from "../../common/divider.astro";
+import { stack } from "../../../data/stack";
+import { Sections } from "../../../constants/sections";
+import { useTranslations, type TranslationKey } from "../../../i18n/utils";
+
+const t = useTranslations(Astro.currentLocale);
+
+const metricsKeys: TranslationKey[] = [
+  "metrics.years",
+  "metrics.app",
+  "metrics.cicd",
+  "metrics.testing",
+  "metrics.consulting",
+];
 ---
 
 <section class="hero" id={Sections.HERO}>
@@ -16,24 +26,28 @@ import Divider from "../../common/divider.astro";
           src="/angelozam.jpeg"
           alt="Angelo Zambrano"
           class="hero__image"
+          width="200"
+          height="200"
+          loading="lazy"
+          decoding="async"
         />
       </div>
       <div class="hero__content">
         <div>
           <h1 class="hero__name">Angelo Zambrano</h1>
           <Divider />
-          <p class="hero__title">Senior Software Engineer & Mobile Team Lead</p>
+          <p class="hero__title">{t("hero.title")}</p>
         </div>
         <ul class="hero__metrics">
-          {metrics.map((metric) => <li>{metric}</li>)}
+          {metricsKeys.map((key) => <li>{t(key)}</li>)}
         </ul>
         <div class="hero__cta">
-          <Button href={`#${Sections.PROJECTS}`} variant="primary"
-            >Ver proyectos</Button
-          >
-          <Button href={`#${Sections.CONTACT}`} variant="secondary"
-            >Contactar</Button
-          >
+          <Button href={`#${Sections.PROJECTS}`} variant="primary">
+            {t("hero.cta.projects")}
+          </Button>
+          <Button href={`#${Sections.CONTACT}`} variant="secondary">
+            {t("hero.cta.contact")}
+          </Button>
         </div>
         <div class="hero__stack">
           <InlineList items={stack} />
@@ -98,6 +112,7 @@ import Divider from "../../common/divider.astro";
     padding-left: var(--space-5);
     line-height: var(--leading-relaxed);
     list-style: disc;
+    text-align: left;
   }
 
   .hero__metrics li {
@@ -109,13 +124,11 @@ import Divider from "../../common/divider.astro";
     gap: var(--space-3);
   }
 
-  .hero__stack {
-  }
-
   @media (max-width: 768px) {
     .hero__wrapper {
       flex-direction: column;
       text-align: center;
+      gap: var(--space-4);
     }
 
     .hero__cta {

@@ -1,0 +1,69 @@
+---
+interface Item {
+  href: string;
+  label: string;
+  isActive?: boolean;
+  hreflang?: string;
+}
+
+interface Props {
+  items: Item[];
+  ariaLabel?: string;
+  class?: string;
+}
+
+const { items, ariaLabel = "Options", class: className } = Astro.props;
+---
+
+<nav class:list={["switcher", className]} aria-label={ariaLabel}>
+  <ul class="switcher__list">
+    {
+      items.map(({ href, label, isActive, hreflang }) => (
+        <li class="switcher__item">
+          <a
+            href={href}
+            class:list={[
+              "switcher__link",
+              { "switcher__link--active": isActive },
+            ]}
+            aria-current={isActive ? "page" : undefined}
+            hreflang={hreflang}
+          >
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .switcher__list {
+    display: flex;
+    gap: var(--space-1);
+    margin: var(--space-0);
+    padding: var(--space-0);
+    list-style: none;
+  }
+
+  .switcher__link {
+    display: block;
+    padding: var(--space-1) var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: var(--transition-fast);
+  }
+
+  .switcher__link:hover {
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+
+  .switcher__link--active {
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+</style>

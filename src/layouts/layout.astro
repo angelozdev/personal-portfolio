@@ -6,16 +6,22 @@ import "@fontsource/ibm-plex-sans/700.css";
 import "@fontsource/ibm-plex-mono/400.css";
 import "@fontsource/ibm-plex-mono/500.css";
 import "../styles/index.css";
+import { useTranslations, defaultLocale } from "../i18n/utils";
+
+const lang = Astro.currentLocale ?? defaultLocale;
+const t = useTranslations(lang);
 
 const seo = {
-  title: "Angelo Zambrano | Senior Software Engineer & Mobile Team Lead",
-  description:
-    "Mobile-focused Software Engineer con +5 años de experiencia. Construí una app React Native de 0 a 50K+ usuarios. Especializado en TypeScript, React Native, React y Node.js.",
+  title: t("seo.title"),
+  description: t("seo.description"),
+  keywords: t("seo.keywords"),
   url: "https://angelozdev.com",
   image: "/angelozam.jpeg",
   author: "Angelo Zambrano",
   twitterHandle: "@angelozdev",
 };
+
+const ogLocale = lang === "es" ? "es_CO" : "en_US";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -50,7 +56,7 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -62,10 +68,7 @@ const jsonLd = {
     <meta name="title" content={seo.title} />
     <meta name="description" content={seo.description} />
     <meta name="author" content={seo.author} />
-    <meta
-      name="keywords"
-      content="Angelo Zambrano, Software Engineer, Mobile Developer, React Native, TypeScript, React, Node.js, Medellín, Colombia"
-    />
+    <meta name="keywords" content={seo.keywords} />
     <link rel="canonical" href={seo.url} />
 
     <!-- Open Graph / Facebook -->
@@ -74,7 +77,7 @@ const jsonLd = {
     <meta property="og:title" content={seo.title} />
     <meta property="og:description" content={seo.description} />
     <meta property="og:image" content={`${seo.url}${seo.image}`} />
-    <meta property="og:locale" content="es_CO" />
+    <meta property="og:locale" content={ogLocale} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -89,7 +92,9 @@ const jsonLd = {
   </head>
   <body>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
 

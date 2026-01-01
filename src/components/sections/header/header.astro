@@ -1,35 +1,25 @@
 ---
 import Anchor from "../../common/anchor.astro";
 import Container from "../../common/container.astro";
-import { Sections } from "../../../constants/sections";
+import Switcher from "../../common/switcher.astro";
+import { useNavItems } from "./use-nav-items";
+import {
+  locales,
+  type Locale,
+  defaultLocale,
+  getLocalizedPath,
+} from "../../../i18n/utils";
 
-interface IItem {
-  path: string;
-  label: string;
-}
+const currentLocale = Astro.currentLocale ?? defaultLocale;
+const navItems = useNavItems(currentLocale);
 
-const items: IItem[] = [
-  {
-    path: `#${Sections.ABOUT}`,
-    label: "About",
-  },
-  {
-    path: `#${Sections.PROJECTS}`,
-    label: "Projects",
-  },
-  {
-    path: `#${Sections.SKILLS}`,
-    label: "Skills",
-  },
-  {
-    path: `#${Sections.EXPERIENCE}`,
-    label: "Experience",
-  },
-  {
-    path: `#${Sections.CONTACT}`,
-    label: "Contact",
-  },
-];
+const langLabels: Record<Locale, string> = { es: "ES", en: "EN" };
+const langItems = locales.map((locale) => ({
+  href: getLocalizedPath("/", locale),
+  label: langLabels[locale],
+  isActive: locale === currentLocale,
+  hreflang: locale,
+}));
 ---
 
 <header class="header">
@@ -38,15 +28,16 @@ const items: IItem[] = [
       <span class="header__logo">Angelo Z</span>
       <ul class="header__list">
         {
-          items.map(({ label, path }) => (
+          navItems.map(({ href, label }) => (
             <li class="header__item">
-              <Anchor fontSize="lg" fontWeight="medium" href={path}>
+              <Anchor fontSize="lg" fontWeight="medium" href={href}>
                 {label}
               </Anchor>
             </li>
           ))
         }
       </ul>
+      <Switcher items={langItems} ariaLabel="Language" />
     </nav>
   </Container>
 </header>
@@ -62,17 +53,20 @@ const items: IItem[] = [
     padding: var(--space-1) var(--space-2);
     font-size: var(--text-sm);
     border: 1px solid var(--color-border);
+    white-space: nowrap;
   }
 
   .header__nav {
     display: flex;
     padding: var(--space-5) var(--space-0);
     align-items: center;
+    gap: 2rem;
   }
 
   .header__list {
     padding: var(--space-0);
     margin: var(--space-0);
+    margin-right: auto;
     list-style: none;
     display: flex;
   }
