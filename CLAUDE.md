@@ -10,6 +10,16 @@ pnpm build    # Build for production to ./dist/
 pnpm preview  # Preview production build locally
 ```
 
+## Type Checking & Linting
+
+```bash
+pnpm check     # Run Astro type checker
+pnpm lint      # Check for issues with Biome
+pnpm lint:fix  # Auto-fix issues
+```
+
+Biome config: tabs, double quotes, organized imports.
+
 ## Architecture
 
 Astro 5 portfolio site with i18n support (EN default, ES) and file-based routing.
@@ -47,14 +57,6 @@ const t = getTranslations(Astro.currentLocale);
 - **Design tokens**: CSS custom properties in `src/styles/tokens/`
 - **Scoped styles**: Default in Astro, use `is:global` when needed
 - **Fonts**: IBM Plex Sans (body) and IBM Plex Mono (code)
-
-### Linting
-
-Uses Biome for linting/formatting. No script configured; run directly:
-```bash
-pnpm biome check .        # Check for issues
-pnpm biome check --fix .  # Auto-fix issues
-```
 
 ## TypeScript
 

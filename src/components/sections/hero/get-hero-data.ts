@@ -1,9 +1,6 @@
 import { Sections } from "../../../constants/sections";
 import { stack } from "../../../data/stack";
-import {
-	getTranslations,
-	type TranslationKey,
-} from "../../../i18n/utils";
+import { getTranslations, type TranslationKey } from "../../../i18n/utils";
 
 export interface HeroData {
 	name: string;

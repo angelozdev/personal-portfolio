@@ -136,7 +136,7 @@ const jsonLd = {
     <meta name="twitter:creator" content={seo.twitterHandle} />
 
     <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <Header />

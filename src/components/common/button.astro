@@ -4,17 +4,27 @@ interface Props {
   variant?: "primary" | "secondary";
   size?: "sm" | "md" | "lg";
   type?: "button" | "submit" | "reset";
+  external?: boolean;
 }
 
-const { href, variant = "primary", size = "md", type = "button" } = Astro.props;
+const {
+  href,
+  variant = "primary",
+  size = "md",
+  type = "button",
+  external = false,
+} = Astro.props;
 
 const isLink = !!href;
 const Element = isLink ? "a" : "button";
+const externalAttrs = external
+  ? { target: "_blank", rel: "noopener noreferrer" }
+  : {};
 ---
 
 <Element
   class:list={["button", `button--${variant}`, `button--${size}`]}
-  {...isLink ? { href } : { type }}
+  {...isLink ? { href, ...externalAttrs } : { type }}
 >
   <slot />
 </Element>
