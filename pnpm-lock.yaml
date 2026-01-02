@@ -23,6 +23,9 @@ importers:
       lucide-astro:
         specifier: 0.556.0
         version: 0.556.0(astro@5.16.6(@types/node@25.0.3)(rollup@4.54.0)(typescript@5.9.3)(yaml@2.8.2))
+      modern-normalize:
+        specifier: 3.0.1
+        version: 3.0.1
     devDependencies:
       '@astrojs/check':
         specifier: 0.9.6
@@ -1304,6 +1307,10 @@ packages:
   micromatch@4.0.8:
     resolution: {integrity: sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==}
     engines: {node: '>=8.6'}
+
+  modern-normalize@3.0.1:
+    resolution: {integrity: sha512-VqlMdYi59Uch6fnUPxnpijWUQe+TW6zeWCvyr6Mb7JibheHzSuAAoJi2c71ZwIaWKpECpGpYHoaaBp6rBRr+/g==}
+    engines: {node: '>=6'}
 
   mrmime@2.0.1:
     resolution: {integrity: sha512-Y3wQdFg2Va6etvQ5I82yUhGdsKrcYox6p7FfL1LbK2J4V01F9TGlepTIhnK24t7koZibmg82KGglhA1XK5IsLQ==}
@@ -3400,6 +3407,8 @@ snapshots:
     dependencies:
       braces: 3.0.3
       picomatch: 2.3.1
+
+  modern-normalize@3.0.1: {}
 
   mrmime@2.0.1: {}
 

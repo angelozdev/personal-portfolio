@@ -1,3 +1,5 @@
+import { getItem, setItem } from "../libs/storage";
+
 export type Theme = "light" | "dark" | "system";
 export type ResolvedTheme = "light" | "dark";
 
@@ -18,18 +20,11 @@ export function getSystemPreference(): ResolvedTheme {
  * Get the stored theme preference from localStorage
  */
 export function getStoredTheme(): Theme | null {
-	if (typeof window === "undefined") return null;
-
-	try {
-		const stored = localStorage.getItem(STORAGE_KEY);
-		if (stored === "light" || stored === "dark" || stored === "system") {
-			return stored;
-		}
-		return null;
-	} catch (error) {
-		console.warn("Failed to read theme from localStorage:", error);
-		return null;
+	const stored = getItem<Theme>(STORAGE_KEY);
+	if (stored === "light" || stored === "dark" || stored === "system") {
+		return stored;
 	}
+	return null;
 }
 
 /**
@@ -85,12 +80,7 @@ export function toggleTheme(): void {
 			: "light";
 	const newTheme: ResolvedTheme = currentTheme === "dark" ? "light" : "dark";
 
-	try {
-		localStorage.setItem(STORAGE_KEY, newTheme);
-	} catch (error) {
-		console.warn("Failed to save theme to localStorage:", error);
-	}
-
+	setItem(STORAGE_KEY, newTheme);
 	applyTheme(newTheme);
 }
 
