@@ -72,6 +72,9 @@ const { data } = Astro.props;
     border-radius: var(--radius-full);
     object-fit: cover;
     background-color: var(--color-gray-200);
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
   }
 
   .hero__content {

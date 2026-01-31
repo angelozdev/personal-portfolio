@@ -68,12 +68,14 @@ const jsonLd = {
   <head>
     <!-- Theme initialization script (must run before CSS to prevent FOUC) -->
     <script is:inline>
-      (function() {
+      (function () {
         const STORAGE_KEY = "theme-preference";
         const THEME_ATTRIBUTE = "data-theme";
 
         function getSystemPreference() {
-          return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
         }
 
         function getStoredTheme() {
@@ -108,9 +110,27 @@ const jsonLd = {
     <meta name="theme-color" content="#ffffff" />
 
     <!-- Preload critical fonts -->
-    <link rel="preload" as="font" type="font/woff2" href={plexSans400} crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href={plexSans700} crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href={plexMono400} crossorigin />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={plexSans400}
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={plexSans700}
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={plexMono400}
+      crossorigin
+    />
 
     <!-- Primary Meta Tags -->
     <title>{seo.title}</title>
@@ -137,7 +157,11 @@ const jsonLd = {
     <meta name="twitter:creator" content={seo.twitterHandle} />
 
     <!-- Structured Data -->
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(jsonLd)}
+    />
   </head>
   <body>
     <Header />
