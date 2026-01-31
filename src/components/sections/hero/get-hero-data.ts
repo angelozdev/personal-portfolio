@@ -1,10 +1,11 @@
+import heroPhoto from "../../../assets/angelozam.jpeg";
 import { Sections } from "../../../constants/sections";
 import { stack } from "../../../data/stack";
 import { getTranslations, type TranslationKey } from "../../../i18n/utils";
 
 export interface HeroData {
 	name: string;
-	photoUrl: string;
+	photoUrl: ImageMetadata;
 	photoAlt: string;
 	title: string;
 	metrics: string[];
@@ -33,7 +34,7 @@ export default function getHeroData(lang: string): HeroData {
 
 	return {
 		name: "Angelo Zambrano",
-		photoUrl: "/angelozam.jpeg",
+		photoUrl: heroPhoto,
 		photoAlt: "Angelo Zambrano",
 		title: t("hero.title"),
 		metrics: metricsKeys.map((key) => t(key)),
