@@ -65,7 +65,7 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang={lang} data-theme="light">
+<html lang={lang} data-theme="light" data-brand="az">
   <head>
     <!-- Theme initialization script (must run before CSS to prevent FOUC) -->
     <script is:inline>
@@ -101,6 +101,29 @@ const jsonLd = {
 
         const theme = getResolvedTheme();
         document.documentElement.setAttribute(THEME_ATTRIBUTE, theme);
+      })();
+    </script>
+
+    <script is:inline>
+      (function () {
+        const STORAGE_KEY = "brand-preference";
+        const BRANDS = ["az", "ember", "tide", "bloom"];
+
+        function getStoredBrand() {
+          try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (raw === null) return null;
+            const parsed = JSON.parse(raw);
+            return BRANDS.includes(parsed) ? parsed : null;
+          } catch (e) {
+            return null;
+          }
+        }
+
+        document.documentElement.setAttribute(
+          "data-brand",
+          getStoredBrand() || "az",
+        );
       })();
     </script>
 

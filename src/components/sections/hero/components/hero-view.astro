@@ -48,6 +48,7 @@ const { data } = Astro.props;
         <div class="hero__stack">
           <InlineList items={data.stack} />
         </div>
+        <p class="hero__note">{data.whiteLabelNote}</p>
       </div>
     </div>
   </Container>
@@ -123,6 +124,13 @@ const { data } = Astro.props;
     display: flex;
     gap: var(--space-3);
     margin-bottom: 1rem;
+  }
+
+  .hero__note {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    margin: var(--space-0);
   }
 
   @media (max-width: 768px) {

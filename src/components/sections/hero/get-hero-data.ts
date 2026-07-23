@@ -19,6 +19,7 @@ export interface HeroData {
 		label: string;
 	};
 	sectionId: string;
+	whiteLabelNote: string;
 }
 
 const metricsKeys: TranslationKey[] = [
@@ -48,5 +49,6 @@ export default function getHeroData(lang: string): HeroData {
 			label: t("hero.cta.contact"),
 		},
 		sectionId: Sections.HERO,
+		whiteLabelNote: t("brand.heroNote"),
 	};
 }

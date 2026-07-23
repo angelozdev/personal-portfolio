@@ -5,6 +5,10 @@ export default {
 	"seo.keywords":
 		"Angelo Zambrano, Software Engineer, Frontend Engineer, AI Engineer, React, TypeScript, React Native, Design Systems, MCP, Python, Medellín, Colombia, LATAM, remoto",
 
+	"brand.switcherLabel": "Marca del sitio — demo white-label",
+	"brand.heroNote":
+		"Este sitio también es white-label — prueba el switcher de marca en el header. Una base de código, cuatro marcas.",
+
 	"nav.about": "Acerca",
 	"nav.projects": "Proyectos",
 	"nav.skills": "Habilidades",

@@ -1,0 +1,95 @@
+[data-brand="ember"] {
+  --color-primary: #c2410c;
+  --color-primary-hover: #9a3412;
+  --color-primary-focus: #c2410c;
+  --color-button-primary-bg: #c2410c;
+  --color-button-primary-bg-hover: #9a3412;
+  --color-button-primary-text: #ffffff;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+}
+
+[data-theme="dark"][data-brand="ember"] {
+  --color-primary: #fdba74;
+  --color-primary-hover: #fed7aa;
+  --color-primary-focus: #fdba74;
+  --color-button-primary-bg: #fdba74;
+  --color-button-primary-bg-hover: #fed7aa;
+  --color-button-primary-text: #171717;
+}
+
+[data-brand="tide"] {
+  --color-primary: #0f766e;
+  --color-primary-hover: #115e59;
+  --color-primary-focus: #0f766e;
+  --color-button-primary-bg: #0f766e;
+  --color-button-primary-bg-hover: #115e59;
+  --color-button-primary-text: #ffffff;
+}
+
+[data-theme="dark"][data-brand="tide"] {
+  --color-primary: #5eead4;
+  --color-primary-hover: #99f6e4;
+  --color-primary-focus: #5eead4;
+  --color-button-primary-bg: #5eead4;
+  --color-button-primary-bg-hover: #99f6e4;
+  --color-button-primary-text: #171717;
+}
+
+[data-brand="bloom"] {
+  --color-primary: #be123c;
+  --color-primary-hover: #9f1239;
+  --color-primary-focus: #be123c;
+  --color-button-primary-bg: #be123c;
+  --color-button-primary-bg-hover: #9f1239;
+  --color-button-primary-text: #ffffff;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+}
+
+[data-theme="dark"][data-brand="bloom"] {
+  --color-primary: #fda4af;
+  --color-primary-hover: #fecdd3;
+  --color-primary-focus: #fda4af;
+  --color-button-primary-bg: #fda4af;
+  --color-button-primary-bg-hover: #fecdd3;
+  --color-button-primary-text: #171717;
+}
+
+.brand-dot--az {
+  background-color: #3b82f6;
+}
+
+.brand-dot--ember {
+  background-color: #c2410c;
+}
+
+.brand-dot--tide {
+  background-color: #0f766e;
+}
+
+.brand-dot--bloom {
+  background-color: #be123c;
+}
+
+[data-theme="dark"] .brand-dot--az {
+  background-color: #93c5fd;
+}
+
+[data-theme="dark"] .brand-dot--ember {
+  background-color: #fdba74;
+}
+
+[data-theme="dark"] .brand-dot--tide {
+  background-color: #5eead4;
+}
+
+[data-theme="dark"] .brand-dot--bloom {
+  background-color: #fda4af;
+}
