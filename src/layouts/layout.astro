@@ -2,14 +2,12 @@
 import Header from "../components/sections/header/header.astro";
 import SmoothScroll from "../components/common/smooth-scroll.astro";
 import "modern-normalize/modern-normalize.css";
-import "@fontsource/ibm-plex-sans/400.css";
-import "@fontsource/ibm-plex-sans/500.css";
-import "@fontsource/ibm-plex-sans/700.css";
-import "@fontsource/ibm-plex-mono/400.css";
-import "@fontsource/ibm-plex-mono/500.css";
 import "../styles/index.css";
 import "../styles/lenis.css";
 import { getTranslations, defaultLocale } from "../i18n/utils";
+import designs, { defaultDesignId } from "../designs";
+
+const designIds = designs.map((design) => design.id);
 
 // Preload critical fonts to avoid render-blocking chain
 import plexSans400 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2?url";
@@ -65,7 +63,7 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang={lang} data-theme="light" data-brand="az">
+<html lang={lang} data-theme="light" data-design={defaultDesignId}>
   <head>
     <!-- Theme initialization script (must run before CSS to prevent FOUC) -->
     <script is:inline>
@@ -104,25 +102,24 @@ const jsonLd = {
       })();
     </script>
 
-    <script is:inline>
+    <script is:inline define:vars={{ designIds, defaultDesignId }}>
       (function () {
-        const STORAGE_KEY = "brand-preference";
-        const BRANDS = ["az", "ember", "tide", "bloom"];
+        const STORAGE_KEY = "design-preference";
 
-        function getStoredBrand() {
+        function getStoredDesign() {
           try {
             const raw = localStorage.getItem(STORAGE_KEY);
             if (raw === null) return null;
             const parsed = JSON.parse(raw);
-            return BRANDS.includes(parsed) ? parsed : null;
+            return designIds.includes(parsed) ? parsed : null;
           } catch (e) {
             return null;
           }
         }
 
         document.documentElement.setAttribute(
-          "data-brand",
-          getStoredBrand() || "az",
+          "data-design",
+          getStoredDesign() || defaultDesignId,
         );
       })();
     </script>
