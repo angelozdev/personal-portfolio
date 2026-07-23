@@ -29,22 +29,24 @@ export default {
 	"theme.dark": "Modo oscuro",
 
 	// About
-	"about.comment": "// about",
+	"about.comment": "// 04 · about",
 	"about.headline": "Un poco sobre mí",
 	"about.paragraph1": "Soy ingeniero de software en Medellín, Colombia.",
 	"about.paragraph2":
-		"Empecé construyendo e-commerce para clientes en Estados Unidos y Europa. Después pasé a liderar el desarrollo móvil de una plataforma IoT—una app que hoy usan más de 50 mil personas para monitorear sus dispositivos en tiempo real. También he trabajado en arquitectura frontend para startups estadounidenses.",
+		"Empecé construyendo e-commerce para clientes de una agencia. Después lideré el desarrollo móvil de una plataforma IoT, donde diseñé una arquitectura white-label que convierte una sola base de código React Native en diez apps con marca independiente — hoy las usan más de 50 mil personas para monitorear sus dispositivos en tiempo real. En el camino construí el design system sobre el que funciona toda la plataforma.",
 	"about.paragraph3":
-		"Lo que más disfruto es entender el porqué detrás de las decisiones técnicas. No me conformo con que algo funcione; quiero saber por qué funciona, y asegurarme de que quien venga después pueda entenderlo sin sufrir.",
+		"Hoy trabajo en todo el stack: React y Django en Ubidots, y React, Next.js, Node y FastAPI en productos internos para una consultora de estrategia en Estados Unidos.",
 	"about.paragraph4":
-		"Últimamente ando explorando machine learning. Me gusta la idea de que el código pueda aprender de los datos, no solo procesarlos.",
+		"Lo que más disfruto es entender el porqué detrás de las decisiones técnicas. No me conformo con que algo funcione; quiero saber por qué funciona, y asegurarme de que quien venga después pueda entenderlo sin sufrir.",
+	"about.paragraph5":
+		"Últimamente mi trabajo se volvió AI-native — el equipo se reorganizó alrededor de eso, y yo mismo he estado construyendo con LLMs: un servidor MCP y una capa de modelos agnóstica de proveedor.",
 	"about.stats.years.value": "5+",
 	"about.stats.years.label": "años de experiencia",
 	"about.stats.users.value": "50K+",
 	"about.stats.users.label": "usuarios en producción",
-	"about.stats.clients.value": "",
-	"about.stats.clients.label": "Clientes en US, EU, LATAM",
-	"about.availability": "Disponible para proyectos remotos",
+	"about.stats.apps.value": "10",
+	"about.stats.apps.label": "apps en producción",
+	"about.availability": "Remoto · Medellín, Colombia (UTC−5)",
 
 	// Projects
 	"projects.comment": "// proyectos",

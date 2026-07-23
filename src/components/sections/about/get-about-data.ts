@@ -26,10 +26,7 @@ interface StatDefinition {
 const statDefinitions: StatDefinition[] = [
 	{ valueKey: "about.stats.years.value", labelKey: "about.stats.years.label" },
 	{ valueKey: "about.stats.users.value", labelKey: "about.stats.users.label" },
-	{
-		valueKey: "about.stats.clients.value",
-		labelKey: "about.stats.clients.label",
-	},
+	{ valueKey: "about.stats.apps.value", labelKey: "about.stats.apps.label" },
 ];
 
 export default function getAboutData(lang: string): AboutData {
@@ -44,6 +41,7 @@ export default function getAboutData(lang: string): AboutData {
 			t("about.paragraph2"),
 			t("about.paragraph3"),
 			t("about.paragraph4"),
+			t("about.paragraph5"),
 		],
 		stats: statDefinitions.map((stat) => ({
 			value: t(stat.valueKey),

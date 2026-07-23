@@ -10,5 +10,15 @@ describe("i18n translations", () => {
 		expect(enKeys).toEqual(esKeys);
 	});
 
-	it.todo("has no empty values — re-enabled in Task 3");
+	it("has no empty values", () => {
+		const emptyEn = Object.entries(en).filter(
+			([, value]) => (value as string) === "",
+		);
+		const emptyEs = Object.entries(es).filter(
+			([, value]) => (value as string) === "",
+		);
+
+		expect(emptyEn).toEqual([]);
+		expect(emptyEs).toEqual([]);
+	});
 });
