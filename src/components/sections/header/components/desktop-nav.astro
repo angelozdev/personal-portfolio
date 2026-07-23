@@ -1,6 +1,6 @@
 ---
 import Anchor from "../../../common/anchor.astro";
-import BrandSwitcher from "../../../common/brand-switcher/brand-switcher.astro";
+import DesignSwitcher from "../../../common/design-switcher/design-switcher.astro";
 import Switcher from "../../../common/switcher.astro";
 import ThemeToggle from "../../../common/theme-toggle/theme-toggle.astro";
 
@@ -36,7 +36,7 @@ const { navItems, langItems } = Astro.props;
   }
 </ul>
 <div class="desktop-nav__controls">
-  <BrandSwitcher />
+  <DesignSwitcher />
   <ThemeToggle />
   <Switcher items={langItems} ariaLabel="Language" class="desktop-nav__lang" />
 </div>

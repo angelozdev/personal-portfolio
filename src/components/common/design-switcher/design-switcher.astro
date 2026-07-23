@@ -1,0 +1,11 @@
+---
+import { defaultLocale } from "../../../i18n/utils";
+import DesignSwitcherView from "./components/design-switcher-view.astro";
+import getDesignSwitcherData from "./get-design-switcher-data";
+
+const designSwitcherData = getDesignSwitcherData(
+  Astro.currentLocale ?? defaultLocale,
+);
+---
+
+<DesignSwitcherView data={designSwitcherData} />

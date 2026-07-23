@@ -1,0 +1,63 @@
+---
+import type { DesignSwitcherData } from "../get-design-switcher-data";
+
+interface Props {
+  data: DesignSwitcherData;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="design-switcher" role="group" aria-label={data.label}>
+  {
+    data.designs.map((design) => (
+      <button
+        type="button"
+        class="design-switcher__option"
+        data-design-id={design.id}
+        aria-pressed="false"
+      >
+        {design.label}
+      </button>
+    ))
+  }
+</div>
+
+<script>
+  import initDesignSwitcher from "../design-switcher-client";
+
+  initDesignSwitcher();
+</script>
+
+<style>
+  .design-switcher {
+    display: flex;
+    gap: var(--space-1);
+  }
+
+  .design-switcher__option {
+    padding: var(--space-1) var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    background: none;
+    border: var(--border-width) solid transparent;
+    cursor: pointer;
+    transition: var(--transition-fast);
+  }
+
+  .design-switcher__option:hover {
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+
+  .design-switcher__option[aria-pressed="true"] {
+    color: var(--color-text);
+    border-color: var(--color-border-hover);
+  }
+
+  .design-switcher__option:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+</style>
