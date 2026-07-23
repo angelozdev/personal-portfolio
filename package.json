@@ -11,7 +11,8 @@
 		"@astrojs/check": "0.9.6",
 		"@biomejs/biome": "2.3.10",
 		"sharp": "0.34.5",
-		"typescript": "5.9.3"
+		"typescript": "5.9.3",
+		"vitest": "3.2.4"
 	},
 	"name": "portfolio_astro",
 	"scripts": {
@@ -21,7 +22,8 @@
 		"dev": "astro dev",
 		"lint": "biome check .",
 		"lint:fix": "biome check --fix .",
-		"preview": "astro preview"
+		"preview": "astro preview",
+		"test": "vitest run"
 	},
 	"type": "module",
 	"version": "0.0.1"
