@@ -11,7 +11,13 @@ const { code, language } = Astro.props;
 
 <div class="code-snippet">
   {language && <Badge class="code-snippet__badge">{language}</Badge>}
-  <pre class="code-snippet__pre"><code>{code}</code></pre>
+  <pre
+    class:list={[
+      "code-snippet__pre",
+      { "code-snippet__pre--with-badge": language },
+    ]}
+    style={language ? `--badge-length: ${language.length}` : undefined}
+  ><code>{code}</code></pre>
 </div>
 
 <style>
@@ -33,6 +39,10 @@ const { code, language } = Astro.props;
     border: var(--border-width) solid var(--color-border);
     border-radius: var(--radius-sm);
     overflow-x: auto;
+  }
+
+  .code-snippet__pre--with-badge {
+    padding-right: calc(var(--space-10) + var(--badge-length, 0) * 0.55rem);
   }
 
   .code-snippet__pre code {
