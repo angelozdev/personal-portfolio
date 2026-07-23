@@ -4,6 +4,7 @@
 @import "./tokens/spacing.css";
 @import "./tokens/shadows.css";
 @import "./tokens/radii.css";
+@import "./tokens/borders.css";
 @import "./tokens/breakpoints.css";
 @import "./tokens/transitions.css";
 @import "./tokens/theme.css";
