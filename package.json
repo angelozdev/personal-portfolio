@@ -18,6 +18,7 @@
 		"vitest": "3.2.4"
 	},
 	"name": "portfolio_astro",
+	"packageManager": "pnpm@11.3.0",
 	"scripts": {
 		"astro": "astro",
 		"build": "astro build",
