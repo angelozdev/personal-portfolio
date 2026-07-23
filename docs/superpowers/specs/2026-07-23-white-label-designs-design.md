@@ -23,7 +23,7 @@ Principios rectores: bajo acoplamiento, alta cohesión, YAGNI.
 
 ```
 src/designs/
-  types.ts        ← DesignManifest: { id, label, fonts }
+  types.ts        ← DesignManifest: { id, label } (las fuentes son side-effect imports del manifest)
   index.ts        ← registry: [base, raw] + defaultDesign ("base")
   base/
     manifest.ts   ← label "Base"; imports fontsource de IBM Plex (side-effect)
@@ -55,7 +55,7 @@ src/designs/
 
 Tokens nuevos (defaults = Base actual; cero cambio visual en Base):
 
-- **Tipografía:** `--font-display` (Base: IBM Plex Mono), `--font-body` (Base: IBM Plex Sans), `--heading-transform` (Base: `none`), `--heading-tracking` (Base: `var(--tracking-tight)`). `--font-sans`/`--font-mono` quedan como primitivas.
+- **Tipografía:** `--font-display` (hero name; Base: IBM Plex Mono), `--font-heading` (headlines de sección; Base: IBM Plex Sans), `--font-body` (Base: IBM Plex Sans), `--heading-transform` (Base: `none`), `--heading-tracking` (Base: `var(--tracking-tight)`). `--font-sans`/`--font-mono` quedan como primitivas.
 - **Bordes:** `--border-width` (Base: `1px`), `--border-width-thick` (Base: `2px`).
 - **Sombras y motion:** `--shadow-*` y `--transition-*` existentes pasan a ser contrato oficial.
 - **Colores semánticos:** los existentes (`--color-text`, `--color-background`, `--color-surface`, `--color-border`, `--color-primary*`, `--color-button-*`) sin cambio de nombre.
@@ -72,7 +72,7 @@ Barrido por los componentes para reemplazar valores hoy hardcodeados por tokens 
 - **Light:** fondo hueso `#FFFEF2`, texto `#000`, primary amarillo eléctrico `#FFE600` con texto negro, bordes negros `3px`, sombras duras `6px 6px 0 #000` sin blur, radius `0` en todo.
 - **Dark:** fondo `#0A0A0A`, texto hueso, bordes blancos, amarillo se mantiene, sombras duras amarillas.
 - **Headings:** uppercase, tracking apretado, `--font-display`.
-- **Hover:** inversión de color + colapso de sombra (elemento "se hunde"), 80ms, easing seco.
+- **Hover:** oscurecimiento seco del acento, ≤80ms, easing lineal (sin suavidad; los efectos por-componente quedan fuera para no violar la regla de `elements.css`).
 - **elements.css:** `::selection` amarillo/negro, scrollbar cuadrada gruesa, textura sutil de papel cuadriculado en `body`.
 - **Accesibilidad:** ambos modos deben cumplir contraste WCAG AA (amarillo `#FFE600` siempre con texto negro encima).
 
