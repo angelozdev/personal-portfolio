@@ -13,8 +13,19 @@ describe("getProjectsData", () => {
 		const data = getProjectsData("en");
 
 		for (const project of data.projects) {
+			if (!project.media) continue;
 			expect(["image", "code"]).toContain(project.media.type);
 		}
+	});
+
+	it("resolves image media to a bundled asset", () => {
+		const data = getProjectsData("en");
+		const quaestor = data.projects.find((project) => project.id === "quaestor");
+
+		expect(quaestor?.media?.type).toBe("image");
+		if (quaestor?.media?.type !== "image") return;
+		expect(quaestor.media.src.src).toBeTruthy();
+		expect(quaestor.media.src.width).toBeGreaterThan(0);
 	});
 
 	it("parses tech stack into an array", () => {

@@ -15,7 +15,7 @@ const { project } = Astro.props;
 
 <div class="project-card-container">
   <article class="project-card">
-    <ProjectMediaView media={project.media} />
+    {project.media && <ProjectMediaView media={project.media} />}
 
     <div class="project-card__content">
       <div class="project-card__header">
@@ -46,11 +46,13 @@ const { project } = Astro.props;
 <style>
   .project-card-container {
     container-type: inline-size;
+    height: 100%;
   }
 
   .project-card {
     display: flex;
     flex-direction: column;
+    height: 100%;
     border: var(--border-width) solid var(--color-border);
     border-radius: var(--radius-md);
     background-color: var(--color-bg-secondary);
@@ -102,6 +104,10 @@ const { project } = Astro.props;
       display: grid;
       grid-template-columns: 1fr 1fr;
       border-radius: var(--radius-lg);
+    }
+
+    .project-card:has(> .project-card__content:only-child) {
+      grid-template-columns: 1fr;
     }
 
     .project-card__content {

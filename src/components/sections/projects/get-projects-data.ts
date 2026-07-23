@@ -2,7 +2,7 @@ import { Sections } from "../../../constants/sections";
 import { getTranslations, type TranslationKey } from "../../../i18n/utils";
 
 export type ProjectMedia =
-	| { type: "image"; src: string; alt: string }
+	| { type: "image"; src: ImageMetadata; alt: string }
 	| { type: "code"; snippet: string; language: string };
 
 export interface ProjectLink {
@@ -17,7 +17,7 @@ export interface Project {
 	badge?: string;
 	description: string;
 	techStack: string[];
-	media: ProjectMedia;
+	media?: ProjectMedia;
 	links: ProjectLink[];
 	featured: boolean;
 }
@@ -34,9 +34,26 @@ interface ProjectDefinition {
 	prefix: string;
 	featured: boolean;
 	hasBadge: boolean;
-	media: { kind: "image"; src: string } | { kind: "code"; language: string };
+	media:
+		| { kind: "image"; imageName: string }
+		| { kind: "code"; language: string };
 	linkCount: number;
 }
+
+const projectImages = import.meta.glob<ImageMetadata>(
+	"../../../assets/projects/*.{png,jpg,jpeg,webp,avif,svg}",
+	{ eager: true, import: "default" },
+);
+
+const imagesByName = new Map(
+	Object.entries(projectImages).map(([path, image]) => [
+		path
+			.split("/")
+			.pop()
+			?.replace(/\.[^.]+$/, ""),
+		image,
+	]),
+);
 
 const projectDefinitions: ProjectDefinition[] = [
 	{
@@ -44,7 +61,7 @@ const projectDefinitions: ProjectDefinition[] = [
 		prefix: "projects.quaestor",
 		featured: true,
 		hasBadge: true,
-		media: { kind: "image", src: "/images/projects/quaestor.webp" },
+		media: { kind: "image", imageName: "quaestor" },
 		linkCount: 1,
 	},
 	{
@@ -52,7 +69,7 @@ const projectDefinitions: ProjectDefinition[] = [
 		prefix: "projects.ubidotsMobile",
 		featured: false,
 		hasBadge: true,
-		media: { kind: "image", src: "/images/projects/ubidots-mobile.webp" },
+		media: { kind: "image", imageName: "ubidots-mobile" },
 		linkCount: 2,
 	},
 	{
@@ -97,18 +114,27 @@ export default function getProjectsData(lang: string): ProjectsData {
 			external: true,
 		}));
 
-	const buildMedia = (definition: ProjectDefinition): ProjectMedia =>
-		definition.media.kind === "image"
+	const buildMedia = (
+		definition: ProjectDefinition,
+	): ProjectMedia | undefined => {
+		if (definition.media.kind === "code") {
+			return {
+				type: "code",
+				snippet: t(`${definition.prefix}.codeSnippet` as TranslationKey),
+				language: definition.media.language,
+			};
+		}
+
+		const src = imagesByName.get(definition.media.imageName);
+
+		return src
 			? {
 					type: "image",
-					src: definition.media.src,
+					src,
 					alt: t(`${definition.prefix}.imageAlt` as TranslationKey),
 				}
-			: {
-					type: "code",
-					snippet: t(`${definition.prefix}.codeSnippet` as TranslationKey),
-					language: definition.media.language,
-				};
+			: undefined;
+	};
 
 	return {
 		sectionId: Sections.PROJECTS,
