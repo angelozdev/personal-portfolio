@@ -1,44 +1,9 @@
 ---
-import Container from "../../common/container.astro";
+import ExperienceView from "./components/experience-view.astro";
+import getExperienceData from "./get-experience-data";
+import { defaultLocale } from "../../../i18n/utils";
+
+const experienceData = getExperienceData(Astro.currentLocale ?? defaultLocale);
 ---
 
-<section class="experience">
-  <Container>
-    <h2 class="experience__heading"></h2>
-    <ol class="experience__timeline">
-      <li class="experience__item">
-        <article class="experience__entry">
-          <time class="experience__date"></time>
-          <h3 class="experience__role"></h3>
-          <p class="experience__company"></p>
-        </article>
-      </li>
-    </ol>
-  </Container>
-</section>
-
-<style>
-  .experience {
-  }
-
-  .experience__heading {
-  }
-
-  .experience__timeline {
-  }
-
-  .experience__item {
-  }
-
-  .experience__entry {
-  }
-
-  .experience__date {
-  }
-
-  .experience__role {
-  }
-
-  .experience__company {
-  }
-</style>
+<ExperienceView data={experienceData} />

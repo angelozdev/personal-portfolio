@@ -48,6 +48,46 @@ export default {
 	"about.stats.apps.label": "apps en producción",
 	"about.availability": "Remoto · Medellín, Colombia (UTC−5)",
 
+	// Experience
+	"experience.comment": "// 02 · experiencia",
+	"experience.headline": "Dónde he trabajado",
+
+	"experience.ubidots.role": "Software Engineer",
+	"experience.ubidots.company": "Ubidots",
+	"experience.ubidots.location": "Medellín, Colombia",
+	"experience.ubidots.period": "2021 — Actualidad",
+	"experience.ubidots.highlight1":
+		"Construí en solitario el design system de la plataforma — ~25 componentes sobre primitivas de Radix, tokens en variables CSS, una especificación de 3 capas por componente y tests de accesibilidad. Todo lo nuevo sale con él.",
+	"experience.ubidots.highlight2":
+		"Diseñé la arquitectura white-label de mobile: una base de código React Native, diez apps con marca, pipelines y fichas de tienda independientes. 50K+ usuarios, sin crashes críticos.",
+	"experience.ubidots.highlight3":
+		"Líder técnico de mobile — arquitectura, code review y onboarding de un equipo rotativo de hasta 4 personas, siendo el único ingeniero full-time en mobile.",
+	"experience.ubidots.highlight4":
+		"Entregué Incidents y Escalation Policies de punta a punta — especificación, frontend en React, backend en Django, testing, QA y entrega — después de que el equipo se reorganizara alrededor de un modelo AI-native de vertical slicing.",
+	"experience.ubidots.highlight5":
+		"Construí los dashboards multicapa, el sistema de replicación de widgets y los frontends del editor de Functions y de la experiencia de chat y agentes de IA.",
+
+	"experience.keystone.role": "Software Engineer",
+	"experience.keystone.company": "Keystone Strategy",
+	"experience.keystone.location": "Remoto · Estados Unidos",
+	"experience.keystone.period": "2025 — Actualidad",
+	"experience.keystone.badge": "CONTRACT",
+	"experience.keystone.highlight1":
+		"Full-stack en tres aplicaciones internas interconectadas sobre un gateway y una base de datos compartidos, para una consultora de estrategia con clientes Fortune 500.",
+	"experience.keystone.highlight2":
+		"Diseñé un sistema propio de roles y feature flags transversal a las tres apps — ~10 roles, ~30 flags y UI de administración propia — entregado en una semana tras evaluar comprar vs. construir.",
+	"experience.keystone.highlight3":
+		"Soy dueño de la aplicación de registro de horas y facturación de la firma, en frontend y backend.",
+	"experience.keystone.highlight4":
+		"Administro el triage de errores críticos con Sentry, en frontend y backend.",
+
+	"experience.gradiweb.role": "Frontend Developer",
+	"experience.gradiweb.company": "GradiWeb",
+	"experience.gradiweb.location": "Bogotá, Colombia",
+	"experience.gradiweb.period": "2020 — 2021",
+	"experience.gradiweb.highlight1":
+		"Construí productos web para clientes de una agencia con React, Next.js y Shopify.",
+
 	// Skills
 	"skills.comment": "// 03 · skills",
 	"skills.headline": "Con qué trabajo",

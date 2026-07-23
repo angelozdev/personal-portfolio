@@ -1,0 +1,74 @@
+---
+import Container from "../../../common/container.astro";
+import Divider from "../../../common/divider.astro";
+import ExperienceEntryCard from "./experience-entry.astro";
+import type { ExperienceData } from "../get-experience-data";
+
+interface Props {
+	data: ExperienceData;
+}
+
+const { data } = Astro.props;
+---
+
+<section class="experience" id={data.sectionId}>
+	<Container>
+		<div class="experience__content">
+			<p class="experience__comment">{data.commentLabel}</p>
+			<h2 class="experience__headline">{data.headline}</h2>
+
+			<ol class="experience__timeline">
+				{
+					data.entries.map((entry, index) => (
+						<li class="experience__item">
+							{index > 0 && <Divider spacing="lg" />}
+							<ExperienceEntryCard entry={entry} />
+						</li>
+					))
+				}
+			</ol>
+		</div>
+	</Container>
+</section>
+
+<style>
+	.experience {
+		padding: var(--space-20) var(--space-0);
+	}
+
+	.experience__content {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-8);
+	}
+
+	.experience__comment {
+		font-family: var(--font-mono);
+		font-size: var(--text-sm);
+		color: var(--color-text-muted);
+		margin: var(--space-0);
+	}
+
+	.experience__headline {
+		font-family: var(--font-sans);
+		font-size: var(--text-3xl);
+		font-weight: var(--font-bold);
+		line-height: var(--leading-tight);
+		letter-spacing: var(--tracking-tight);
+		color: var(--color-text);
+		margin: var(--space-0);
+	}
+
+	.experience__timeline {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-8);
+		margin: var(--space-0);
+	}
+
+	@media (max-width: 768px) {
+		.experience__headline {
+			font-size: var(--text-2xl);
+		}
+	}
+</style>

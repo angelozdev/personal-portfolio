@@ -1,0 +1,97 @@
+---
+import Badge from "../../../common/badge.astro";
+import type { ExperienceEntry } from "../get-experience-data";
+
+interface Props {
+	entry: ExperienceEntry;
+}
+
+const { entry } = Astro.props;
+---
+
+<article class="experience-entry">
+	<header class="experience-entry__header">
+		<time class="experience-entry__period">{entry.period}</time>
+		<div class="experience-entry__identity">
+			<h3 class="experience-entry__role">{entry.role}</h3>
+			<p class="experience-entry__company">
+				{entry.company} · {entry.location}
+			</p>
+		</div>
+		{entry.badge && <Badge>{entry.badge}</Badge>}
+	</header>
+
+	<ul class="experience-entry__highlights">
+		{
+			entry.highlights.map((highlight) => (
+				<li class="experience-entry__highlight">{highlight}</li>
+			))
+		}
+	</ul>
+</article>
+
+<style>
+	.experience-entry {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-4);
+	}
+
+	.experience-entry__header {
+		display: flex;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: var(--space-3);
+	}
+
+	.experience-entry__period {
+		font-family: var(--font-mono);
+		font-size: var(--text-sm);
+		color: var(--color-text-muted);
+		white-space: nowrap;
+	}
+
+	.experience-entry__identity {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-1);
+	}
+
+	.experience-entry__role {
+		font-size: var(--text-lg);
+		font-weight: var(--font-bold);
+		color: var(--color-text);
+		margin: var(--space-0);
+	}
+
+	.experience-entry__company {
+		font-size: var(--text-sm);
+		color: var(--color-text-muted);
+		margin: var(--space-0);
+	}
+
+	.experience-entry__highlights {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
+		margin: var(--space-0);
+		padding-left: var(--space-0);
+		list-style: none;
+	}
+
+	.experience-entry__highlight {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: var(--space-3);
+		font-size: var(--text-sm);
+		line-height: var(--leading-relaxed);
+		color: var(--color-text);
+	}
+
+	.experience-entry__highlight::before {
+		content: "+";
+		font-family: var(--font-mono);
+		font-weight: var(--font-medium);
+		color: var(--color-success);
+	}
+</style>

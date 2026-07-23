@@ -47,6 +47,46 @@ export default {
 	"about.stats.apps.label": "apps in production",
 	"about.availability": "Remote · Medellín, Colombia (UTC−5)",
 
+	// Experience
+	"experience.comment": "// 02 · experience",
+	"experience.headline": "Where I've worked",
+
+	"experience.ubidots.role": "Software Engineer",
+	"experience.ubidots.company": "Ubidots",
+	"experience.ubidots.location": "Medellín, Colombia",
+	"experience.ubidots.period": "2021 — Present",
+	"experience.ubidots.highlight1":
+		"Built the platform's design system solo — ~25 components on Radix primitives, CSS-variable tokens, a 3-layer component spec and accessibility tests. Every new feature ships on it.",
+	"experience.ubidots.highlight2":
+		"Architected the white-label mobile system: one React Native codebase, ten branded apps with independent pipelines and store listings. 50K+ users, no critical crashes.",
+	"experience.ubidots.highlight3":
+		"Technical lead for mobile — architecture, code review and onboarding for a rotating team of up to 4 engineers, as the sole full-time mobile engineer.",
+	"experience.ubidots.highlight4":
+		"Shipped Incidents and Escalation Policies end to end — spec, React frontend, Django backend, testing, QA and delivery — after the team restructured around AI-native, vertical-slice ownership.",
+	"experience.ubidots.highlight5":
+		"Built multi-layer dashboards, a widget-replication system, and the frontends for the Functions editor and the AI chat and agents experience.",
+
+	"experience.keystone.role": "Software Engineer",
+	"experience.keystone.company": "Keystone Strategy",
+	"experience.keystone.location": "Remote · United States",
+	"experience.keystone.period": "2025 — Present",
+	"experience.keystone.badge": "CONTRACT",
+	"experience.keystone.highlight1":
+		"Full-stack across three interconnected internal applications on a shared API gateway and database, for a strategy consultancy serving Fortune 500 clients.",
+	"experience.keystone.highlight2":
+		"Designed a custom role and feature-flag system spanning all three apps — ~10 roles, ~30 flags, purpose-built admin UI — delivered in a week after a build-vs-buy evaluation.",
+	"experience.keystone.highlight3":
+		"Own the firm's time-tracking and billing application across frontend and backend.",
+	"experience.keystone.highlight4":
+		"Own critical error triage via Sentry across frontend and backend.",
+
+	"experience.gradiweb.role": "Frontend Developer",
+	"experience.gradiweb.company": "GradiWeb",
+	"experience.gradiweb.location": "Bogotá, Colombia",
+	"experience.gradiweb.period": "2020 — 2021",
+	"experience.gradiweb.highlight1":
+		"Built client web products with React, Next.js and Shopify at a web agency.",
+
 	// Skills
 	"skills.comment": "// 03 · skills",
 	"skills.headline": "What I work with",
