@@ -1,4 +1,4 @@
-import heroPhoto from "../../../assets/angelozam.jpeg";
+import heroPhoto from "../../../assets/angelozam.avif";
 import { Sections } from "../../../constants/sections";
 import { stack } from "../../../data/stack";
 import { getTranslations, type TranslationKey } from "../../../i18n/utils";
