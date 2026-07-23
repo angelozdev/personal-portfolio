@@ -1,0 +1,62 @@
+---
+import { Copy } from "lucide-astro";
+import type { ContactData } from "../get-contact-data";
+
+interface Props {
+	email: ContactData["email"];
+}
+
+const { email } = Astro.props;
+---
+
+<button
+	type="button"
+	class="copy-email"
+	data-email-user={email.user}
+	data-email-domain={email.domain}
+	data-copy-label={email.copyLabel}
+	data-copied-label={email.copiedLabel}
+>
+	<Copy size={16} aria-hidden="true" />
+	<span class="copy-email__label">{email.copyLabel}</span>
+</button>
+
+<script>
+	import initCopyEmail from "../copy-email-client";
+
+	initCopyEmail();
+</script>
+
+<style>
+	.copy-email {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-2);
+		font-family: var(--font-mono);
+		font-size: var(--text-sm);
+		font-weight: var(--font-medium);
+		padding: var(--space-2) var(--space-4);
+		border-radius: var(--radius-sm);
+		border: none;
+		cursor: pointer;
+		background-color: var(--color-button-primary-bg);
+		color: var(--color-button-primary-text);
+		transition:
+			background-color var(--transition-fast),
+			color var(--transition-fast);
+	}
+
+	.copy-email:hover {
+		background-color: var(--color-button-primary-bg-hover);
+	}
+
+	.copy-email:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 2px;
+	}
+
+	.copy-email[data-copied="true"] {
+		background-color: var(--color-success);
+	}
+</style>

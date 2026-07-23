@@ -47,6 +47,17 @@ export default {
 	"about.stats.apps.label": "apps in production",
 	"about.availability": "Remote · Medellín, Colombia (UTC−5)",
 
+	// Contact
+	"contact.comment": "// 05 · contact",
+	"contact.headline": "Let's talk",
+	"contact.intro":
+		"The fastest way to reach me is email. Remote from Medellín, Colombia (UTC−5) — full overlap with US time zones.",
+	"contact.email.copy": "Copy email",
+	"contact.email.copied": "Copied",
+	"contact.cv": "Download CV",
+	"contact.links.linkedin": "LinkedIn",
+	"contact.links.github": "GitHub",
+
 	// Experience
 	"experience.comment": "// 02 · experience",
 	"experience.headline": "Where I've worked",
