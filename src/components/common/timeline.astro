@@ -1,0 +1,29 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"ol"> {
+	as?: "ol" | "ul";
+}
+
+const { as: Tag = "ol", class: className, ...rest } = Astro.props;
+---
+
+<Tag class:list={["timeline", className]} {...rest}>
+	<slot />
+</Tag>
+
+<style>
+	.timeline {
+		display: grid;
+		grid-template-columns: max-content 1fr;
+		margin: var(--space-0);
+		padding: var(--space-0);
+		list-style: none;
+	}
+
+	@media (max-width: 640px) {
+		.timeline {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

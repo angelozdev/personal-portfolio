@@ -1,6 +1,7 @@
 ---
 import Container from "../../../common/container.astro";
-import Divider from "../../../common/divider.astro";
+import Timeline from "../../../common/timeline.astro";
+import TimelineItem from "../../../common/timeline-item.astro";
 import ExperienceEntryCard from "./experience-entry.astro";
 import type { ExperienceData } from "../get-experience-data";
 
@@ -17,16 +18,15 @@ const { data } = Astro.props;
 			<p class="experience__comment">{data.commentLabel}</p>
 			<h2 class="experience__headline">{data.headline}</h2>
 
-			<ol class="experience__timeline">
+			<Timeline class="experience__timeline">
 				{
-					data.entries.map((entry, index) => (
-						<li class="experience__item">
-							{index > 0 && <Divider spacing="lg" />}
+					data.entries.map((entry) => (
+						<TimelineItem label={entry.period}>
 							<ExperienceEntryCard entry={entry} />
-						</li>
+						</TimelineItem>
 					))
 				}
-			</ol>
+			</Timeline>
 		</div>
 	</Container>
 </section>
@@ -40,6 +40,9 @@ const { data } = Astro.props;
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-8);
+		--timeline-gap: var(--space-6);
+		--timeline-spacing: var(--space-12);
+		--timeline-marker-top: 0.55rem;
 	}
 
 	.experience__comment {
@@ -56,13 +59,6 @@ const { data } = Astro.props;
 		line-height: var(--leading-tight);
 		letter-spacing: var(--tracking-tight);
 		color: var(--color-text);
-		margin: var(--space-0);
-	}
-
-	.experience__timeline {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-8);
 		margin: var(--space-0);
 	}
 

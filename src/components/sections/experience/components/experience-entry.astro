@@ -1,5 +1,4 @@
 ---
-import Badge from "../../../common/badge.astro";
 import type { ExperienceEntry } from "../get-experience-data";
 
 interface Props {
@@ -10,16 +9,17 @@ const { entry } = Astro.props;
 ---
 
 <article class="experience-entry">
-	<header class="experience-entry__header">
-		<time class="experience-entry__period">{entry.period}</time>
-		<div class="experience-entry__identity">
+	<div class="experience-entry__identity">
+		<header class="experience-entry__header">
 			<h3 class="experience-entry__role">{entry.role}</h3>
-			<p class="experience-entry__company">
-				{entry.company} · {entry.location}
-			</p>
-		</div>
-		{entry.badge && <Badge>{entry.badge}</Badge>}
-	</header>
+			{entry.badge && <span class="experience-entry__badge">{entry.badge}</span>}
+		</header>
+		<p class="experience-entry__meta">
+			<span class="experience-entry__company">{entry.company}</span>
+			<span class="experience-entry__separator" aria-hidden="true">·</span>
+			<span class="experience-entry__location">{entry.location}</span>
+		</p>
+	</div>
 
 	<ul class="experience-entry__highlights">
 		{
@@ -37,37 +37,49 @@ const { entry } = Astro.props;
 		gap: var(--space-4);
 	}
 
-	.experience-entry__header {
-		display: flex;
-		align-items: center;
-		flex-wrap: wrap;
-		gap: var(--space-3);
-	}
-
-	.experience-entry__period {
-		font-family: var(--font-mono);
-		font-size: var(--text-sm);
-		color: var(--color-text-muted);
-		white-space: nowrap;
-	}
-
 	.experience-entry__identity {
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-1);
 	}
 
+	.experience-entry__header {
+		display: flex;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: var(--space-3);
+	}
+
 	.experience-entry__role {
 		font-size: var(--text-lg);
 		font-weight: var(--font-bold);
+		line-height: var(--leading-tight);
 		color: var(--color-text);
 		margin: var(--space-0);
 	}
 
-	.experience-entry__company {
+	.experience-entry__badge {
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		color: var(--color-text-muted);
+		text-transform: uppercase;
+		letter-spacing: var(--tracking-wide);
+		white-space: nowrap;
+	}
+
+	.experience-entry__meta {
 		font-size: var(--text-sm);
 		color: var(--color-text-muted);
 		margin: var(--space-0);
+	}
+
+	.experience-entry__company {
+		font-weight: var(--font-medium);
+		color: var(--color-text);
+	}
+
+	.experience-entry__separator {
+		color: var(--color-border-hover);
 	}
 
 	.experience-entry__highlights {
