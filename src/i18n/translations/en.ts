@@ -27,7 +27,6 @@ export default {
 	"theme.light": "Light mode",
 	"theme.dark": "Dark mode",
 
-	// About
 	"about.comment": "// 04 · about",
 	"about.headline": "A bit about me",
 	"about.paragraph1": "I'm a software engineer based in Medellín, Colombia.",
@@ -47,7 +46,6 @@ export default {
 	"about.stats.apps.label": "apps in production",
 	"about.availability": "Remote · Medellín, Colombia (UTC−5)",
 
-	// Contact
 	"contact.comment": "// 05 · contact",
 	"contact.headline": "Let's talk",
 	"contact.intro":
@@ -58,7 +56,6 @@ export default {
 	"contact.links.linkedin": "LinkedIn",
 	"contact.links.github": "GitHub",
 
-	// Experience
 	"experience.comment": "// 02 · experience",
 	"experience.headline": "Where I've worked",
 
@@ -98,7 +95,6 @@ export default {
 	"experience.gradiweb.highlight1":
 		"Built client web products with React, Next.js and Shopify at a web agency.",
 
-	// Skills
 	"skills.comment": "// 03 · skills",
 	"skills.headline": "What I work with",
 	"skills.group.frontend": "Frontend",
@@ -109,7 +105,6 @@ export default {
 	"skills.group.testing": "Testing & Quality",
 	"skills.group.devops": "DevOps",
 
-	// Projects
 	"projects.comment": "// 01 · projects",
 	"projects.headline": "Some things I've built",
 

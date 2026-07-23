@@ -28,7 +28,6 @@ export default {
 	"theme.light": "Modo claro",
 	"theme.dark": "Modo oscuro",
 
-	// About
 	"about.comment": "// 04 · about",
 	"about.headline": "Un poco sobre mí",
 	"about.paragraph1": "Soy ingeniero de software en Medellín, Colombia.",
@@ -48,7 +47,6 @@ export default {
 	"about.stats.apps.label": "apps en producción",
 	"about.availability": "Remoto · Medellín, Colombia (UTC−5)",
 
-	// Contact
 	"contact.comment": "// 05 · contacto",
 	"contact.headline": "Hablemos",
 	"contact.intro":
@@ -59,7 +57,6 @@ export default {
 	"contact.links.linkedin": "LinkedIn",
 	"contact.links.github": "GitHub",
 
-	// Experience
 	"experience.comment": "// 02 · experiencia",
 	"experience.headline": "Dónde he trabajado",
 
@@ -99,7 +96,6 @@ export default {
 	"experience.gradiweb.highlight1":
 		"Construí productos web para clientes de una agencia con React, Next.js y Shopify.",
 
-	// Skills
 	"skills.comment": "// 03 · skills",
 	"skills.headline": "Con qué trabajo",
 	"skills.group.frontend": "Frontend",
@@ -110,7 +106,6 @@ export default {
 	"skills.group.testing": "Testing y calidad",
 	"skills.group.devops": "DevOps",
 
-	// Projects
 	"projects.comment": "// 01 · proyectos",
 	"projects.headline": "Algunas cosas que he construido",
 
