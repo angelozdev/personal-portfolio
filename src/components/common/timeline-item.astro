@@ -38,7 +38,7 @@ const { label, marker = "dot", class: className, ...rest } = Astro.props;
 
 	.timeline-item__body {
 		position: relative;
-		border-left: 1px solid var(--timeline-rail-color, var(--color-border));
+		border-left: var(--border-width) solid var(--timeline-rail-color, var(--color-border));
 		padding-left: var(--timeline-gap, var(--space-6));
 		padding-bottom: var(--timeline-spacing, var(--space-10));
 	}

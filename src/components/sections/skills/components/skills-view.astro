@@ -51,11 +51,12 @@ const { data } = Astro.props;
 	}
 
 	.skills__headline {
-		font-family: var(--font-sans);
+		font-family: var(--font-heading);
 		font-size: var(--text-3xl);
 		font-weight: var(--font-bold);
 		line-height: var(--leading-tight);
-		letter-spacing: var(--tracking-tight);
+		letter-spacing: var(--heading-tracking);
+		text-transform: var(--heading-transform);
 		color: var(--color-text);
 		margin: var(--space-0);
 	}
@@ -73,7 +74,7 @@ const { data } = Astro.props;
 		gap: var(--space-4);
 		align-items: baseline;
 		padding-bottom: var(--space-6);
-		border-bottom: 1px solid var(--color-border);
+		border-bottom: var(--border-width) solid var(--color-border);
 	}
 
 	.skills__group:last-child {
