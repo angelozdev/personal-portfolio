@@ -22,11 +22,11 @@ export interface HeroData {
 }
 
 const metricsKeys: TranslationKey[] = [
-	"metrics.years",
-	"metrics.app",
-	"metrics.cicd",
-	"metrics.testing",
-	"metrics.consulting",
+	"metrics.whiteLabel",
+	"metrics.ai",
+	"metrics.users",
+	"metrics.designSystem",
+	"metrics.timezone",
 ];
 
 export default function getHeroData(lang: string): HeroData {

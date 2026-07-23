@@ -1,12 +1,10 @@
 export default {
-	// SEO
-	"seo.title": "Angelo Zambrano | Senior Software Engineer & Mobile Team Lead",
+	"seo.title": "Angelo Zambrano | Software Engineer — Frontend, Mobile & AI",
 	"seo.description":
-		"Mobile-focused Software Engineer with 5+ years of experience. Built a React Native app from 0 to 50K+ users. Specialized in TypeScript, React Native, React, and Node.js.",
+		"Software engineer with 5+ years building products used by tens of thousands of people. Design systems, React Native at scale, and AI-native tooling. Remote from Medellín, Colombia.",
 	"seo.keywords":
-		"Angelo Zambrano, Software Engineer, Mobile Developer, React Native, TypeScript, React, Node.js, Medellín, Colombia",
+		"Angelo Zambrano, Software Engineer, Frontend Engineer, AI Engineer, React, TypeScript, React Native, Design Systems, MCP, Python, Medellín, Colombia, LATAM, remote",
 
-	// Nav
 	"nav.about": "About",
 	"nav.projects": "Projects",
 	"nav.skills": "Skills",
@@ -14,18 +12,15 @@ export default {
 	"nav.contact": "Contact",
 	"nav.menu": "Menu",
 
-	// Hero
-	"hero.title": "Senior Software Engineer & Mobile Team Lead",
+	"hero.title": "Software Engineer · Frontend, Mobile & AI",
 	"hero.cta.projects": "View projects",
 	"hero.cta.contact": "Contact",
 
-	// Metrics
-	"metrics.years": "5+ years building digital products",
-	"metrics.app": "React Native app from 0 → 50K+ users at Ubidots",
-	"metrics.cicd": "CI/CD pipelines: -40% deployment time",
-	"metrics.testing":
-		"Testing culture: significant reduction in production bugs",
-	"metrics.consulting": "Frontend consulting for US-based clients",
+	"metrics.whiteLabel": "1 codebase → 10 white-label apps in production",
+	"metrics.users": "50K+ users across iOS and Android",
+	"metrics.designSystem": "Design system powering an entire IoT platform",
+	"metrics.ai": "AI-native workflow: MCP server, tool calling, LLM tooling",
+	"metrics.timezone": "Based in Colombia — full overlap with US time zones",
 
 	// Theme
 	"theme.toggle": "Toggle theme",

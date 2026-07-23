@@ -9,10 +9,10 @@ export interface NavItem {
 export default function getNavItems(lang: string): NavItem[] {
 	const t = getTranslations(lang);
 	return [
-		{ href: `#${Sections.ABOUT}`, label: t("nav.about") },
 		{ href: `#${Sections.PROJECTS}`, label: t("nav.projects") },
-		{ href: `#${Sections.SKILLS}`, label: t("nav.skills") },
 		{ href: `#${Sections.EXPERIENCE}`, label: t("nav.experience") },
+		{ href: `#${Sections.SKILLS}`, label: t("nav.skills") },
+		{ href: `#${Sections.ABOUT}`, label: t("nav.about") },
 		{ href: `#${Sections.CONTACT}`, label: t("nav.contact") },
 	];
 }

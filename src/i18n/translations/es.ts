@@ -1,12 +1,10 @@
 export default {
-	// SEO
-	"seo.title": "Angelo Zambrano | Senior Software Engineer & Mobile Team Lead",
+	"seo.title": "Angelo Zambrano | Software Engineer — Frontend, Mobile & AI",
 	"seo.description":
-		"Mobile-focused Software Engineer con +5 años de experiencia. Construí una app React Native de 0 a 50K+ usuarios. Especializado en TypeScript, React Native, React y Node.js.",
+		"Ingeniero de software con +5 años construyendo productos que usan decenas de miles de personas. Design systems, React Native a escala y tooling AI-native. Remoto desde Medellín, Colombia.",
 	"seo.keywords":
-		"Angelo Zambrano, Software Engineer, Mobile Developer, React Native, TypeScript, React, Node.js, Medellín, Colombia",
+		"Angelo Zambrano, Software Engineer, Frontend Engineer, AI Engineer, React, TypeScript, React Native, Design Systems, MCP, Python, Medellín, Colombia, LATAM, remoto",
 
-	// Nav
 	"nav.about": "Acerca",
 	"nav.projects": "Proyectos",
 	"nav.skills": "Habilidades",
@@ -14,18 +12,16 @@ export default {
 	"nav.contact": "Contacto",
 	"nav.menu": "Menú",
 
-	// Hero
-	"hero.title": "Senior Software Engineer & Mobile Team Lead",
+	"hero.title": "Software Engineer · Frontend, Mobile & AI",
 	"hero.cta.projects": "Ver proyectos",
 	"hero.cta.contact": "Contactar",
 
-	// Metrics
-	"metrics.years": "+5 años construyendo productos digitales",
-	"metrics.app": "App React Native de 0 → 50K+ usuarios en Ubidots",
-	"metrics.cicd": "CI/CD pipelines: -40% tiempo de deploy",
-	"metrics.testing":
-		"Testing culture: reducción significativa de bugs en producción",
-	"metrics.consulting": "Consultoría frontend para clientes en USA",
+	"metrics.whiteLabel": "1 base de código → 10 apps white-label en producción",
+	"metrics.users": "50K+ usuarios en iOS y Android",
+	"metrics.designSystem": "Design system que sostiene toda una plataforma IoT",
+	"metrics.ai": "Flujo AI-native: servidor MCP, tool calling, tooling de LLMs",
+	"metrics.timezone":
+		"Desde Colombia — solapamiento total con husos horarios de USA",
 
 	// Theme
 	"theme.toggle": "Cambiar tema",
