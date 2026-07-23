@@ -8,7 +8,6 @@
 @import "./tokens/breakpoints.css";
 @import "./tokens/transitions.css";
 @import "./tokens/theme.css";
-@import "./tokens/brands.css";
 
 /* Base */
 @import "./base.css";
