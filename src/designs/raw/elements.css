@@ -1,0 +1,48 @@
+[data-design="raw"] body {
+	background-image:
+		repeating-linear-gradient(
+			0deg,
+			transparent,
+			transparent 23px,
+			rgb(0 0 0 / 0.05) 23px,
+			rgb(0 0 0 / 0.05) 24px
+		),
+		repeating-linear-gradient(
+			90deg,
+			transparent,
+			transparent 23px,
+			rgb(0 0 0 / 0.05) 23px,
+			rgb(0 0 0 / 0.05) 24px
+		);
+}
+
+[data-theme="dark"][data-design="raw"] body {
+	background-image:
+		repeating-linear-gradient(
+			0deg,
+			transparent,
+			transparent 23px,
+			rgb(255 255 255 / 0.06) 23px,
+			rgb(255 255 255 / 0.06) 24px
+		),
+		repeating-linear-gradient(
+			90deg,
+			transparent,
+			transparent 23px,
+			rgb(255 255 255 / 0.06) 23px,
+			rgb(255 255 255 / 0.06) 24px
+		);
+}
+
+[data-design="raw"] ::selection {
+	background-color: #ffe600;
+	color: #000000;
+}
+
+html[data-design="raw"] {
+	scrollbar-color: #000000 #fffef2;
+}
+
+html[data-design="raw"][data-theme="dark"] {
+	scrollbar-color: #ffe600 #0a0a0a;
+}

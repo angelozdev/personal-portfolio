@@ -1,0 +1,71 @@
+[data-design="raw"] {
+	--font-display: "Archivo Black", sans-serif;
+	--font-heading: "Archivo Black", sans-serif;
+	--font-body: "Archivo", system-ui, sans-serif;
+	--font-sans: "Archivo", system-ui, sans-serif;
+	--font-mono: "Space Mono", ui-monospace, monospace;
+
+	--heading-transform: uppercase;
+	--heading-tracking: 0;
+
+	--text-3xl: 2.125rem;
+	--text-4xl: 2.75rem;
+
+	--color-text: #000000;
+	--color-text-muted: #444439;
+	--color-background: #fffef2;
+	--color-surface: #f5f2df;
+	--color-border: #000000;
+	--color-border-hover: #000000;
+
+	--color-primary: #0000ee;
+	--color-primary-hover: #0000bb;
+	--color-primary-focus: #0000ee;
+
+	--color-button-primary-bg: #ffe600;
+	--color-button-primary-bg-hover: #ffd000;
+	--color-button-primary-text: #000000;
+
+	--radius-sm: 0;
+	--radius-md: 0;
+	--radius-lg: 0;
+	--radius-xl: 0;
+	--radius-2xl: 0;
+	--radius-full: 0;
+
+	--border-width: 3px;
+	--border-width-thick: 4px;
+
+	--shadow-sm: 3px 3px 0 0 #000000;
+	--shadow-md: 6px 6px 0 0 #000000;
+	--shadow-lg: 9px 9px 0 0 #000000;
+	--shadow-xl: 12px 12px 0 0 #000000;
+
+	--duration-fast: 0.05s;
+	--duration-normal: 0.08s;
+	--duration-slow: 0.15s;
+	--ease-out: linear;
+	--ease-in-out: linear;
+}
+
+[data-theme="dark"][data-design="raw"] {
+	--color-text: #f5f5f0;
+	--color-text-muted: #b9b9ae;
+	--color-background: #0a0a0a;
+	--color-surface: #161616;
+	--color-border: #f5f5f0;
+	--color-border-hover: #ffe600;
+
+	--color-primary: #ffe600;
+	--color-primary-hover: #fff266;
+	--color-primary-focus: #ffe600;
+
+	--color-button-primary-bg: #ffe600;
+	--color-button-primary-bg-hover: #fff266;
+	--color-button-primary-text: #000000;
+
+	--shadow-sm: 3px 3px 0 0 #ffe600;
+	--shadow-md: 6px 6px 0 0 #ffe600;
+	--shadow-lg: 9px 9px 0 0 #ffe600;
+	--shadow-xl: 12px 12px 0 0 #ffe600;
+}
