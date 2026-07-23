@@ -1,0 +1,57 @@
+---
+import CodeSnippet from "../../../common/code-snippet.astro";
+import type { ProjectMedia } from "../get-projects-data";
+
+interface Props {
+  media: ProjectMedia;
+}
+
+const { media } = Astro.props;
+---
+
+{
+  media.type === "image" ? (
+    <div class="project-media project-media--image">
+      <img
+        src={media.src}
+        alt={media.alt}
+        class="project-media__image"
+        loading="lazy"
+      />
+    </div>
+  ) : (
+    <div class="project-media project-media--code">
+      <CodeSnippet code={media.snippet} language={media.language} />
+    </div>
+  )
+}
+
+<style>
+  .project-media--image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: var(--color-bg);
+  }
+
+  .project-media__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .project-media--code {
+    display: flex;
+    align-items: center;
+    padding: var(--space-6);
+    background-color: var(--color-bg);
+  }
+
+  @container (min-width: 640px) {
+    .project-media--image {
+      aspect-ratio: 4 / 3;
+      height: 100%;
+    }
+  }
+</style>

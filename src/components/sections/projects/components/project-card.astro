@@ -3,20 +3,11 @@ import { ExternalLink } from "lucide-astro";
 import Badge from "../../../common/badge.astro";
 import InlineList from "../../../common/inline-list.astro";
 import Link from "../../../common/link.astro";
-import type { ProjectLink } from "../get-projects-data";
+import ProjectMediaView from "./project-media.astro";
+import type { Project } from "../get-projects-data";
 
 interface Props {
-  project: {
-    name: string;
-    badge?: string;
-    description: string;
-    techStack: string[];
-    image: {
-      src: string;
-      alt: string;
-    };
-    links: ProjectLink[];
-  };
+  project: Project;
 }
 
 const { project } = Astro.props;
@@ -24,14 +15,7 @@ const { project } = Astro.props;
 
 <div class="project-card-container">
   <article class="project-card">
-    <div class="project-card__image-wrapper">
-      <img
-        src={project.image.src}
-        alt={project.image.alt}
-        class="project-card__image"
-        loading="lazy"
-      />
-    </div>
+    <ProjectMediaView media={project.media} />
 
     <div class="project-card__content">
       <div class="project-card__header">
@@ -78,24 +62,6 @@ const { project } = Astro.props;
     border-color: var(--color-border-hover);
   }
 
-  .project-card__image-wrapper {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    background-color: var(--color-bg);
-  }
-
-  .project-card__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-
-  .project-card:hover .project-card__image {
-    transform: scale(1.05);
-  }
-
   .project-card__content {
     display: flex;
     flex-direction: column;
@@ -136,10 +102,6 @@ const { project } = Astro.props;
       display: grid;
       grid-template-columns: 1fr 1fr;
       border-radius: var(--radius-lg);
-    }
-
-    .project-card__image-wrapper {
-      aspect-ratio: 4 / 3;
     }
 
     .project-card__content {

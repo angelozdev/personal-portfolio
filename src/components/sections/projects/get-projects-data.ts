@@ -1,39 +1,9 @@
 import { Sections } from "../../../constants/sections";
 import { getTranslations, type TranslationKey } from "../../../i18n/utils";
 
-export interface ProjectsData {
-	sectionId: string;
-	commentLabel: string;
-	headline: string;
-	projects: Project[];
-	openSource: {
-		dividerLabel: string;
-		projects: OSSProject[];
-	};
-}
-
-export interface Project {
-	name: string;
-	badge?: string;
-	description: string;
-	techStack: string[];
-	image: {
-		src: string;
-		alt: string;
-	};
-	links: ProjectLink[];
-	featured: boolean;
-}
-
-export interface OSSProject {
-	name: string;
-	description: string;
-	codeSnippet?: string;
-	codeLanguage?: string;
-	techStack: string[];
-	links: ProjectLink[];
-	featured: boolean;
-}
+export type ProjectMedia =
+	| { type: "image"; src: string; alt: string }
+	| { type: "code"; snippet: string; language: string };
 
 export interface ProjectLink {
 	label: string;
@@ -41,113 +11,79 @@ export interface ProjectLink {
 	external: boolean;
 }
 
+export interface Project {
+	id: string;
+	name: string;
+	badge?: string;
+	description: string;
+	techStack: string[];
+	media: ProjectMedia;
+	links: ProjectLink[];
+	featured: boolean;
+}
+
+export interface ProjectsData {
+	sectionId: string;
+	commentLabel: string;
+	headline: string;
+	projects: Project[];
+}
+
+interface ProjectDefinition {
+	id: string;
+	prefix: string;
+	featured: boolean;
+	hasBadge: boolean;
+	media: { kind: "image"; src: string } | { kind: "code"; language: string };
+	linkCount: number;
+}
+
+const projectDefinitions: ProjectDefinition[] = [];
+
 export default function getProjectsData(lang: string): ProjectsData {
 	const t = getTranslations(lang);
 
-	// Helper to parse comma-separated tech stack string to array
-	const parseTechStack = (key: TranslationKey): string[] => {
-		const stackString = t(key);
-		return stackString.split(",").map((tech) => tech.trim());
-	};
+	const parseTechStack = (prefix: string): string[] =>
+		t(`${prefix}.techStack` as TranslationKey)
+			.split(",")
+			.map((tech) => tech.trim())
+			.filter(Boolean);
 
-	// Helper to build links array from translation keys
-	const buildLinks = (prefix: string): ProjectLink[] => {
-		const links: ProjectLink[] = [];
-		let index = 0;
+	const buildLinks = (prefix: string, count: number): ProjectLink[] =>
+		Array.from({ length: count }, (_, index) => ({
+			label: t(`${prefix}.links.${index}.label` as TranslationKey),
+			url: t(`${prefix}.links.${index}.url` as TranslationKey),
+			external: true,
+		}));
 
-		while (true) {
-			const labelKey = `${prefix}.links.${index}.label` as TranslationKey;
-			const urlKey = `${prefix}.links.${index}.url` as TranslationKey;
-
-			try {
-				const label = t(labelKey);
-				const url = t(urlKey);
-
-				if (!label || !url) break;
-
-				links.push({
-					label,
-					url,
-					external: true,
-				});
-
-				index++;
-			} catch {
-				break;
-			}
-		}
-
-		return links;
-	};
-
-	// Build projects array
-	const projects: Project[] = [
-		{
-			name: t("projects.featured.ubidots.name"),
-			badge: t("projects.featured.ubidots.badge"),
-			description: t("projects.featured.ubidots.description"),
-			techStack: parseTechStack("projects.featured.ubidots.techStack"),
-			image: {
-				src: "/images/projects/ubidots-mobile.webp",
-				alt: t("projects.featured.ubidots.imageAlt"),
-			},
-			links: buildLinks("projects.featured.ubidots"),
-			featured: true,
-		},
-		{
-			name: t("projects.regular.project1.name"),
-			description: t("projects.regular.project1.description"),
-			techStack: parseTechStack("projects.regular.project1.techStack"),
-			image: {
-				src: "/images/projects/project1.webp",
-				alt: t("projects.regular.project1.imageAlt"),
-			},
-			links: buildLinks("projects.regular.project1"),
-			featured: false,
-		},
-		{
-			name: t("projects.regular.project2.name"),
-			description: t("projects.regular.project2.description"),
-			techStack: parseTechStack("projects.regular.project2.techStack"),
-			image: {
-				src: "/images/projects/project2.webp",
-				alt: t("projects.regular.project2.imageAlt"),
-			},
-			links: buildLinks("projects.regular.project2"),
-			featured: false,
-		},
-	];
-
-	// Build OSS projects array
-	const ossProjects: OSSProject[] = [
-		{
-			name: t("projects.oss.rustifyTs.name"),
-			description: t("projects.oss.rustifyTs.description"),
-			techStack: parseTechStack("projects.oss.rustifyTs.techStack"),
-			codeSnippet: t("projects.oss.rustifyTs.codeSnippet"),
-			codeLanguage: "typescript",
-			links: buildLinks("projects.oss.rustifyTs"),
-			featured: false,
-		},
-		{
-			name: t("projects.oss.chronoConvert.name"),
-			description: t("projects.oss.chronoConvert.description"),
-			techStack: parseTechStack("projects.oss.chronoConvert.techStack"),
-			codeSnippet: t("projects.oss.chronoConvert.codeSnippet"),
-			codeLanguage: "typescript",
-			links: buildLinks("projects.oss.chronoConvert"),
-			featured: false,
-		},
-	];
+	const buildMedia = (definition: ProjectDefinition): ProjectMedia =>
+		definition.media.kind === "image"
+			? {
+					type: "image",
+					src: definition.media.src,
+					alt: t(`${definition.prefix}.imageAlt` as TranslationKey),
+				}
+			: {
+					type: "code",
+					snippet: t(`${definition.prefix}.codeSnippet` as TranslationKey),
+					language: definition.media.language,
+				};
 
 	return {
 		sectionId: Sections.PROJECTS,
 		commentLabel: t("projects.comment"),
 		headline: t("projects.headline"),
-		projects,
-		openSource: {
-			dividerLabel: t("projects.openSource.divider"),
-			projects: ossProjects,
-		},
+		projects: projectDefinitions.map((definition) => ({
+			id: definition.id,
+			name: t(`${definition.prefix}.name` as TranslationKey),
+			badge: definition.hasBadge
+				? t(`${definition.prefix}.badge` as TranslationKey)
+				: undefined,
+			description: t(`${definition.prefix}.description` as TranslationKey),
+			techStack: parseTechStack(definition.prefix),
+			media: buildMedia(definition),
+			links: buildLinks(definition.prefix, definition.linkCount),
+			featured: definition.featured,
+		})),
 	};
 }
