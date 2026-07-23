@@ -26,7 +26,6 @@ export default {
 	"metrics.ai": "AI-native workflow: MCP server, tool calling, LLM tooling",
 	"metrics.timezone": "Based in Colombia — full overlap with US time zones",
 
-	// Theme
 	"theme.toggle": "Toggle theme",
 	"theme.light": "Light mode",
 	"theme.dark": "Dark mode",

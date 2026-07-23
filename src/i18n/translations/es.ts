@@ -27,7 +27,6 @@ export default {
 	"metrics.timezone":
 		"Desde Colombia — solapamiento total con husos horarios de USA",
 
-	// Theme
 	"theme.toggle": "Cambiar tema",
 	"theme.light": "Modo claro",
 	"theme.dark": "Modo oscuro",
