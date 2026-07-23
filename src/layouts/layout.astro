@@ -24,9 +24,8 @@ const seo = {
   description: t("seo.description"),
   keywords: t("seo.keywords"),
   url: "https://angelozdev.com",
-  image: "/angelozam.jpeg",
+  image: "/og.png",
   author: "Angelo Zambrano",
-  twitterHandle: "@angelozdev",
 };
 
 const ogLocale = lang === "es" ? "es_CO" : "en_US";
@@ -37,7 +36,7 @@ const jsonLd = {
   name: "Angelo Zambrano",
   url: seo.url,
   image: `${seo.url}${seo.image}`,
-  jobTitle: "Senior Software Engineer & Mobile Team Lead",
+  jobTitle: "Software Engineer",
   worksFor: {
     "@type": "Organization",
     name: "Ubidots",
@@ -49,16 +48,18 @@ const jsonLd = {
   },
   sameAs: [
     "https://www.linkedin.com/in/angelozdev/",
-    "https://www.github.com/angelozdev",
+    "https://github.com/angelozdev",
   ],
   knowsAbout: [
     "TypeScript",
-    "React Native",
     "React",
-    "Node.js",
+    "React Native",
+    "Design Systems",
+    "Accessibility",
     "Python",
-    "Mobile Development",
-    "Frontend Architecture",
+    "FastAPI",
+    "Model Context Protocol",
+    "LLM application development",
   ],
 };
 ---
@@ -138,11 +139,14 @@ const jsonLd = {
     <meta name="description" content={seo.description} />
     <meta name="author" content={seo.author} />
     <meta name="keywords" content={seo.keywords} />
-    <link rel="canonical" href={seo.url} />
+    <link rel="canonical" href={`${seo.url}${Astro.url.pathname}`} />
+    <link rel="alternate" hreflang="en" href={`${seo.url}/`} />
+    <link rel="alternate" hreflang="es" href={`${seo.url}/es/`} />
+    <link rel="alternate" hreflang="x-default" href={`${seo.url}/`} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={seo.url} />
+    <meta property="og:url" content={`${seo.url}${Astro.url.pathname}`} />
     <meta property="og:title" content={seo.title} />
     <meta property="og:description" content={seo.description} />
     <meta property="og:image" content={`${seo.url}${seo.image}`} />
@@ -150,11 +154,10 @@ const jsonLd = {
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={seo.url} />
+    <meta name="twitter:url" content={`${seo.url}${Astro.url.pathname}`} />
     <meta name="twitter:title" content={seo.title} />
     <meta name="twitter:description" content={seo.description} />
     <meta name="twitter:image" content={`${seo.url}${seo.image}`} />
-    <meta name="twitter:creator" content={seo.twitterHandle} />
 
     <!-- Structured Data -->
     <script
