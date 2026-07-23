@@ -131,10 +131,10 @@ export default {
 		"Ubidots Mobile app running on iOS and Android",
 	"projects.ubidotsMobile.links.0.label": "App Store",
 	"projects.ubidotsMobile.links.0.url":
-		"https://apps.apple.com/app/ubidots/id1190666194",
+		"https://apps.apple.com/app/ubidots-iot/id6444295464",
 	"projects.ubidotsMobile.links.1.label": "Play Store",
 	"projects.ubidotsMobile.links.1.url":
-		"https://play.google.com/store/apps/details?id=com.ubidots.ubidots",
+		"https://play.google.com/store/apps/details?id=com.ubidots.app",
 
 	"projects.designSystem.name": "Ubidots Design System",
 	"projects.designSystem.description":
