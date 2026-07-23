@@ -24,8 +24,14 @@ describe("design token contract", () => {
 			}
 		});
 
-		it(`${design.id} defines a dark variant`, () => {
-			expect(css).toContain(`[data-theme="dark"][data-design="${design.id}"]`);
+		it(`${design.id} light block uses a :root-prefixed selector (beats base's plain :root on specificity)`, () => {
+			expect(css).toContain(`:root[data-design="${design.id}"]`);
+		});
+
+		it(`${design.id} dark block uses a :root-prefixed selector (beats base's plain [data-theme="dark"] on specificity)`, () => {
+			expect(css).toContain(
+				`:root[data-theme="dark"][data-design="${design.id}"]`,
+			);
 		});
 	}
 });

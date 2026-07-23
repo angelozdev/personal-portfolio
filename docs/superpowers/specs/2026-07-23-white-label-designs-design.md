@@ -82,10 +82,18 @@ Barrido por los componentes para reemplazar valores hoy hardcodeados por tokens 
 - El cambio se envuelve en `document.startViewTransition()` → crossfade nativo (~400ms). Fallback: sin soporte o con `prefers-reduced-motion`, cambio instantáneo. El switcher solo setea `data-design` y persiste; no conoce los diseños.
 - Anti-FOUC: script inline en `<head>` valida la key guardada contra los ids del registry (inyectados en build) y aplica `data-design` antes del primer paint.
 
+## Contrato de especificidad de selectores
+
+Detalle no obvio, ya vivido como bug real en Raw: `:root` y un atributo suelto como `[data-design="raw"]` empatan en especificidad CSS (0,1,0), y en un empate gana el selector que aparece después en el bundle — orden que no está garantizado entre builds. Por eso todo diseño nuevo debe seguir esta regla al escribir su `tokens.css`:
+
+- **Bloque light:** siempre `:root[data-design="<id>"]` (especificidad (0,2,0)), nunca el atributo suelto `[data-design="<id>"]`. El prefijo `:root` es lo que garantiza ganarle al `:root` de Base pase lo que pase con el orden de imports.
+- **Bloque dark:** siempre `:root[data-theme="dark"][data-design="<id>"]` (especificidad (0,3,0)), por el mismo motivo, y además debe redeclarar ahí todos los tokens del contrato que el dark de Base (`[data-theme="dark"]`) sobreescribe. Si un token queda sin redeclarar, el bloque light del propio diseño ((0,2,0), más específico que el dark de Base) gana y su valor claro se filtra al modo oscuro de ese diseño.
+- `tests/design-contract.test.ts` vigila estructuralmente que ambos bloques usen la forma exacta con prefijo `:root` (comparación de string sobre el CSS fuente, no una evaluación real de la cascada). No sustituye la revisión visual: el dark mode de un diseño nuevo se sigue verificando a ojo en navegador.
+
 ## Testing
 
 - `tests/designs-registry.test.ts` (reemplaza `brands-data.test.ts`): ids únicos, `defaultDesign` existe en el registry, manifests con campos completos.
-- **Test de contrato:** verifica que `raw/tokens.css` define todos los tokens de la lista del contrato. Un diseño futuro que olvide un token rompe el test — el contrato se auto-vigila.
+- **Test de contrato:** verifica que `raw/tokens.css` define todos los tokens de la lista del contrato, y que sus bloques light/dark usan selectores con prefijo `:root` (ver "Contrato de especificidad de selectores"). Un diseño futuro que olvide un token, o que use un selector sin `:root`, rompe el test — el contrato se auto-vigila.
 - `pnpm check` y `pnpm lint` limpios.
 - **Revisión visual final obligatoria con el MCP de Chrome**, con ojo de UX/UI profesional: recorrer 2 diseños × 2 themes × 2 idiomas en vivo evaluando jerarquía tipográfica, contraste, espaciado, estados hover/focus, legibilidad y coherencia de cada piel. No es un smoke test — es crítica de diseño; los defectos encontrados se corrigen antes de dar por terminado.
 
