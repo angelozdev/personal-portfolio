@@ -1,4 +1,4 @@
-[data-design="raw"] {
+:root[data-design="raw"] {
 	--font-display: "Archivo Black", sans-serif;
 	--font-heading: "Archivo Black", sans-serif;
 	--font-body: "Archivo", system-ui, sans-serif;
@@ -48,7 +48,7 @@
 	--ease-in-out: linear;
 }
 
-[data-theme="dark"][data-design="raw"] {
+:root[data-theme="dark"][data-design="raw"] {
 	--color-text: #f5f5f0;
 	--color-text-muted: #b9b9ae;
 	--color-background: #0a0a0a;
