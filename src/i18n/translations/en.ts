@@ -48,64 +48,61 @@ export default {
 	"about.availability": "Remote · Medellín, Colombia (UTC−5)",
 
 	// Projects
-	"projects.comment": "// projects",
+	"projects.comment": "// 01 · projects",
 	"projects.headline": "Some things I've built",
-	"projects.openSource.divider": "Open Source",
 
-	// Featured Project: Ubidots Mobile
-	"projects.featured.ubidots.name": "Ubidots Mobile",
-	"projects.featured.ubidots.badge": "PRODUCT",
-	"projects.featured.ubidots.description": "IoT monitoring app with 50K+ users",
-	"projects.featured.ubidots.techStack": "React Native, TypeScript, Firebase",
-	"projects.featured.ubidots.imageAlt": "Ubidots Mobile app screenshot",
-	"projects.featured.ubidots.links.0.label": "App Store",
-	"projects.featured.ubidots.links.0.url":
+	"projects.quaestor.name": "Quaestor",
+	"projects.quaestor.badge": "PERSONAL",
+	"projects.quaestor.description":
+		"Local-first personal finance backend with an agent-native MCP layer. A chat that answers questions about your own data by calling your own tools, with a provider-agnostic LLM layer. Built AI-assisted in ~3 weeks; in daily use.",
+	"projects.quaestor.techStack":
+		"Python, FastAPI, MCP, LiteLLM, Next.js, Docker",
+	"projects.quaestor.imageAlt":
+		"Quaestor chat answering a question about sample finance data",
+	"projects.quaestor.links.0.label": "GitHub",
+	"projects.quaestor.links.0.url": "https://github.com/angelozdev/quaestor",
+
+	"projects.ubidotsMobile.name": "Ubidots Mobile",
+	"projects.ubidotsMobile.badge": "PRODUCT",
+	"projects.ubidotsMobile.description":
+		"One React Native codebase, ten independently branded apps shipping to both stores with their own pipelines. 50K+ users monitoring IoT devices in real time.",
+	"projects.ubidotsMobile.techStack": "React Native, TypeScript, Firebase",
+	"projects.ubidotsMobile.imageAlt":
+		"Ubidots Mobile app running on iOS and Android",
+	"projects.ubidotsMobile.links.0.label": "App Store",
+	"projects.ubidotsMobile.links.0.url":
 		"https://apps.apple.com/app/ubidots/id1190666194",
-	"projects.featured.ubidots.links.1.label": "Play Store",
-	"projects.featured.ubidots.links.1.url":
+	"projects.ubidotsMobile.links.1.label": "Play Store",
+	"projects.ubidotsMobile.links.1.url":
 		"https://play.google.com/store/apps/details?id=com.ubidots.ubidots",
 
-	// Regular Projects
-	"projects.regular.project1.name": "E-commerce Platform",
-	"projects.regular.project1.description":
-		"Custom headless e-commerce solution with Shopify integration",
-	"projects.regular.project1.techStack": "Next.js, TypeScript, Shopify API",
-	"projects.regular.project1.imageAlt": "E-commerce platform screenshot",
-	"projects.regular.project1.links.0.label": "Demo",
-	"projects.regular.project1.links.0.url": "https://example.com",
-	"projects.regular.project1.links.1.label": "GitHub",
-	"projects.regular.project1.links.1.url": "https://github.com",
+	"projects.designSystem.name": "Ubidots Design System",
+	"projects.designSystem.description":
+		"The design system the entire Ubidots platform runs on — ~25 components on Radix primitives, CSS-variable tokens, and a 3-layer component spec. Built solo; every new feature ships on it.",
+	"projects.designSystem.techStack":
+		"TypeScript, React, Radix, Storybook, a11y",
+	"projects.designSystem.codeSnippet":
+		"export default function DatePicker(props: DatePickerProps) {\n  const state = useDatePickerLogic(props);\n\n  return <DatePickerView {...state} />;\n}",
 
-	"projects.regular.project2.name": "Analytics Dashboard",
-	"projects.regular.project2.description":
-		"Real-time analytics dashboard for IoT devices",
-	"projects.regular.project2.techStack": "React, TypeScript, D3.js",
-	"projects.regular.project2.imageAlt": "Analytics dashboard screenshot",
-	"projects.regular.project2.links.0.label": "Demo",
-	"projects.regular.project2.links.0.url": "https://example.com",
-	"projects.regular.project2.links.1.label": "GitHub",
-	"projects.regular.project2.links.1.url": "https://github.com",
+	"projects.keystoneFlags.name": "Role & Feature Flag System",
+	"projects.keystoneFlags.badge": "KEYSTONE",
+	"projects.keystoneFlags.description":
+		"A custom authorization layer spanning three internal applications: ~10 roles, ~30 flags, own admin UI. Built in a week after evaluating off-the-shelf options.",
+	"projects.keystoneFlags.techStack": "React, Next.js, Node.js, FastAPI",
+	"projects.keystoneFlags.codeSnippet":
+		'const { can } = useFlags();\n\nif (!can("billing.invoice.approve")) {\n  return <Forbidden />;\n}',
 
-	// Open Source Projects
-	"projects.oss.rustifyTs.name": "rustify-ts",
-	"projects.oss.rustifyTs.description":
-		"Rust-inspired Result and Option types for TypeScript",
-	"projects.oss.rustifyTs.techStack": "TypeScript",
-	"projects.oss.rustifyTs.codeSnippet":
-		"const result = Ok(42);\nif (result.isOk()) {\n  console.log(result.unwrap());\n}",
-	"projects.oss.rustifyTs.links.0.label": "GitHub",
-	"projects.oss.rustifyTs.links.0.url": "https://github.com",
-	"projects.oss.rustifyTs.links.1.label": "npm",
-	"projects.oss.rustifyTs.links.1.url": "https://npmjs.com",
-
-	"projects.oss.chronoConvert.name": "chrono-convert",
-	"projects.oss.chronoConvert.description":
-		"Type-safe time unit conversions inspired by Rust's chrono",
-	"projects.oss.chronoConvert.techStack": "TypeScript",
-	"projects.oss.chronoConvert.codeSnippet":
-		"chrono(2).hours().toMinutes() // 120",
-	"projects.oss.chronoConvert.links.0.label": "GitHub",
-	"projects.oss.chronoConvert.links.0.url": "https://github.com",
-	"projects.oss.chronoConvert.links.1.label": "npm",
-	"projects.oss.chronoConvert.links.1.url": "https://npmjs.com",
+	"projects.ossLibraries.name": "rustify-ts · chrono-convert",
+	"projects.ossLibraries.badge": "OPEN SOURCE",
+	"projects.ossLibraries.description":
+		"Rust's Result and Option types brought to TypeScript, and a chainable time-conversion library running in production in an app with 50K+ users.",
+	"projects.ossLibraries.techStack": "TypeScript",
+	"projects.ossLibraries.codeSnippet":
+		"const user = await findUser(id);\nif (user.isOk()) render(user.unwrap());\n\nconst timeoutInMinutes = chrono(2).hours().toMinutes();",
+	"projects.ossLibraries.links.0.label": "rustify-ts",
+	"projects.ossLibraries.links.0.url":
+		"https://www.npmjs.com/package/rustify-ts",
+	"projects.ossLibraries.links.1.label": "chrono-convert",
+	"projects.ossLibraries.links.1.url":
+		"https://www.npmjs.com/package/chrono-convert",
 } as const;

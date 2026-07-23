@@ -27,4 +27,33 @@ describe("getProjectsData", () => {
 			}
 		}
 	});
+
+	it("ships the five approved projects in order", () => {
+		const data = getProjectsData("en");
+
+		expect(data.projects.map((project) => project.id)).toEqual([
+			"quaestor",
+			"ubidotsMobile",
+			"designSystem",
+			"keystoneFlags",
+			"ossLibraries",
+		]);
+	});
+
+	it("has no placeholder links", () => {
+		const placeholders = [
+			"example.com",
+			"https://github.com",
+			"https://npmjs.com",
+		];
+
+		for (const lang of ["en", "es"]) {
+			for (const project of getProjectsData(lang).projects) {
+				for (const link of project.links) {
+					expect(placeholders).not.toContain(link.url);
+					expect(link.url.startsWith("https://")).toBe(true);
+				}
+			}
+		}
+	});
 });

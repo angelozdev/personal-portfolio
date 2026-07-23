@@ -38,7 +38,48 @@ interface ProjectDefinition {
 	linkCount: number;
 }
 
-const projectDefinitions: ProjectDefinition[] = [];
+const projectDefinitions: ProjectDefinition[] = [
+	{
+		id: "quaestor",
+		prefix: "projects.quaestor",
+		featured: true,
+		hasBadge: true,
+		media: { kind: "image", src: "/images/projects/quaestor.webp" },
+		linkCount: 1,
+	},
+	{
+		id: "ubidotsMobile",
+		prefix: "projects.ubidotsMobile",
+		featured: false,
+		hasBadge: true,
+		media: { kind: "image", src: "/images/projects/ubidots-mobile.webp" },
+		linkCount: 2,
+	},
+	{
+		id: "designSystem",
+		prefix: "projects.designSystem",
+		featured: false,
+		hasBadge: false,
+		media: { kind: "code", language: "tsx" },
+		linkCount: 0,
+	},
+	{
+		id: "keystoneFlags",
+		prefix: "projects.keystoneFlags",
+		featured: false,
+		hasBadge: true,
+		media: { kind: "code", language: "tsx" },
+		linkCount: 0,
+	},
+	{
+		id: "ossLibraries",
+		prefix: "projects.ossLibraries",
+		featured: false,
+		hasBadge: true,
+		media: { kind: "code", language: "typescript" },
+		linkCount: 2,
+	},
+];
 
 export default function getProjectsData(lang: string): ProjectsData {
 	const t = getTranslations(lang);
