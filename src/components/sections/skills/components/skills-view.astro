@@ -1,0 +1,107 @@
+---
+import Container from "../../../common/container.astro";
+import InlineList from "../../../common/inline-list.astro";
+import type { SkillsData } from "../get-skills-data";
+
+interface Props {
+	data: SkillsData;
+}
+
+const { data } = Astro.props;
+---
+
+<section class="skills" id={data.sectionId}>
+	<Container>
+		<div class="skills__content">
+			<p class="skills__comment">{data.commentLabel}</p>
+			<h2 class="skills__headline">{data.headline}</h2>
+
+			<dl class="skills__groups">
+				{
+					data.groups.map((group) => (
+						<div class="skills__group">
+							<dt class="skills__group-title">{group.title}</dt>
+							<dd class="skills__group-items">
+								<InlineList items={group.items} />
+							</dd>
+						</div>
+					))
+				}
+			</dl>
+		</div>
+	</Container>
+</section>
+
+<style>
+	.skills {
+		padding: var(--space-20) var(--space-0);
+	}
+
+	.skills__content {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-8);
+	}
+
+	.skills__comment {
+		font-family: var(--font-mono);
+		font-size: var(--text-sm);
+		color: var(--color-text-muted);
+		margin: var(--space-0);
+	}
+
+	.skills__headline {
+		font-family: var(--font-sans);
+		font-size: var(--text-3xl);
+		font-weight: var(--font-bold);
+		line-height: var(--leading-tight);
+		letter-spacing: var(--tracking-tight);
+		color: var(--color-text);
+		margin: var(--space-0);
+	}
+
+	.skills__groups {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-6);
+		margin: var(--space-0);
+	}
+
+	.skills__group {
+		display: grid;
+		grid-template-columns: 12rem 1fr;
+		gap: var(--space-4);
+		align-items: baseline;
+		padding-bottom: var(--space-6);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.skills__group:last-child {
+		padding-bottom: var(--space-0);
+		border-bottom: none;
+	}
+
+	.skills__group-title {
+		font-family: var(--font-mono);
+		font-size: var(--text-sm);
+		font-weight: var(--font-medium);
+		color: var(--color-text);
+		text-transform: uppercase;
+		letter-spacing: var(--tracking-wide);
+	}
+
+	.skills__group-items {
+		margin: var(--space-0);
+	}
+
+	@media (max-width: 768px) {
+		.skills__headline {
+			font-size: var(--text-2xl);
+		}
+
+		.skills__group {
+			grid-template-columns: 1fr;
+			gap: var(--space-2);
+		}
+	}
+</style>

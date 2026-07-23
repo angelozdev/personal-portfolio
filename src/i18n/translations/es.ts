@@ -48,6 +48,17 @@ export default {
 	"about.stats.apps.label": "apps en producción",
 	"about.availability": "Remoto · Medellín, Colombia (UTC−5)",
 
+	// Skills
+	"skills.comment": "// 03 · skills",
+	"skills.headline": "Con qué trabajo",
+	"skills.group.frontend": "Frontend",
+	"skills.group.mobile": "Mobile",
+	"skills.group.backend": "Backend",
+	"skills.group.ai": "IA y tooling",
+	"skills.group.data": "Datos",
+	"skills.group.testing": "Testing y calidad",
+	"skills.group.devops": "DevOps",
+
 	// Projects
 	"projects.comment": "// 01 · proyectos",
 	"projects.headline": "Algunas cosas que he construido",

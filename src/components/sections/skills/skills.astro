@@ -1,40 +1,9 @@
 ---
-import Container from "../../common/container.astro";
+import SkillsView from "./components/skills-view.astro";
+import getSkillsData from "./get-skills-data";
+import { defaultLocale } from "../../../i18n/utils";
+
+const skillsData = getSkillsData(Astro.currentLocale ?? defaultLocale);
 ---
 
-<section class="skills">
-  <Container>
-    <h2 class="skills__heading"></h2>
-    <div class="skills__groups">
-      <div class="skills__group">
-        <h3 class="skills__group-title"></h3>
-        <ul class="skills__list">
-          <li class="skills__item"></li>
-        </ul>
-      </div>
-    </div>
-  </Container>
-</section>
-
-<style>
-  .skills {
-  }
-
-  .skills__heading {
-  }
-
-  .skills__groups {
-  }
-
-  .skills__group {
-  }
-
-  .skills__group-title {
-  }
-
-  .skills__list {
-  }
-
-  .skills__item {
-  }
-</style>
+<SkillsView data={skillsData} />
