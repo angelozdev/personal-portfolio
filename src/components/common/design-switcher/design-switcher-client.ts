@@ -15,6 +15,10 @@ function updateActiveState(): void {
 }
 
 function switchDesign(designId: string): void {
+	if (document.documentElement.getAttribute("data-design") === designId) {
+		return;
+	}
+
 	const apply = () => {
 		setDesign(designId);
 		updateActiveState();

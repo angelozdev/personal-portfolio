@@ -14,4 +14,9 @@
   --transition-fast: var(--duration-fast) var(--ease-out);
   --transition-normal: var(--duration-normal) var(--ease-out);
   --transition-slow: var(--duration-slow) var(--ease-out);
+
+  /* Design curtain */
+  --curtain-duration: 1250ms;
+  --curtain-ease: cubic-bezier(0.62, 0.02, 0.16, 1);
+  --curtain-angle: 135deg;
 }

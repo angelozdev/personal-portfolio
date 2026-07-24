@@ -11,3 +11,6 @@
 
 /* Base */
 @import "./base.css";
+
+/* View transitions */
+@import "./view-transitions.css";

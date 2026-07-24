@@ -1,0 +1,93 @@
+@property --curtain-progress {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --curtain-feather {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 38;
+}
+
+::view-transition-group(root) {
+  animation-duration: var(--curtain-duration);
+  animation-timing-function: var(--curtain-ease);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--curtain-duration);
+  animation-timing-function: var(--curtain-ease);
+  animation-fill-mode: both;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 0;
+  animation-name: curtain-drift-out;
+}
+
+::view-transition-new(root) {
+  z-index: 1;
+  animation-name: curtain-wipe, curtain-drift-in;
+  -webkit-mask-image: linear-gradient(
+    var(--curtain-angle),
+    #000 calc((var(--curtain-progress) - var(--curtain-feather)) * 1%),
+    transparent calc(var(--curtain-progress) * 1%)
+  );
+  mask-image: linear-gradient(
+    var(--curtain-angle),
+    #000 calc((var(--curtain-progress) - var(--curtain-feather)) * 1%),
+    transparent calc(var(--curtain-progress) * 1%)
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+@keyframes curtain-wipe {
+  from {
+    --curtain-progress: 0;
+    --curtain-feather: 14;
+  }
+
+  to {
+    --curtain-progress: 114;
+    --curtain-feather: 5;
+  }
+}
+
+@keyframes curtain-drift-in {
+  from {
+    transform: scale(1.05) translate(-1.4%, -1%);
+  }
+
+  to {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+@keyframes curtain-drift-out {
+  from {
+    transform: scale(1) translate(0, 0);
+  }
+
+  to {
+    transform: scale(1.04) translate(0.9%, 0.7%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+
+  ::view-transition-new(root) {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
