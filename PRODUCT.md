@@ -58,10 +58,10 @@ Positioning is **AI Engineer as destination, senior frontend/full-stack as the e
 - **Skills list only what is defensible for 20 minutes in an interview.** Rust and Swift are deliberately excluded despite being on GitHub.
 - **`5+ years` of experience is valid through November 2026.** Revisit the claim then (start: November 2020).
 - No blog. No analytics-driven content strategy. No testimonials.
+- Deployed as a static build on Vercel, which needs `ENABLE_EXPERIMENTAL_COREPACK=1` to honor the pinned pnpm version. Recorded from build history; no platform config is committed.
 
 **Undecided / not established**
 
-- Hosting and deployment target for `angelozdev.com` is not recorded in the repo.
 - Missing verifiable numbers, not to be invented: the 0 → 50K user growth period, time to launch a new white-label app, exact component count and adoption of the design system, store ratings and download counts, performance before/after adopting error monitoring.
 
 ## Brand Commitments
