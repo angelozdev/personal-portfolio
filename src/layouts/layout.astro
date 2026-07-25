@@ -1,4 +1,5 @@
 ---
+import { existsSync } from "node:fs";
 import Header from "../components/sections/header/header.astro";
 import SmoothScroll from "../components/common/smooth-scroll.astro";
 import "modern-normalize/modern-normalize.css";
@@ -8,14 +9,18 @@ import { getTranslations, defaultLocale } from "../i18n/utils";
 import designs, { defaultDesignId } from "../designs";
 
 const designIds = designs.map((design) => design.id);
-
-// Preload critical fonts to avoid render-blocking chain
-import plexSans400 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2?url";
-import plexSans700 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-700-normal.woff2?url";
-import plexMono400 from "@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2?url";
+const preloadFontsByDesign = Object.fromEntries(
+  designs.map((design) => [design.id, design.preloadFonts]),
+);
+const themeColorsByDesign = Object.fromEntries(
+  designs.map((design) => [design.id, design.themeColor]),
+);
+const defaultThemeColor = themeColorsByDesign[defaultDesignId].light;
 
 const lang = Astro.currentLocale ?? defaultLocale;
 const t = getTranslations(lang);
+
+const hasSocialImage = existsSync("public/og.png");
 
 const seo = {
   title: t("seo.title"),
@@ -26,6 +31,8 @@ const seo = {
   author: "Angelo Zambrano",
 };
 
+const year = new Date().getFullYear();
+
 const ogLocale = lang === "es" ? "es_CO" : "en_US";
 
 const jsonLd = {
@@ -33,7 +40,7 @@ const jsonLd = {
   "@type": "Person",
   name: "Angelo Zambrano",
   url: seo.url,
-  image: `${seo.url}${seo.image}`,
+  ...(hasSocialImage ? { image: `${seo.url}${seo.image}` } : {}),
   jobTitle: "Software Engineer",
   worksFor: {
     "@type": "Organization",
@@ -65,6 +72,10 @@ const jsonLd = {
 <!doctype html>
 <html lang={lang} data-theme="light" data-design={defaultDesignId}>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content={defaultThemeColor} />
+
     <!-- Theme initialization script (must run before CSS to prevent FOUC) -->
     <script is:inline>
       (function () {
@@ -102,7 +113,15 @@ const jsonLd = {
       })();
     </script>
 
-    <script is:inline define:vars={{ designIds, defaultDesignId }}>
+    <script
+      is:inline
+      define:vars={{
+        designIds,
+        defaultDesignId,
+        preloadFontsByDesign,
+        themeColorsByDesign,
+      }}
+    >
       (function () {
         const STORAGE_KEY = "design-preference";
 
@@ -117,41 +136,34 @@ const jsonLd = {
           }
         }
 
-        document.documentElement.setAttribute(
-          "data-design",
-          getStoredDesign() || defaultDesignId,
-        );
+        const design = getStoredDesign() || defaultDesignId;
+        document.documentElement.setAttribute("data-design", design);
+
+        window.__designThemeColors = themeColorsByDesign;
+        const theme = document.documentElement.getAttribute("data-theme");
+        const palette = themeColorsByDesign[design];
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta && palette) {
+          meta.setAttribute(
+            "content",
+            theme === "dark" ? palette.dark : palette.light,
+          );
+        }
+
+        for (const href of preloadFontsByDesign[design] || []) {
+          const link = document.createElement("link");
+          link.rel = "preload";
+          link.as = "font";
+          link.type = "font/woff2";
+          link.href = href;
+          link.crossOrigin = "anonymous";
+          document.head.appendChild(link);
+        }
       })();
     </script>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#ffffff" />
-
-    <!-- Preload critical fonts -->
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href={plexSans400}
-      crossorigin
-    />
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href={plexSans700}
-      crossorigin
-    />
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href={plexMono400}
-      crossorigin
-    />
 
     <!-- Primary Meta Tags -->
     <title>{seo.title}</title>
@@ -169,15 +181,26 @@ const jsonLd = {
     <meta property="og:url" content={`${seo.url}${Astro.url.pathname}`} />
     <meta property="og:title" content={seo.title} />
     <meta property="og:description" content={seo.description} />
-    <meta property="og:image" content={`${seo.url}${seo.image}`} />
+    {
+      hasSocialImage && (
+        <meta property="og:image" content={`${seo.url}${seo.image}`} />
+      )
+    }
     <meta property="og:locale" content={ogLocale} />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:card"
+      content={hasSocialImage ? "summary_large_image" : "summary"}
+    />
     <meta name="twitter:url" content={`${seo.url}${Astro.url.pathname}`} />
     <meta name="twitter:title" content={seo.title} />
     <meta name="twitter:description" content={seo.description} />
-    <meta name="twitter:image" content={`${seo.url}${seo.image}`} />
+    {
+      hasSocialImage && (
+        <meta name="twitter:image" content={`${seo.url}${seo.image}`} />
+      )
+    }
 
     <!-- Structured Data -->
     <script
@@ -187,10 +210,29 @@ const jsonLd = {
     />
   </head>
   <body>
+    <a class="skip-link" href="#main">{t("a11y.skipToContent")}</a>
     <Header />
-    <main>
+    <main id="main" tabindex="-1">
       <slot />
     </main>
+    <footer class="footer">
+      <p class="footer__line">© {year} Angelo Zambrano</p>
+    </footer>
     <SmoothScroll />
   </body>
+
+  <style>
+    .footer {
+      padding: var(--space-8) var(--space-4);
+      border-top: var(--border-width) solid var(--color-border);
+    }
+
+    .footer__line {
+      max-width: var(--breakpoint-xl);
+      margin: var(--space-0) auto;
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+  </style>
 </html>

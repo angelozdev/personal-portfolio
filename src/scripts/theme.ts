@@ -48,12 +48,31 @@ export function applyTheme(theme: ResolvedTheme): void {
 	if (typeof window === "undefined") return;
 
 	document.documentElement.setAttribute(THEME_ATTRIBUTE, theme);
+	syncThemeColor();
+}
 
-	// Update meta theme-color for mobile browsers
-	const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-	if (metaThemeColor) {
-		const backgroundColor = theme === "dark" ? "#171717" : "#ffffff";
-		metaThemeColor.setAttribute("content", backgroundColor);
+export function syncThemeColor(): void {
+	if (typeof window === "undefined") return;
+
+	const meta = document.querySelector('meta[name="theme-color"]');
+	if (!meta) return;
+
+	const design = document.documentElement.getAttribute("data-design");
+	const palette = design ? window.__designThemeColors?.[design] : undefined;
+	const isDark =
+		document.documentElement.getAttribute(THEME_ATTRIBUTE) === "dark";
+
+	if (palette) {
+		meta.setAttribute("content", isDark ? palette.dark : palette.light);
+		return;
+	}
+
+	const background = getComputedStyle(document.documentElement)
+		.getPropertyValue("--color-background")
+		.trim();
+
+	if (background) {
+		meta.setAttribute("content", background);
 	}
 }
 

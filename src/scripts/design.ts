@@ -1,5 +1,6 @@
 import designs, { defaultDesignId } from "../designs";
 import { getItem, setItem } from "../libs/storage";
+import { syncThemeColor } from "./theme";
 
 const STORAGE_KEY = "design-preference";
 const DESIGN_ATTRIBUTE = "data-design";
@@ -19,6 +20,7 @@ export function getResolvedDesign(): string {
 export function applyDesign(designId: string): void {
 	if (typeof window === "undefined") return;
 	document.documentElement.setAttribute(DESIGN_ATTRIBUTE, designId);
+	syncThemeColor();
 }
 
 export function setDesign(designId: string): void {
