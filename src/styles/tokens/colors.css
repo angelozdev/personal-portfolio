@@ -31,6 +31,7 @@
   --color-success-400: #4ade80;
   --color-success-500: #22c55e;
   --color-success-600: #16a34a;
+  --color-success-700: #15803d;
 
   /* Warning (yellow) */
   --color-warning-50: #fefce8;
@@ -38,6 +39,7 @@
   --color-warning-400: #facc15;
   --color-warning-500: #eab308;
   --color-warning-600: #ca8a04;
+  --color-warning-700: #a16207;
 
   /* Error (red) */
   --color-error-50: #fef2f2;
@@ -45,6 +47,7 @@
   --color-error-400: #f87171;
   --color-error-500: #ef4444;
   --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
 
   /* Semantic */
   --color-text: #33332d;
@@ -53,7 +56,8 @@
   --color-surface: var(--color-gray-50);
   --color-border: var(--color-gray-200);
   --color-border-hover: var(--color-gray-400);
-  --color-success: var(--color-success-500);
+  --color-border-interactive: var(--color-gray-500);
+  --color-success: var(--color-success-700);
 
   /* Aliases for component usage */
   --color-bg: var(--color-background);
@@ -61,9 +65,9 @@
   --color-accent: var(--color-primary);
 
   /* Semantic primary (themeable) */
-  --color-primary: var(--color-primary-500);
-  --color-primary-hover: var(--color-primary-600);
-  --color-primary-focus: var(--color-primary-500);
+  --color-primary: var(--color-primary-600);
+  --color-primary-hover: var(--color-primary-700);
+  --color-primary-focus: var(--color-primary-600);
 
   /* Button */
   --color-button-primary-bg: var(--color-gray-900);

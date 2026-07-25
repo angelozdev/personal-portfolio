@@ -22,7 +22,13 @@ const { data } = Astro.props;
 
 			<div class="contact__actions">
 				<CopyEmailButton email={data.email} />
-				<Button href={data.cv.href} variant="secondary">{data.cv.label}</Button>
+				{
+					data.cv.available && (
+						<Button href={data.cv.href} variant="secondary">
+							{data.cv.label}
+						</Button>
+					)
+				}
 			</div>
 
 			<ul class="contact__links">

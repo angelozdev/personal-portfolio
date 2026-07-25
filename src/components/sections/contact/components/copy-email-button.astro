@@ -1,5 +1,5 @@
 ---
-import { Copy } from "lucide-astro";
+import { Check, Copy } from "lucide-astro";
 import type { ContactData } from "../get-contact-data";
 
 interface Props {
@@ -17,9 +17,13 @@ const { email } = Astro.props;
 	data-copy-label={email.copyLabel}
 	data-copied-label={email.copiedLabel}
 >
-	<Copy size={16} aria-hidden="true" />
+	<span class="copy-email__icon">
+		<Copy class="copy-email__glyph copy-email__glyph--idle" size={16} aria-hidden="true" />
+		<Check class="copy-email__glyph copy-email__glyph--done" size={16} aria-hidden="true" />
+	</span>
 	<span class="copy-email__label">{email.copyLabel}</span>
 </button>
+<span class="copy-email__status sr-only" role="status" aria-live="polite"></span>
 
 <script>
 	import initCopyEmail from "../copy-email-client";
@@ -51,12 +55,29 @@ const { email } = Astro.props;
 		background-color: var(--color-button-primary-bg-hover);
 	}
 
-	.copy-email:focus-visible {
-		outline: 2px solid var(--color-accent);
-		outline-offset: 2px;
+	.copy-email__icon {
+		position: relative;
+		display: inline-flex;
+		width: 16px;
+		height: 16px;
 	}
 
-	.copy-email[data-copied="true"] {
-		background-color: var(--color-success);
+	.copy-email__icon :global(.copy-email__glyph) {
+		position: absolute;
+		inset: 0;
+		opacity: 0;
+		transition: opacity var(--transition-fast);
+	}
+
+	.copy-email__icon :global(.copy-email__glyph--idle) {
+		opacity: 1;
+	}
+
+	.copy-email[data-copied="true"] .copy-email__icon :global(.copy-email__glyph--idle) {
+		opacity: 0;
+	}
+
+	.copy-email[data-copied="true"] .copy-email__icon :global(.copy-email__glyph--done) {
+		opacity: 1;
 	}
 </style>

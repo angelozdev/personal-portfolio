@@ -15,6 +15,12 @@ export default {
 	"nav.experience": "Experience",
 	"nav.contact": "Contact",
 	"nav.menu": "Menu",
+	"nav.menuOpen": "Open navigation menu",
+	"nav.language": "Language",
+
+	"a11y.skipToContent": "Skip to content",
+	"a11y.newTab": "opens in new tab",
+	"a11y.codeSample": "Code sample",
 
 	"hero.title": "Software Engineer · Frontend, Mobile & AI",
 	"hero.cta.projects": "View projects",

@@ -1,5 +1,8 @@
+import { existsSync } from "node:fs";
 import { Sections } from "../../../constants/sections";
 import { getTranslations } from "../../../i18n/utils";
+
+const CV_PATH = "/cv.pdf";
 
 export interface ContactLink {
 	label: string;
@@ -20,6 +23,7 @@ export interface ContactData {
 	cv: {
 		href: string;
 		label: string;
+		available: boolean;
 	};
 	links: ContactLink[];
 }
@@ -39,8 +43,9 @@ export default function getContactData(lang: string): ContactData {
 			copiedLabel: t("contact.email.copied"),
 		},
 		cv: {
-			href: "/cv.pdf",
+			href: CV_PATH,
 			label: t("contact.cv"),
+			available: existsSync(`public${CV_PATH}`),
 		},
 		links: [
 			{

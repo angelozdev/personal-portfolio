@@ -19,9 +19,10 @@ interface LangItem {
 interface Props {
   navItems: NavItem[];
   langItems: LangItem[];
+  languageLabel: string;
 }
 
-const { navItems, langItems } = Astro.props;
+const { navItems, langItems, languageLabel } = Astro.props;
 ---
 
 <ul class="desktop-nav">
@@ -38,7 +39,11 @@ const { navItems, langItems } = Astro.props;
 <div class="desktop-nav__controls">
   <DesignSwitcher />
   <ThemeToggle />
-  <Switcher items={langItems} ariaLabel="Language" class="desktop-nav__lang" />
+  <Switcher
+    items={langItems}
+    ariaLabel={languageLabel}
+    class="desktop-nav__lang"
+  />
 </div>
 
 <style>

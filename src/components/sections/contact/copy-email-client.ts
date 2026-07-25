@@ -9,6 +9,13 @@ function buildEmail(button: HTMLElement): string {
 	return `${user}@${domain}`;
 }
 
+function announce(button: HTMLElement, message: string): void {
+	const status = button.parentElement?.querySelector(".copy-email__status");
+	if (status) {
+		status.textContent = message;
+	}
+}
+
 async function copy(button: HTMLElement): Promise<void> {
 	const label = button.querySelector(".copy-email__label");
 	const copiedLabel = button.dataset.copiedLabel ?? "";
@@ -20,13 +27,17 @@ async function copy(button: HTMLElement): Promise<void> {
 		await navigator.clipboard.writeText(buildEmail(button));
 		label.textContent = copiedLabel;
 		button.setAttribute("data-copied", "true");
+		announce(button, copiedLabel);
 
 		window.setTimeout(() => {
 			label.textContent = idleLabel;
 			button.removeAttribute("data-copied");
+			announce(button, "");
 		}, RESET_DELAY_MS);
 	} catch {
-		label.textContent = buildEmail(button);
+		const address = buildEmail(button);
+		label.textContent = address;
+		announce(button, address);
 	}
 }
 

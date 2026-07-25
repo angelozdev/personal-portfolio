@@ -42,16 +42,22 @@ const isFullscreen = position === "fullscreen";
     cursor: pointer;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
   }
 
   .popover__trigger:focus-visible {
-    outline: 2px solid var(--color-text);
+    outline: var(--border-width-thick) solid var(--color-primary-focus);
     outline-offset: 2px;
   }
 
   .popover__content {
     position: fixed;
     margin: 0;
+    max-width: calc(100vw - var(--space-8));
+    max-height: calc(100vh - var(--space-16));
+    overflow-y: auto;
     padding: var(--space-3);
     background-color: var(--color-background);
     border: var(--border-width) solid var(--color-border);
@@ -169,14 +175,18 @@ const isFullscreen = position === "fullscreen";
 
     if (!trigger || !popover) return;
 
+    const reposition = () => positionPopover(popover, trigger);
+
     popover.addEventListener("toggle", (e) => {
       const isOpen = (e as ToggleEvent).newState === "open";
 
       if (isOpen) {
-        positionPopover(popover, trigger);
+        reposition();
         document.body.style.overflow = "hidden";
+        window.addEventListener("resize", reposition);
       } else {
         document.body.style.overflow = "";
+        window.removeEventListener("resize", reposition);
       }
     });
   });

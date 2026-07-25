@@ -2,29 +2,7 @@
 ---
 
 <script>
-  import Lenis from "lenis";
+  import initSmoothScroll from "./smooth-scroll-client";
 
-  const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true,
-  });
-
-  // Handle anchor links for smooth scrolling
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", (e) => {
-      e.preventDefault();
-      const href = anchor.getAttribute("href");
-      if (href) {
-        lenis.scrollTo(href);
-      }
-    });
-  });
-
-  function raf(time: number) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-
-  requestAnimationFrame(raf);
+  initSmoothScroll();
 </script>

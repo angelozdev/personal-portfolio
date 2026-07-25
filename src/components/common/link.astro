@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import { defaultLocale, getTranslations } from "../../i18n/utils";
 
 interface Props extends HTMLAttributes<"a"> {
   href: string;
@@ -15,11 +16,13 @@ const {
   ...rest
 } = Astro.props;
 
+const t = getTranslations(Astro.currentLocale ?? defaultLocale);
+
 const externalProps = external
   ? {
       target: "_blank",
       rel: "noopener noreferrer",
-      "aria-label": label ? `${label} (opens in new tab)` : undefined,
+      "aria-label": label ? `${label} (${t("a11y.newTab")})` : undefined,
     }
   : {};
 ---
@@ -35,20 +38,15 @@ const externalProps = external
     display: inline-flex;
     align-items: center;
     gap: var(--space-1);
+    min-height: 1.5rem;
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
     color: var(--color-text);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color var(--transition-normal);
   }
 
   .link:hover {
     color: var(--color-accent);
-  }
-
-  .link:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-    border-radius: var(--radius-sm);
   }
 </style>

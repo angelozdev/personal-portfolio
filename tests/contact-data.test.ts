@@ -1,3 +1,4 @@
+import { existsSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import getContactData from "../src/components/sections/contact/get-contact-data";
 
@@ -12,6 +13,12 @@ describe("getContactData", () => {
 
 	it("points to the downloadable CV", () => {
 		expect(getContactData("en").cv.href).toBe("/cv.pdf");
+	});
+
+	it("only offers the CV when the file is actually shipped", () => {
+		const { cv } = getContactData("en");
+
+		expect(cv.available).toBe(existsSync("public/cv.pdf"));
 	});
 
 	it("links to LinkedIn and GitHub only", () => {

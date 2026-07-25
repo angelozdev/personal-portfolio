@@ -8,6 +8,7 @@
 	--heading-transform: uppercase;
 	--heading-tracking: 0;
 
+	--text-2xl: 1.625rem;
 	--text-3xl: 2.125rem;
 	--text-4xl: 2.75rem;
 
@@ -17,6 +18,7 @@
 	--color-surface: #f5f2df;
 	--color-border: #000000;
 	--color-border-hover: #000000;
+	--color-border-interactive: #000000;
 
 	--color-primary: #0000ee;
 	--color-primary-hover: #0000bb;
@@ -55,6 +57,7 @@
 	--color-surface: #161616;
 	--color-border: #f5f5f0;
 	--color-border-hover: #ffe600;
+	--color-border-interactive: #f5f5f0;
 
 	--color-primary: #ffe600;
 	--color-primary-hover: #fff266;

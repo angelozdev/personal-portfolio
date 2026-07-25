@@ -1,5 +1,6 @@
 ---
 import Badge from "./badge.astro";
+import { defaultLocale, getTranslations } from "../../i18n/utils";
 
 interface Props {
   code: string;
@@ -7,42 +8,45 @@ interface Props {
 }
 
 const { code, language } = Astro.props;
+
+const t = getTranslations(Astro.currentLocale ?? defaultLocale);
+const label = language
+  ? `${t("a11y.codeSample")} — ${language}`
+  : t("a11y.codeSample");
 ---
 
 <div class="code-snippet">
-  {language && <Badge class="code-snippet__badge">{language}</Badge>}
-  <pre
-    class:list={[
-      "code-snippet__pre",
-      { "code-snippet__pre--with-badge": language },
-    ]}
-    style={language ? `--badge-length: ${language.length}` : undefined}
-  ><code>{code}</code></pre>
+  {
+    language && (
+      <div class="code-snippet__bar">
+        <Badge>{language}</Badge>
+      </div>
+    )
+  }
+  <pre class="code-snippet__pre" tabindex="0" role="region" aria-label={label}><code
+    >{code}</code></pre>
 </div>
 
 <style>
   .code-snippet {
-    position: relative;
     min-width: 0;
+    background-color: var(--color-bg);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
   }
 
-  .code-snippet__badge {
-    position: absolute;
-    top: var(--space-2);
-    right: var(--space-2);
+  .code-snippet__bar {
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--space-2);
+    border-bottom: var(--border-width) solid var(--color-border);
   }
 
   .code-snippet__pre {
     margin: var(--space-0);
     padding: var(--space-4);
-    background-color: var(--color-bg);
-    border: var(--border-width) solid var(--color-border);
-    border-radius: var(--radius-sm);
     overflow-x: auto;
-  }
-
-  .code-snippet__pre--with-badge {
-    padding-right: calc(var(--space-10) + var(--badge-length, 0) * 0.55rem);
   }
 
   .code-snippet__pre code {
