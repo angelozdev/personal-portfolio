@@ -1,0 +1,454 @@
+{
+	"schemaVersion": 2,
+	"generatedAt": "2026-07-25T02:10:00Z",
+	"title": "Design System: Angelo Zambrano Portfolio",
+	"extensions": {
+		"colorMeta": {
+			"ink": {
+				"role": "neutral",
+				"displayName": "Warm Graphite",
+				"canonical": "#33332d",
+				"tonalRamp": [
+					"#171717",
+					"#262626",
+					"#404040",
+					"#525252",
+					"#737373",
+					"#a3a3a3",
+					"#d4d4d4",
+					"#f5f5f5"
+				]
+			},
+			"paper": {
+				"role": "neutral",
+				"displayName": "Paper",
+				"canonical": "#ffffff",
+				"tonalRamp": [
+					"#171717",
+					"#262626",
+					"#404040",
+					"#525252",
+					"#737373",
+					"#a3a3a3",
+					"#e5e5e5",
+					"#ffffff"
+				]
+			},
+			"surface": {
+				"role": "neutral",
+				"displayName": "Tinted Paper",
+				"canonical": "#fafafa",
+				"tonalRamp": [
+					"#171717",
+					"#262626",
+					"#404040",
+					"#525252",
+					"#737373",
+					"#d4d4d4",
+					"#f5f5f5",
+					"#fafafa"
+				]
+			},
+			"muted": {
+				"role": "neutral",
+				"displayName": "Quiet Slate",
+				"canonical": "#525252",
+				"tonalRamp": [
+					"#171717",
+					"#262626",
+					"#404040",
+					"#525252",
+					"#737373",
+					"#a3a3a3",
+					"#d4d4d4",
+					"#e5e5e5"
+				]
+			},
+			"border": {
+				"role": "neutral",
+				"displayName": "Hairline",
+				"canonical": "#e5e5e5",
+				"tonalRamp": [
+					"#262626",
+					"#404040",
+					"#525252",
+					"#737373",
+					"#a3a3a3",
+					"#d4d4d4",
+					"#e5e5e5",
+					"#f5f5f5"
+				]
+			},
+			"border-strong": {
+				"role": "neutral",
+				"displayName": "Hairline Strong",
+				"canonical": "#a3a3a3",
+				"tonalRamp": [
+					"#262626",
+					"#404040",
+					"#525252",
+					"#737373",
+					"#a3a3a3",
+					"#d4d4d4",
+					"#e5e5e5",
+					"#fafafa"
+				]
+			},
+			"accent": {
+				"role": "primary",
+				"displayName": "Signal Blue Deep",
+				"canonical": "#2563eb",
+				"tonalRamp": [
+					"#1e3a8a",
+					"#1e40af",
+					"#1d4ed8",
+					"#2563eb",
+					"#3b82f6",
+					"#60a5fa",
+					"#93c5fd",
+					"#bfdbfe"
+				]
+			},
+			"success": {
+				"role": "tertiary",
+				"displayName": "Live Green",
+				"canonical": "#15803d",
+				"tonalRamp": [
+					"#16a34a",
+					"#22c55e",
+					"#4ade80",
+					"#bbf7d0",
+					"#f0fdf4"
+				]
+			},
+			"border-interactive": {
+				"role": "neutral",
+				"displayName": "Interactive Edge",
+				"canonical": "#737373",
+				"tonalRamp": [
+					"#171717",
+					"#262626",
+					"#404040",
+					"#525252",
+					"#737373",
+					"#a3a3a3",
+					"#d4d4d4",
+					"#e5e5e5"
+				]
+			},
+			"accent-dark": {
+				"role": "primary",
+				"displayName": "Ice Blue (dark)",
+				"canonical": "#93c5fd",
+				"tonalRamp": [
+					"#1e3a8a",
+					"#1e40af",
+					"#1d4ed8",
+					"#2563eb",
+					"#3b82f6",
+					"#60a5fa",
+					"#93c5fd",
+					"#bfdbfe"
+				]
+			}
+		},
+		"typographyMeta": {
+			"display": {
+				"displayName": "Display",
+				"purpose": "The name in the hero, set in the mono face. Once per page — the person presented in the same notation as the code."
+			},
+			"headline": {
+				"displayName": "Headline",
+				"purpose": "Section titles. Optical size is skin-controlled; hierarchy order is not."
+			},
+			"title": {
+				"displayName": "Title",
+				"purpose": "Project names and role names. Steps up to 1.5rem inside project cards past their 640px container query."
+			},
+			"body": {
+				"displayName": "Body",
+				"purpose": "Prose paragraphs and metric lists at 1.625 leading. Size is invariant across skins so prose never changes between them."
+			},
+			"label": {
+				"displayName": "Label",
+				"purpose": "Machine notation: section markers, stack lists, metrics, periods, badges, controls. Uppercase with 0.025em tracking for badges and group titles."
+			}
+		},
+		"shadows": [
+			{
+				"name": "overlay",
+				"value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+				"purpose": "The only shadow in use: popovers, menus, dialogs. Never on cards, badges, sections or buttons."
+			},
+			{
+				"name": "displaced-ink-raw",
+				"value": "3px 3px 0 0 #000000",
+				"purpose": "Raw skin only. Hard offset, zero blur — reads as misregistered print rather than as light. Yellow (#ffe600) in Raw dark."
+			}
+		],
+		"motion": [
+			{
+				"name": "transition-fast",
+				"value": "0.1s ease-out",
+				"purpose": "Default state feedback: hover and focus on links, buttons, anchors, icons."
+			},
+			{
+				"name": "transition-normal",
+				"value": "0.2s ease-out",
+				"purpose": "Border-color response on project cards."
+			},
+			{
+				"name": "curtain",
+				"value": "1250ms cubic-bezier(0.62, 0.02, 0.16, 1)",
+				"purpose": "The one authored moment: the skin change. A 135° diagonal mask wipe on the incoming page while the outgoing page drifts and scales 4%. Skipped entirely under prefers-reduced-motion."
+			},
+			{
+				"name": "raw-timing",
+				"value": "0.05s / 0.08s / 0.15s linear",
+				"purpose": "Raw skin replaces easing with linear at very short durations so state changes feel mechanical rather than smooth."
+			}
+		],
+		"breakpoints": [
+			{
+				"name": "sm",
+				"value": "640px"
+			},
+			{
+				"name": "md",
+				"value": "768px"
+			},
+			{
+				"name": "lg",
+				"value": "1024px"
+			},
+			{
+				"name": "xl",
+				"value": "1280px"
+			},
+			{
+				"name": "2xl",
+				"value": "1536px"
+			}
+		],
+		"skins": [
+			{
+				"id": "base",
+				"label": "Base",
+				"character": "Precise and unadorned",
+				"note": "The :root default. IBM Plex Sans/Mono, warm graphite on paper, 2px radius, 1px hairlines, 100ms ease-out. Judged by whether alignment and rhythm are exactly right.",
+				"defines": "src/styles/tokens/*.css"
+			},
+			{
+				"id": "raw",
+				"label": "Raw",
+				"character": "A printed poster",
+				"note": "Archivo Black uppercase display, Archivo body, Space Mono labels. Newsprint cream ground, pure black 3px rules, zero radius everywhere including the portrait, signal yellow buttons, #0000ee default-browser link blue, hard offset shadows, 50-80ms linear timing, 24px grid paper drawn on body.",
+				"defines": "src/designs/raw/tokens.css + elements.css"
+			}
+		],
+		"contract": {
+			"file": "src/designs/contract.ts",
+			"note": "The list of tokens a skin may redefine. Every skin must define every contract token; tests/design-contract.test.ts enforces total coverage. Everything not on the list is invariant: spacing scale, body type sizes, line heights, breakpoints, container width, component structure, required states, accessibility floor.",
+			"skinOwned": [
+				"font families",
+				"heading transform and tracking",
+				"display type sizes (--text-2xl … --text-4xl)",
+				"border widths",
+				"semantic colors",
+				"radii",
+				"shadows",
+				"durations and easings",
+				"interactive control edge (--color-border-interactive)"
+			]
+		}
+	},
+	"components": [
+		{
+			"name": "Primary Button",
+			"kind": "button",
+			"refersTo": "button-primary",
+			"description": "The main action. Graphite ground, paper text, mono medium; hover darkens one ramp step.",
+			"html": "<a class=\"ds-btn-primary\" href=\"#projects\">View projects</a>",
+			"css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: var(--text-sm); font-weight: var(--font-medium); padding: var(--space-2) var(--space-4); border: none; border-radius: var(--radius-sm); background-color: var(--color-button-primary-bg); color: var(--color-button-primary-text); text-decoration: none; cursor: pointer; transition: background-color var(--transition-fast), color var(--transition-fast); } .ds-btn-primary:hover { background-color: var(--color-button-primary-bg-hover); } .ds-btn-primary:focus-visible { outline: var(--border-width-thick) solid var(--color-primary-focus); outline-offset: 2px; }"
+		},
+		{
+			"name": "Secondary Button",
+			"kind": "button",
+			"refersTo": "button-secondary",
+			"description": "The border is the whole affordance: transparent ground, 1px hairline, surface tint on hover.",
+			"html": "<a class=\"ds-btn-secondary\" href=\"#contact\">Contact</a>",
+			"css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: var(--text-sm); font-weight: var(--font-medium); padding: var(--space-2) var(--space-4); border: var(--border-width) solid var(--color-border-interactive); border-radius: var(--radius-sm); background-color: transparent; color: var(--color-text); text-decoration: none; cursor: pointer; transition: background-color var(--transition-fast), border-color var(--transition-fast); } .ds-btn-secondary:hover { background-color: var(--color-surface); border-color: var(--color-border-hover); } .ds-btn-secondary:focus-visible { outline: var(--border-width-thick) solid var(--color-primary-focus); outline-offset: 2px; }"
+		},
+		{
+			"name": "Nav Anchor",
+			"kind": "nav",
+			"refersTo": "nav-anchor",
+			"description": "The signature interaction: hover inverts to graphite ground with paper text.",
+			"html": "<nav class=\"ds-nav\"><a class=\"ds-nav-anchor\" href=\"#projects\">Projects</a><a class=\"ds-nav-anchor\" href=\"#experience\">Experience</a><a class=\"ds-nav-anchor\" href=\"#skills\">Skills</a></nav>",
+			"css": ".ds-nav { display: flex; gap: var(--space-8); } .ds-nav-anchor { font-family: var(--font-mono); font-size: var(--text-lg); font-weight: var(--font-medium); padding: var(--space-1); color: var(--color-text); text-decoration: none; border-radius: var(--radius-sm); transition: background-color var(--transition-fast), color var(--transition-fast); } .ds-nav-anchor:hover { background-color: var(--color-text); color: var(--color-background); } .ds-nav-anchor:focus-visible { outline: var(--border-width-thick) solid var(--color-primary-focus); outline-offset: 2px; }"
+		},
+		{
+			"name": "Inline Link",
+			"kind": "custom",
+			"refersTo": "inline-link",
+			"description": "In-content link with an external-tab affordance. Hover moves to the accent's compliant text step.",
+			"html": "<a class=\"ds-link\" href=\"https://github.com/angelozdev\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub<svg class=\"ds-link-icon\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M15 3h6v6\"/><path d=\"M10 14 21 3\"/><path d=\"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6\"/></svg></a>",
+			"css": ".ds-link { display: inline-flex; align-items: center; gap: var(--space-1); font-size: var(--text-sm); font-weight: var(--font-medium); color: var(--color-text); text-decoration: none; transition: color var(--transition-fast); } .ds-link:hover { color: var(--color-accent); } .ds-link:focus-visible { outline: var(--border-width-thick) solid var(--color-primary-focus); outline-offset: 2px; border-radius: var(--radius-sm); } .ds-link-icon { flex-shrink: 0; }"
+		},
+		{
+			"name": "Badge",
+			"kind": "chip",
+			"refersTo": "badge-default",
+			"description": "Project qualifier and code-language tag. Mono, uppercase, hairline outline on the page ground.",
+			"html": "<span class=\"ds-badge\">PERSONAL</span>",
+			"css": ".ds-badge { display: inline-flex; align-items: center; font-family: var(--font-mono); font-size: var(--text-xs); font-weight: var(--font-semibold); letter-spacing: var(--tracking-wide); text-transform: uppercase; white-space: nowrap; padding: var(--space-1) var(--space-2); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-sm); background-color: var(--color-background); color: var(--color-text); }"
+		},
+		{
+			"name": "Project Card",
+			"kind": "card",
+			"refersTo": "card-project",
+			"description": "Flat surface, hairline border, hover moves the border only. Responds to its own width via a container query.",
+			"html": "<div class=\"ds-card-wrap\"><article class=\"ds-card\"><div class=\"ds-card-body\"><div class=\"ds-card-head\"><h3 class=\"ds-card-title\">Quaestor</h3><span class=\"ds-badge\">PERSONAL</span></div><p class=\"ds-card-text\">Local-first personal finance backend with an agent-native MCP layer.</p><ul class=\"ds-inline-list\"><li>Python</li><li>FastAPI</li><li>MCP</li></ul></div></article></div>",
+			"css": ".ds-card-wrap { container-type: inline-size; } .ds-card { display: flex; flex-direction: column; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-md); background-color: var(--color-surface); overflow: hidden; transition: border-color var(--transition-normal); } .ds-card:hover { border-color: var(--color-border-hover); } .ds-card-body { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); } .ds-card-head { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-3); } .ds-card-title { font-size: var(--text-lg); font-weight: var(--font-semibold); color: var(--color-text); margin: 0; } .ds-card-text { font-size: var(--text-sm); line-height: var(--leading-relaxed); color: var(--color-text); margin: 0; } .ds-inline-list { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-3); list-style: none; padding: 0; margin: 0; font-family: var(--font-mono); font-size: var(--text-sm); color: var(--color-text-muted); } .ds-inline-list li:not(:last-child)::after { content: \"·\"; margin-left: var(--space-3); } .ds-badge { display: inline-flex; align-items: center; font-family: var(--font-mono); font-size: var(--text-xs); font-weight: var(--font-semibold); letter-spacing: var(--tracking-wide); text-transform: uppercase; padding: var(--space-1) var(--space-2); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-sm); background-color: var(--color-background); color: var(--color-text); } @container (min-width: 640px) { .ds-card { border-radius: var(--radius-lg); } .ds-card-body { padding: var(--space-8); } .ds-card-head { justify-content: space-between; } .ds-card-title { font-size: var(--text-2xl); font-weight: var(--font-bold); } .ds-card-text { font-size: var(--text-base); } }"
+		},
+		{
+			"name": "Skin Switcher",
+			"kind": "custom",
+			"refersTo": "switcher-option",
+			"description": "Signature component. Quietest control in the header, loudest behavior on the page: flips the whole skin through a token override. Active state is a border and text step, never a fill.",
+			"html": "<div class=\"ds-skin-switcher\" role=\"group\" aria-label=\"Site design\"><button type=\"button\" class=\"ds-skin-option\" aria-pressed=\"true\">Base</button><button type=\"button\" class=\"ds-skin-option\" aria-pressed=\"false\">Raw</button></div>",
+			"css": ".ds-skin-switcher { display: flex; gap: var(--space-1); } .ds-skin-option { font-family: var(--font-mono); font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: none; border: var(--border-width) solid transparent; color: var(--color-text-muted); cursor: pointer; transition: color var(--transition-fast), border-color var(--transition-fast); } .ds-skin-option:hover { color: var(--color-text); border-color: var(--color-border); } .ds-skin-option[aria-pressed=\"true\"] { color: var(--color-text); border-color: var(--color-border-hover); } .ds-skin-option:focus-visible { outline: var(--border-width-thick) solid var(--color-primary-focus); outline-offset: 2px; }"
+		},
+		{
+			"name": "Theme Toggle",
+			"kind": "button",
+			"refersTo": "nav-anchor",
+			"description": "44x44 target holding stacked sun and moon icons that cross-fade by opacity. The only sanctioned hover transform in the system.",
+			"html": "<button type=\"button\" class=\"ds-theme-toggle\" aria-label=\"Toggle theme\"><svg class=\"ds-theme-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41\"/></svg></button>",
+			"css": ".ds-theme-toggle { position: relative; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; background: transparent; border: none; color: var(--color-text); cursor: pointer; transition: transform var(--transition-fast); } .ds-theme-toggle:hover { transform: scale(1.1); } .ds-theme-toggle:focus-visible { outline: var(--border-width-thick) solid var(--color-primary-focus); outline-offset: 2px; border-radius: var(--radius-sm); }"
+		},
+		{
+			"name": "Code Snippet",
+			"kind": "custom",
+			"refersTo": "card-project",
+			"description": "Real code from the described work, opened by a right-aligned language-badge bar over a hairline. The badge stays in the flow so it never eats a slice of a scrolled line; the pre is keyboard-reachable.",
+			"html": "<div class=\"ds-code\"><div class=\"ds-code-bar\"><span class=\"ds-code-badge\">TSX</span></div><pre class=\"ds-code-pre\" tabindex=\"0\" role=\"region\" aria-label=\"Code sample — tsx\"><code>export default function DatePicker(props: DatePickerProps) {\n  const state = useDatePickerLogic(props);\n\n  return &lt;DatePickerView {...state} /&gt;;\n}</code></pre></div>",
+			"css": ".ds-code { min-width: 0; background-color: var(--color-background); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden; } .ds-code-bar { display: flex; justify-content: flex-end; padding: var(--space-2); border-bottom: var(--border-width) solid var(--color-border); } .ds-code-badge { font-family: var(--font-mono); font-size: var(--text-xs); font-weight: var(--font-semibold); letter-spacing: var(--tracking-wide); text-transform: uppercase; padding: var(--space-1) var(--space-2); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-sm); color: var(--color-text); } .ds-code-pre { margin: 0; padding: var(--space-4); overflow-x: auto; } .ds-code-pre:focus-visible { outline: var(--border-width-thick) solid var(--color-primary-focus); outline-offset: 2px; } .ds-code-pre code { font-family: var(--font-mono); font-size: var(--text-sm); line-height: var(--leading-relaxed); color: var(--color-text); }"
+		},
+		{
+			"name": "Timeline Entry",
+			"kind": "custom",
+			"refersTo": "card-project",
+			"description": "Period column, hairline rail with a straddling dot, and highlights rendered as mono diff additions rather than bullets.",
+			"html": "<ol class=\"ds-timeline\"><li class=\"ds-timeline-item\"><div class=\"ds-timeline-label\">2021 — Present</div><div class=\"ds-timeline-body\"><span class=\"ds-timeline-marker\" aria-hidden=\"true\"></span><h3 class=\"ds-timeline-role\">Software Engineer</h3><p class=\"ds-timeline-meta\">Ubidots · Medellín, Colombia</p><ul class=\"ds-highlights\"><li>Built the platform's design system solo.</li><li>Architected the white-label mobile system.</li></ul></div></li></ol>",
+			"css": ".ds-timeline { display: grid; grid-template-columns: max-content 1fr; margin: 0; padding: 0; list-style: none; } .ds-timeline-item { display: grid; grid-column: 1 / -1; grid-template-columns: subgrid; column-gap: var(--space-6); } .ds-timeline-label { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--color-text-muted); white-space: nowrap; } .ds-timeline-body { position: relative; border-left: var(--border-width) solid var(--color-border); padding-left: var(--space-6); padding-bottom: var(--space-12); } .ds-timeline-marker { position: absolute; top: 0.55rem; left: calc(0.5rem / -2 - 0.5px); width: 0.5rem; height: 0.5rem; border-radius: var(--radius-full); background-color: var(--color-text-muted); } .ds-timeline-role { font-size: var(--text-lg); font-weight: var(--font-bold); line-height: var(--leading-tight); color: var(--color-text); margin: 0 0 var(--space-1); } .ds-timeline-meta { font-size: var(--text-sm); color: var(--color-text-muted); margin: 0 0 var(--space-4); } .ds-highlights { display: flex; flex-direction: column; gap: var(--space-2); margin: 0; padding: 0; list-style: none; } .ds-highlights li { display: grid; grid-template-columns: auto 1fr; gap: var(--space-3); font-size: var(--text-sm); line-height: var(--leading-relaxed); color: var(--color-text); } .ds-highlights li::before { content: \"+\"; font-family: var(--font-mono); font-weight: var(--font-medium); color: var(--color-success); }"
+		}
+	],
+	"narrative": {
+		"northStar": "The Skinnable Spec Sheet",
+		"overview": "This system is not an aesthetic. It is a contract that holds several aesthetics without flinching. One token contract (src/designs/contract.ts) defines what a skin may redefine; everything else — the grid, the spacing rhythm, the type hierarchy, the component structure, the required states, the accessibility floor — is law that no skin may touch. Base is the spec sheet printed on a laser printer. Raw is the same sheet run through a risograph. The visitor can flip between them in the header and nothing shifts but the skin: same reticule, same hierarchy, same token names. The seam is the product. The site claims a white-label architecture that turns one codebase into ten branded apps; rather than assert it, the site is that architecture.\n\nThe Base skin reads as a technical document rather than a marketing page: numbered comment markers (// 01 · projects) open every section, experience highlights read as diff additions (+), and monospace marks machine artifacts — stack lists, metrics, dates, code, controls. Density is high and deliberate: a visitor scanning for two minutes should hit evidence in every screen, never a decorative interlude. Nothing animates on scroll. Nothing floats that isn't floating.\n\nThe two skins are not two moods of one taste; they are two personalities served by one skeleton. Base is precise and unadorned — 2px corners, 1px hairlines, 100ms ease-out, judged by whether the alignment and rhythm are exactly right. Raw is a printed poster — Archivo Black in all caps, zero radius, 3px black rules, shadow as displaced ink with no blur, 50-80ms linear timing that feels mechanical rather than smooth, signal yellow and default-browser blue. Both are honest; neither is the other's decoration.",
+		"keyCharacteristics": [
+			"A token contract is the system; skins are interchangeable personalities on top of it",
+			"Structure carried by hairlines and surface shifts, not shadows",
+			"Monospace as machine notation, never as costume for prose",
+			"Near-square geometry in Base (2px), zero in Raw — no skin uses friendly radii",
+			"Content density over breathing room; evidence over atmosphere",
+			"Motion is state feedback plus one authored moment (the skin change)"
+		],
+		"rules": [
+			{
+				"name": "The Contract Rule",
+				"body": "A component never names a color. It names a role token (--color-text, --color-surface, --color-border). If a component needs a hex, the system is missing a token — add the token, and add it to the contract if a skin should be able to retune it.",
+				"section": "colors"
+			},
+			{
+				"name": "The AA Floor Rule",
+				"body": "Interactive text clears 4.5:1 in every skin and both themes; non-text UI clears 3:1. The accent step is chosen per skin to clear the floor — never the floor lowered to fit the accent.",
+				"section": "colors"
+			},
+			{
+				"name": "The One Accent Rule",
+				"body": "One accent hue per skin. A second hue must earn its place by carrying a distinct semantic (status green does; nothing else has), never by decorating.",
+				"section": "colors"
+			},
+			{
+				"name": "The Optical Size Rule",
+				"body": "A skin may retune the display sizes (--text-2xl … --text-4xl) to its face's optical weight — Archivo Black at 1.875rem reads far larger than IBM Plex Sans at 1.875rem, so matching the numbers would be the error. It may never reorder the hierarchy: 4xl > 3xl > 2xl in every skin, and body sizes are invariant so prose never changes size between skins.",
+				"section": "typography"
+			},
+			{
+				"name": "The Mono-Means-Machine Rule",
+				"body": "Monospace marks machine artifacts: code, section markers, stack lists, metrics, dates, periods, controls, badges. Prose is never monospace. The one deliberate exception is the hero name at display size — a claim, not a habit.",
+				"section": "typography"
+			},
+			{
+				"name": "The No-Eyebrow Rule",
+				"body": "The // NN · section marker is the only pre-heading device. Never add a second kicker style, tracked uppercase eyebrow, or decorative rule above a heading; the numbered sequence is the grammar and a competing one dilutes it.",
+				"section": "typography"
+			},
+			{
+				"name": "The Single Container Rule",
+				"body": "Everything is inside Container. Nothing bleeds full-width, nothing sets its own max-width, nothing centers itself with its own margins.",
+				"section": "layout"
+			},
+			{
+				"name": "The Container Query Rule",
+				"body": "Project cards respond to their own width, not the viewport (container-type: inline-size, @container (min-width: 640px)). A card placed in a narrow slot reflows itself correctly with no breakpoint bookkeeping. New composite components follow this, not media queries.",
+				"section": "layout"
+			},
+			{
+				"name": "The Only-What-Floats Rule",
+				"body": "A shadow is permitted only on an element that is physically above the page: popover, menu, modal, dropdown. A card, a badge, a section or an input never gets one. If something needs to feel separated, give it a hairline or a surface tint.",
+				"section": "elevation"
+			},
+			{
+				"name": "The Almost-Square Rule",
+				"body": "2px is the house radius. Anything softer than 8px is out of the system, and a pill shape is reserved for the portrait alone.",
+				"section": "shapes"
+			},
+			{
+				"name": "The Element-Selector Rule",
+				"body": "A skin's elements.css may only style bare elements (html, body, ::selection, scrollbars). It never references a component class. A skin that needs a component to change is a signal that the component is missing a token.",
+				"section": "shapes"
+			},
+			{
+				"name": "The Complete-States Rule",
+				"body": "A component is not done until hover, :focus-visible, disabled, error and empty are all designed, in both themes and every skin. Focus is drawn by the system; a browser default focus ring in this project is a defect.",
+				"section": "components"
+			},
+			{
+				"name": "The Hover-Is-A-Border Rule",
+				"body": "The default hover response is a border-color or text-color step. Fills are for the nav anchor inversion and the primary button. Lifts, scales and shadows are not hover responses — the theme toggle's 1.1 scale is the single sanctioned exception.",
+				"section": "components"
+			},
+			{
+				"name": "The No-Recolor-On-Success Rule",
+				"body": "A control never changes hue to report success. It swaps its icon and its label, and announces the change to assistive technology through a live region. A control's color belongs to the skin, not to its state.",
+				"section": "components"
+			}
+		],
+		"dos": [
+			"Do add a token to src/designs/contract.ts when a skin should be able to retune it, and give it a value in every skin's tokens.css — the contract test enforces total coverage so a skin can never half-inherit.",
+			"Do declare a skin's light block as :root[data-design=\"<id>\"] and its dark block as :root[data-theme=\"dark\"][data-design=\"<id>\"], re-declaring every contract token the base dark block overrides. Specificity ties resolve by bundle order, which is not stable between builds.",
+			"Do express depth with a 1px hairline or a surface tint (--color-surface).",
+			"Do set section markers, stack lists, metrics, periods, badges and controls in mono, and prose in the sans.",
+			"Do use container queries for components that can appear in slots of different widths.",
+			"Do keep 5rem (--space-20) between sections, 1.5–2rem between groups, 0.25–0.5rem inside a group.",
+			"Do let the global :focus-visible rule draw focus (--border-width-thick outline at 2px offset in --color-primary-focus); override it per component only to reposition it, never to remove it.",
+			"Do ship real content — real code, real screenshots, real numbers — or ship the honest empty state."
+		],
+		"donts": [
+			"Don't put a hex value in a component. Role tokens only.",
+			"Don't reference a component class from a skin's elements.css; bare element selectors only.",
+			"Don't add a shadow to a card, badge, section, input or button. Shadows belong to things that actually float.",
+			"Don't animate on scroll, stagger section entrances, or add a second authored motion moment. The curtain is the one.",
+			"Don't exceed 8px of corner radius, and don't use a pill shape on anything but the portrait.",
+			"Don't set prose in monospace, and don't add a second pre-heading device alongside // NN ·.",
+			"Don't lower a contrast ratio to keep an accent value. Move to the next step of the ramp instead.",
+			"Don't use Hairline (--color-border) as the only boundary of an interactive control; that is what --color-border-interactive is for.",
+			"Don't recolor a control to report success, and don't spend the status green on anything but the availability dot and the diff marker.",
+			"Don't change body type sizes, the spacing scale, breakpoints, the container width, or component structure in a skin. Those are invariants; the skin owns face, color, geometry, depth material and timing only.",
+			"Don't let a skin change what a component *means* — same hierarchy, same reading order, same affordances in every skin."
+		]
+	}
+}
