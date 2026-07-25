@@ -22,3 +22,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# internal reference document, not for publication
+me.md
+
+# impeccable local state
+.impeccable/hook.cache.json
+.impeccable/live/sessions/
